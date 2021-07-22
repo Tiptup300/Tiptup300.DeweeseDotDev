@@ -1,25 +1,28 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light shadow">
-    <div class="container-fluid">
+  
         <a class="navbar-brand" href="#">
             <img src="assets/face.gif" width="64" height="64" class="img-responsive rounded-circle"
                 style="height:1em;width:1em" alt="Matthew Deweese" />
             deweese.dev
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        <button class="navbar-toggler btn" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
+            aria-label="Toggle navigation"
+            (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
             <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/">
+                    <a class="nav-link" aria-current="page" [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
                         <fa-icon [icon]="faFile"></fa-icon>
                         My Resume
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/portfolio">
+                    <a class="nav-link" aria-current="page" [routerLink]="['/portfolio']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
                         <fa-icon [icon]="faFile"></fa-icon>
                         My Portfolio
                     </a>
@@ -38,5 +41,4 @@
                 </li>
             </ul>
         </div>
-    </div>
 </nav>
