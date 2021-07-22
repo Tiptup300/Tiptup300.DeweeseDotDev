@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans,
+    Helvetica Neue, Arial, sans-serif;
+}
+
+body {
+  font-size: 9pt;
+  background: linear-gradient(#6e7984, #270817);
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 18pt;
+}
+
+.text-black {
+  color: black;
+}
+
+.text-small {
+  font-size: 0.8em;
+  display: inline;
+}
+
+.text-big {
+  font-size: 12pt;
+  display: inline;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+}
+
+a.link-plain {
+  text-decoration: none;
+}
+
+.main-container {
+  background: linear-gradient(169deg, white 15%, #f8f9fa 67%);
+}
+
+.container-small {
+  max-width: calc(100% - 1rem);
+}
+
+@media (min-width: 576px) {
+  .container-small {
+    width: 576px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-small {
+    width: 800px;
+  }
+}
+
+footer {
+  text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}

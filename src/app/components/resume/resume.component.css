@@ -1,0 +1,13 @@
+.skills-list {
+  list-style: none;
+  display: inline;
+  padding: 0;
+}
+
+.skills-list > li {
+  display: inline;
+}
+
+.skills-list > li:not(:last-child)::after {
+  content: ", ";
+}
