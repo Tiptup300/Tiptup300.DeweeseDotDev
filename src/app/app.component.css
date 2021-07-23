@@ -2,3 +2,21 @@
   margin: 0.25rem;
   font-size: 1em;
 }
+
+@media (min-width: 0px) {
+  .fill {
+    min-height: calc(100vh - 6.6rem);
+  }
+}
+
+@media (min-width: 576px) {
+  .fill {
+    min-height: calc(100vh - 7.1rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .fill {
+    min-height: calc(100vh - 9.1rem);
+  }
+}

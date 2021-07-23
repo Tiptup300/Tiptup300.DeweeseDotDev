@@ -5,7 +5,9 @@
 
 body {
   font-size: 9pt;
-  background: linear-gradient(#6e7984, #270817);
+  background-color: #270817;
+  background-image: linear-gradient(#6e7984, #270817);
+  background-repeat: no-repeat;
 }
 
 h2 {
