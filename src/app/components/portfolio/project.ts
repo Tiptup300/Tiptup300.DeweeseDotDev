@@ -9,7 +9,8 @@ export interface Project {
 }
 
 export interface ProjectLink {
-    title:string;
+    type:string;
+    description:string;
     url:string;
     openInSameWindow?:boolean;
 }

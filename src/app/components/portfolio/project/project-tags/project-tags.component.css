@@ -1,0 +1,39 @@
+section.tags {
+    display: block;
+    background-color: #d5d7da;
+    padding: 0 0.75rem;
+    border-radius: 0.25rem;
+}
+
+section.tags h3 {
+    font-size: 0.75rem;
+    color: #6e7984;
+    display: inline;
+    margin-right: 0.75rem;
+    padding: 0;
+}
+
+section.tags ul {
+    margin: 0;
+    display: inline;
+}
+
+section.tags ul > li {
+    display: inline-block;
+    background-color: #6e7984;
+    margin: 0.5rem;
+    margin-left: 0;
+    padding: calc(0.125rem + 0.25rem);
+    font-size: 0.75rem;
+    color: #f8f9fa;
+    font-style: italic;
+}
+
+section.tags ul > li > a {
+    color: #f8f9fa;
+    text-decoration: none;
+}
+
+section.tags ul > li:before {
+    content: '#';
+}

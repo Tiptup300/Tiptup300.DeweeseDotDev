@@ -11,3 +11,7 @@
 .skills-list > li:not(:last-child)::after {
   content: ", ";
 }
+
+main {
+  font-size: 9pt;
+}

@@ -1,0 +1,6 @@
+    <section class="tags">
+        <h3>Tags:</h3>
+        <ul class="list-unstyled">
+            <li *ngFor="let tag of tags" class="rounded"><a routerLink="/portfolio/tag/{{tag}}">{{tag}}</a></li>
+        </ul>
+    </section>

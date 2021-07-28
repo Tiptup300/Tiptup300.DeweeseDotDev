@@ -15,6 +15,8 @@ import { GalleryImageComponent } from './components/portfolio/gallery/gallery-im
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ProjectComponent } from './components/portfolio/project/project.component';
+import { ProjectLinksComponent } from './components/portfolio/project/project-links/project-links.component';
+import { ProjectTagsComponent } from './components/portfolio/project/project-tags/project-tags.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ProjectComponent } from './components/portfolio/project/project.compone
     NavComponent,
     GalleryComponent,
     GalleryImageComponent,
-    ProjectComponent
+    ProjectComponent,
+    ProjectLinksComponent,
+    ProjectTagsComponent
   ],
   imports: [
     BrowserModule,
