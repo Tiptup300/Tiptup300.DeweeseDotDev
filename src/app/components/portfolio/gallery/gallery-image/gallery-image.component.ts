@@ -1,5 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Project } from '../../project';
+import { ProjectService } from '../../project.service';
 
 @Component({
   selector: 'app-gallery-image',
@@ -8,10 +9,13 @@ import { Project } from '../../project';
 })
 export class GalleryImageComponent implements OnInit {
 
-  @Input() project!:Project;
-  constructor() { }
+  @Input() project!: Project;
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit(): void {
   }
 
+  getProjectImagePath(): string {
+    return this.projectService.getProjectsImagePath(this.project.id);
+  }
 }
