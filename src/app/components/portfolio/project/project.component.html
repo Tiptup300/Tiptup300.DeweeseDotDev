@@ -1,0 +1,30 @@
+<main>
+    <header>
+        <h2>{{project.title}}</h2>
+        <time datetime="project.dateRange">{{project.dateRangeDescription}}</time>
+    </header>
+
+    <section>
+        <img src="assets/{{project.id}}.jpg" class="img-fluid" alt="An image showing some aspect of {{project.title}}." />
+    </section>
+
+    <section>
+        <h3>Links</h3>
+        <ul>
+            <li *ngFor="let link of project.links"><a href="{{link.url}}"
+                [attr.target]="link.openInSameWindow ? '_blank' : undefined">{{link.title}}</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <p>{{project.description}}</p>
+    </section>
+
+    <section>
+        <h3>Tags:</h3>
+        <ul>
+            <li *ngFor="let tag of project.tags">{{tag}}</li>
+        </ul>
+    </section>
+    
+</main>
