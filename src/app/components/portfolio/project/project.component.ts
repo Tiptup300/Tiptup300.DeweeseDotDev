@@ -24,23 +24,16 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const id = this.route.snapshot.params['id'];
+    const projectId = this.route.snapshot.params['id'];
     this.projectService
-      .getProjects()
-      .subscribe(
-        (projects) => {
-          var foundProject = projects.find(
-            project => project.id === id);
-
-          this.project = foundProject!;
-        }
-      );
+      .getProject(projectId)
+      .subscribe((project) => (this.project = project));
 
 
   }
 
   getProjectImagePath(): string {
-    return this.projectImagesPath + this.project.id + ".jpg";
+    return this.projectService.getProjectsImagePath(this.project.id);
   }
 
 }

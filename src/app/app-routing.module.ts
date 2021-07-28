@@ -17,7 +17,7 @@ const routes: Routes = [
         component: ProjectComponent,
       },
       {
-        path: '**',
+        path: '',
         component: GalleryComponent
       }
     ]
