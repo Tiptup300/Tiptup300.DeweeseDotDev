@@ -1,3 +1,8 @@
+header {
+  border-bottom: 1px solid #6e7984;
+  margin-bottom: 1em;
+}
+
 @media (min-width: 0px) {
   .list-contact {
     display: flex;
