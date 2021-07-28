@@ -1,12 +1,11 @@
-<main>
 <article>
     <header>
-        <h2>{{project.title}}</h2>
+        <h3>{{project.title}}</h3>
         <time datetime="project.dateRange">{{project.dateRangeDescription}}</time>
     </header>
 
  
-    <img src="assets/{{project.id}}.jpg" class="img-fluid rounded mb-3" alt="An image showing some aspect of {{project.title}}." />
+    <img src="{{getProjectImagePath()}}" class="img-fluid rounded mb-3" alt="An image showing some aspect of {{project.title}}." />
 
     <project-links *ngIf="project.links" [links]="project.links!"></project-links>
 
@@ -17,4 +16,3 @@
     <project-tags [tags]="project.tags"></project-tags>
     
 </article>
-</main>

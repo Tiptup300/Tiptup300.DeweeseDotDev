@@ -8,6 +8,8 @@ import { Project } from '../project';
 })
 export class ProjectComponent implements OnInit {
 
+  private projectImagesPath:string = "assets/projects/";
+
   project:Project = {
     id: "2008-sperks-menu",
     title: "Sperks Menu",
@@ -34,6 +36,10 @@ export class ProjectComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getProjectImagePath(): string {
+    return this.projectImagesPath + this.project.id + ".jpg";
   }
 
 }
