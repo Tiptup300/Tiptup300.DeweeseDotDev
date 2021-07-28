@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Project } from '../project';
-import { map } from 'rxjs/operators';
 import { ProjectService } from '../project.service';
 
 @Component({
@@ -23,17 +21,18 @@ export class ProjectComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    const projectId = this.route.snapshot.params['id'];
+    const projectId = this.getProjectIdFromRoute();
     this.projectService
       .getProject(projectId)
       .subscribe((project) => (this.project = project));
-
-
   }
 
   getProjectImagePath(): string {
     return this.projectService.getProjectsImagePath(this.project.id);
+  }
+
+  getProjectIdFromRoute(): string {
+    return this.route.snapshot.params['id'];
   }
 
 }
