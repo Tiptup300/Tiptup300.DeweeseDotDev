@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { ProjectComponent } from './components/portfolio/project/project.component';
 import { ProjectLinksComponent } from './components/portfolio/project/project-links/project-links.component';
 import { ProjectTagsComponent } from './components/portfolio/project/project-tags/project-tags.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProjectTagsComponent } from './components/portfolio/project/project-tag
     GalleryImageComponent,
     ProjectComponent,
     ProjectLinksComponent,
-    ProjectTagsComponent
+    ProjectTagsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -13,11 +13,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProjectService {
-  private apiUrl = 'http://localhost:4200/assets/projects.json';
+  private apiUrl = 'http://localhost:4200/assets/projects/projects.json';
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  getProjects():Observable<Project[]>{
+  getProjects(): Observable<Project[]> {
     return this.httpClient.get<Project[]>(this.apiUrl)
   }
 }
