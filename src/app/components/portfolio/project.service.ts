@@ -26,8 +26,7 @@ export class ProjectService {
     let foundProject: Project;
     var subject = new Subject<Project>();
 
-    this
-      .getProjects()
+    this.getProjects()
       .subscribe(
         (projects) => {
           foundProject = projects.find(
