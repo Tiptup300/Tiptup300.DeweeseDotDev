@@ -1,26 +1,5 @@
 [
     {
-        "id": "sperks-menu",
-        "title": "Sperks Menu",
-        "dateRange": "2008",
-        "dateRangeDescription": "2008",
-        "description": "<b>Sperks</b> was being designed to be a multiplayer top down shooter game with mulitplayer functionality similar to Halo. I designed and implemented the menu, it had a glossy motiff with sleek and smooth curves. Very little of the game's logic was implemented.",
-        "links": [
-            {
-                "type": "youtube",
-                "description": "Youtube Video",
-                "url": "https://www.youtube.com/watch?v=Yf3pK3-Hz-o",
-                "openInSameWindow": false
-            }
-        ],
-        "tags": [
-            "Design",
-            "Layout",
-            "C#",
-            "Programming"
-        ]
-    },
-    {
         "_comment": [
             "SMW Map Studio (2007)",
             "SMWStuff (2007)",
@@ -38,6 +17,25 @@
             "Altoona's Music Scene (2019)",
             "Bidding Manager (2020)",
             "Tax Person Comparison Tool (2021)"
+        ],
+        "id": "sperks-menu",
+        "title": "Sperks Menu",
+        "dateRange": "2008",
+        "dateRangeDescription": "2008",
+        "description": "<b>Sperks</b> was being designed to be a multiplayer top down shooter game with mulitplayer functionality similar to Halo. I designed and implemented the menu, it had a glossy motiff with sleek and smooth curves. Very little of the game's logic was implemented.",
+        "links": [
+            {
+                "type": "youtube",
+                "description": "Youtube Video",
+                "url": "https://www.youtube.com/watch?v=Yf3pK3-Hz-o",
+                "openInSameWindow": false
+            }
+        ],
+        "tags": [
+            "design",
+            "layout",
+            "c-sharp",
+            "programming"
         ]
     }
 ]
