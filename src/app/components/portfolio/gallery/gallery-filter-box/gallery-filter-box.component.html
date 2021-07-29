@@ -1,0 +1,12 @@
+<nav class="filterbox">
+    <header>
+        <h3>Tags:</h3>
+        <ul>
+            <li *ngFor="let tagFilter of tagFilters">
+                <input type="checkbox" [checked]="tagFilter.enabled" name="" id="">
+                <a>{{tagFilter.tag}}</a>
+                <div>{{tagFilter.count}}</div>
+            </li>
+        </ul>
+    </header>
+</nav>
