@@ -49,7 +49,7 @@ describe('ProjectFiltererService', () => {
         enabled: false
       }
     ];
-    expect(service.FilterProjects(projects, tagFilters).length === 1);
+    expect(service.filterProjects(projects, tagFilters).length === 1);
 
   });
 });
