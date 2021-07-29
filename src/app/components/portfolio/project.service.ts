@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Project } from './project';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,6 +13,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProjectService {
+  private subscription!:Subscription;
+
   private apiUrl = 'http://localhost:4200/assets/projects/projects.json';
   private projectImagesPath = 'http://localhost:4200/assets/projects/';
 
@@ -26,7 +28,7 @@ export class ProjectService {
     let foundProject: Project;
     var subject = new Subject<Project>();
 
-    this.getProjects()
+    this.subscription = this.getProjects()
       .subscribe(
         (projects) => {
           foundProject = projects.find(
@@ -41,5 +43,9 @@ export class ProjectService {
 
   getProjectsImagePath(projectId: string): string {
     return this.projectImagesPath + projectId + ".jpg";
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

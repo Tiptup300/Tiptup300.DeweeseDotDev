@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { TagFilter } from '../tag-filter';
 import { TagFilterService } from '../tag-filter.service';
 
@@ -9,15 +10,32 @@ import { TagFilterService } from '../tag-filter.service';
 })
 export class GalleryFilterBoxComponent implements OnInit {
 
+  tagFilterChangeSubscription!: Subscription;
+
+
   tagFilters: TagFilter[] = [];
 
   constructor(private tagFilterService: TagFilterService) { }
 
   ngOnInit(): void {
-    this.tagFilterService.getTagFilters()
-      .subscribe((tagFilters) => {
-        this.tagFilters = tagFilters;
-      })
+    this.tagFilterChangeSubscription = this.tagFilterService.onGetTagFilters()
+    .subscribe(
+      value => {
+        this.tagFilters = value}
+      );
+      this.tagFilterService.loadTagFilters();
+  }
+
+  ngOnDestroy() {
+    this.tagFilterChangeSubscription.unsubscribe();
+  }
+
+  checkChanged(tagFilter:TagFilter) {
+    this.tagFilterService.toggleTagFilter(tagFilter.tag);
+  }
+
+  cropToTag(tagFilter:TagFilter) {
+    this.tagFilterService.cropToTagFilter(tagFilter.tag);
   }
 
 }

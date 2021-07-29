@@ -1,11 +1,19 @@
 <header>
-    <h2>Project Portfolio</h2>
+  <h2>Project Portfolio</h2>
 </header>
-<p>I have worked on a lot of different projects over the years in many different types of programming, here's a
-    collection of some notable projects.</p>
+<p>
+  I have worked on a lot of different projects over the years in many different
+  types of programming, here's a collection of some notable projects.
+</p>
 
-<gallery-filter-box></gallery-filter-box>
-
-<ul>
-    <app-gallery-image *ngFor="let project of projects" [project]="project"></app-gallery-image>
-</ul>
+<section class="gallery row">
+  <gallery-filter-box class="col-lg-3 col-12"></gallery-filter-box>
+  <ul class="gallery-items col-lg-9 col-12 row list-unstyled">
+    <li class="col-3" *ngFor="let project of projects | async">
+      <app-gallery-image
+        class="gallery-item"
+        [project]="project"
+      ></app-gallery-image>
+    </li>
+  </ul>
+</section>

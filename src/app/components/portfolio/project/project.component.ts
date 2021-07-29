@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Project } from '../project';
 import { ProjectService } from '../project.service';
 
@@ -9,7 +10,7 @@ import { ProjectService } from '../project.service';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-
+  private subscription!:Subscription;
 
   private projectImagesPath: string = "assets/projects/";
 
@@ -22,7 +23,7 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     const projectId = this.getProjectIdFromRoute();
-    this.projectService
+    this.subscription = this.projectService
       .getProject(projectId)
       .subscribe((project) => (this.project = project));
   }
@@ -33,6 +34,10 @@ export class ProjectComponent implements OnInit {
 
   getProjectIdFromRoute(): string {
     return this.route.snapshot.params['id'];
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 
 }

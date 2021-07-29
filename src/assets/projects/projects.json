@@ -35,7 +35,46 @@
             "design",
             "layout",
             "c-sharp",
-            "programming"
+            "programming",
+            "dog"
+        ]
+    },
+    {
+        "id": "test-thing",
+        "title": "Testing THing",
+        "dateRange": "2008",
+        "dateRangeDescription": "2008",
+        "description": "<b>Lorem Ipsum</b> is a cool guy who doesn't afraid of anything.",
+        "links": [
+            {
+                "type": "youtube",
+                "description": "Youtube Video",
+                "url": "https://www.youtube.com/watch?v=Yf3pK3-Hz-o",
+                "openInSameWindow": false
+            }
+        ],
+        "tags": [
+            "reppy",
+            "dog"
+        ]
+    },
+    {
+        "id": "test-thing2",
+        "title": "Testing THing2",
+        "dateRange": "2008",
+        "dateRangeDescription": "2008",
+        "description": "<b>Lorem Ipsum2</b> is a cool guy who doesn't afraid of anything.",
+        "links": [
+            {
+                "type": "youtube",
+                "description": "Youtube Video",
+                "url": "https://www.youtube.com/watch?v=Yf3pK3-Hz-o",
+                "openInSameWindow": false
+            }
+        ],
+        "tags": [
+            "art",
+            "dog"
         ]
     }
 ]

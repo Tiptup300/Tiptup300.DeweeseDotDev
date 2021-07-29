@@ -1,0 +1,63 @@
+nav.filter-box {
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.25rem 0.125rem 0.25rem;
+  margin-bottom: 1rem;
+}
+
+header > h3 {
+  font-size: 0.75rem;
+  color: #433442;
+  display: block;
+  margin: 0 0 0.25rem 0;
+  padding: 0.25rem 0 0.25rem 0.25rem;
+}
+.filter-box-items {
+  margin-bottom: 0;
+}
+
+.filter-box-item {
+  margin-bottom: 0.125rem;
+  padding: 0.125rem + 0.25rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.filter-box-item.active {
+  background-color: #6e7984;
+  color: #f8f9fa;
+}
+
+.filter-box-item.active > div.count {
+  background-color: #433442;
+  color: #d5d7da;
+}
+
+.filter-box-item.inactive {
+  background-color: #d5d7da;
+  color: #6e7984;
+}
+.filter-box-item.inactive > div.count {
+  background-color: #d5d7da;
+  color: #6e7984;
+}
+
+.filter-box-item > a {
+  display: inline;
+  margin-left: 0.125rem;
+  padding: 0.125rem;
+}
+
+.filter-box-item > a:before {
+  content: "#";
+}
+
+.filter-box-item > div.count {
+  display: inline;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+}
