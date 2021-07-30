@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Project } from '../project';
-import { ProjectService } from '../project.service';
+import { ProjectService } from './project.service';
 import { ProjectFiltererService } from './project-filterer.service';
-import { TagFilter } from './tag-filter';
+import { TagFilter } from '../tag-filter';
 import { TagFilterService } from './tag-filter.service';
 
 @Injectable({

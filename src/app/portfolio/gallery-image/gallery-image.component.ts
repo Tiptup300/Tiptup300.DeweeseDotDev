@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { Project } from '../../project';
-import { ProjectService } from '../../project.service';
+import { Project } from '../project';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-gallery-image',

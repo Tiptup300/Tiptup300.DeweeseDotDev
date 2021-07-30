@@ -5,20 +5,20 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { ResumeComponent } from './components/resume/resume.component';
-import { PortfolioComponent } from './components/portfolio/portfolio.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavComponent } from './components/nav/nav.component';
-import { GalleryComponent } from './components/portfolio/gallery/gallery.component';
-import { GalleryImageComponent } from './components/portfolio/gallery/gallery-image/gallery-image.component';
+import { ResumeComponent } from './resume/resume.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { HeaderComponent } from './site/header/header.component';
+import { FooterComponent } from './site/footer/footer.component';
+import { NavComponent } from './site/nav/nav.component';
+import { GalleryComponent } from './portfolio/gallery/gallery.component';
+import { GalleryImageComponent } from './portfolio/gallery-image/gallery-image.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { ProjectComponent } from './components/portfolio/project/project.component';
-import { ProjectLinksComponent } from './components/portfolio/project/project-links/project-links.component';
-import { ProjectTagsComponent } from './components/portfolio/project/project-tags/project-tags.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { GalleryFilterBoxComponent } from './components/portfolio/gallery/gallery-filter-box/gallery-filter-box.component';
+import { ProjectComponent } from './portfolio/project/project.component';
+import { ProjectLinksComponent } from './portfolio/project-links/project-links.component';
+import { ProjectTagsComponent } from './portfolio/project-tags/project-tags.component';
+import { NotFoundComponent } from './site/not-found/not-found.component';
+import { GalleryFilterBoxComponent } from './portfolio/gallery-filter-box/gallery-filter-box.component';
 
 @NgModule({
   declarations: [

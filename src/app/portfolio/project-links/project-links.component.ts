@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProjectLink } from '../project-link';
+import { ProjectLink } from '../project/project-link';
 
 @Component({
   selector: 'project-links',
