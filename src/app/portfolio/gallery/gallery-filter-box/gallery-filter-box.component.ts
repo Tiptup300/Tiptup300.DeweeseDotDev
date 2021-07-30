@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TagFilterService } from 'src/.lib/portfolio/tag-filter.service';
-import { TagFilter } from '../../../.lib/portfolio/tag-filter';
+import { TagFilterService } from 'src/lib/portfolio/tag-filter.service';
+import { TagFilter } from '../../../../lib/portfolio/tag-filter';
 
 @Component({
   selector: 'gallery-filter-box',

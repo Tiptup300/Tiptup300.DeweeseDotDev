@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { interval, Observable, Subscription, pipe } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
-import { Project } from '../../../.lib/portfolio/project';
-import { FilteredProjectService } from '../../../.lib/portfolio/filtered-project.service';
+import { Project } from '../../../lib/portfolio/project';
+import { FilteredProjectService } from '../../../lib/portfolio/filtered-project.service';
 
 
 @Component({

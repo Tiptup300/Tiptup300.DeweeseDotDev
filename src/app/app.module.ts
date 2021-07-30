@@ -11,14 +11,14 @@ import { HeaderComponent } from './site/header/header.component';
 import { FooterComponent } from './site/footer/footer.component';
 import { NavComponent } from './site/nav/nav.component';
 import { GalleryComponent } from './portfolio/gallery/gallery.component';
-import { GalleryImageComponent } from './portfolio/gallery-image/gallery-image.component';
+import { GalleryImageComponent } from './portfolio/gallery/gallery-image/gallery-image.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ProjectComponent } from './portfolio/project/project.component';
-import { ProjectLinksComponent } from './portfolio/project-links/project-links.component';
-import { ProjectTagsComponent } from './portfolio/project-tags/project-tags.component';
+import { ProjectLinksComponent } from './portfolio/project/project-links/project-links.component';
+import { ProjectTagsComponent } from './portfolio/project/project-tags/project-tags.component';
 import { NotFoundComponent } from './site/not-found/not-found.component';
-import { GalleryFilterBoxComponent } from './portfolio/gallery-filter-box/gallery-filter-box.component';
+import { GalleryFilterBoxComponent } from './portfolio/gallery/gallery-filter-box/gallery-filter-box.component';
 
 @NgModule({
   declarations: [
