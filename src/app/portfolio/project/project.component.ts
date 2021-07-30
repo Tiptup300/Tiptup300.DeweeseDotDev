@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Project } from '../project';
-import { ProjectService } from '../services/project.service';
+import { ProjectService } from 'src/.lib/portfolio/project.service';
+import { Project } from '../../../.lib/portfolio/project';
 
 @Component({
   selector: 'portfolio-project',

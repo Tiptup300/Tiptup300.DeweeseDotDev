@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { Project } from '../project';
+import { Project } from './project';
 import { ProjectService } from './project.service';
 import { ProjectFiltererService } from './project-filterer.service';
-import { TagFilter } from '../tag-filter';
+import { TagFilter } from './tag-filter';
 import { TagFilterService } from './tag-filter.service';
 
 @Injectable({
@@ -18,7 +18,12 @@ export class FilteredProjectService {
   tagFilterChangeSubscription!: Subscription;
   tagFilters: TagFilter[] = [];
 
-  constructor(private projectService: ProjectService, private tagFilterService:TagFilterService) {
+  constructor(
+    private projectService: ProjectService, 
+    private tagFilterService:TagFilterService,
+    private projectFiltererService:ProjectFiltererService
+    
+    ) {
     this.tagFilterChangeSubscription = this.tagFilterService.onGetTagFilters()
     .subscribe(
       value => {
@@ -28,6 +33,7 @@ export class FilteredProjectService {
     );
   }
 
+  
   private getFilteredProjects(): Observable<Project[]> {
 
     let output:Observable<Project[]>;
@@ -37,16 +43,6 @@ export class FilteredProjectService {
     output = this.filterProjects(projects, tagFilters);
 
     return output;
-  }
-
-  public onGetFilteredProjects() : Observable<Observable<Project[]>> {
-    return this.subject.asObservable();
-  }
-
-  public loadFilteredProjects() : void {
-    let filteredProjects = this.getFilteredProjects();
-
-    this.subject.next(filteredProjects);
   }
 
   private getTagFilters() : TagFilter[]
@@ -59,18 +55,23 @@ export class FilteredProjectService {
 
     output = projects.pipe(
       map(
-        data => data.filter(
-          project => project.tags.some(
-            projectTag => this.isAnyTagEnabled(tagFilters, projectTag))))
+        data => this.projectFiltererService.filterProjects(data,tagFilters)
+      )
     );
 
     return output;
   }
 
-  private isAnyTagEnabled(tagFilters: TagFilter[], projectTag: string): unknown {
-    return tagFilters.some(
-      tagFilter => projectTag === tagFilter.tag && tagFilter.enabled == true);
+
+  public onGetFilteredProjects() : Observable<Observable<Project[]>> {
+    return this.subject.asObservable();
   }
+
+
+  public loadFilteredProjects() : void {
+    this.subject.next(this.getFilteredProjects());
+  }
+
 
   ngOnDestroy(){
     this.tagFilterChangeSubscription.unsubscribe();

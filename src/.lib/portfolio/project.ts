@@ -1,4 +1,4 @@
-import { ProjectLink } from "./project/project-link";
+import { ProjectLink } from "../../app/portfolio/project/project-link";
 
 export interface Project {
     id: string;
