@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { Project } from '../app/components/portfolio/project';
-import { TagFilter } from '../app/components/portfolio/gallery/filtered-project.service';
+import { Project } from '../app/portfolio/project';
 
-import { ProjectFiltererService } from '../app/components/portfolio/gallery/project-filterer.service';
+import { ProjectFiltererService } from '../app/portfolio/services/project-filterer.service';
+import { TagFilter } from '../app/portfolio/tag-filter';
 
 describe('ProjectFiltererService', () => {
   let service: ProjectFiltererService;
@@ -10,10 +10,6 @@ describe('ProjectFiltererService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ProjectFiltererService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
   });
 
   it('shouldfiltertags', () => {
@@ -49,7 +45,7 @@ describe('ProjectFiltererService', () => {
         enabled: false
       }
     ];
+    expect("true").toBe("cat");
     expect(service.filterProjects(projects, tagFilters).length === 1);
-
   });
 });
