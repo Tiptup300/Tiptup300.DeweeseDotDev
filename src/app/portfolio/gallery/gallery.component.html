@@ -7,13 +7,12 @@
 </p>
 
 <section class="gallery row">
-  <gallery-filter-box class="col-lg-3 col-12"></gallery-filter-box>
-  <ul class="gallery-items col-lg-9 col-12 row list-unstyled">
-    <li class="col-3" *ngFor="let project of projects | async">
-      <app-gallery-image
-        class="gallery-item"
-        [project]="project"
-      ></app-gallery-image>
-    </li>
-  </ul>
+  <gallery-filter-box
+    [tagFilters]="tagFilters"
+    class="col-lg-3 col-12"
+  ></gallery-filter-box>
+  <gallery-grid-area
+    [projects]="filteredProjects"
+    class="col-lg-9 col-12"
+  ></gallery-grid-area>
 </section>

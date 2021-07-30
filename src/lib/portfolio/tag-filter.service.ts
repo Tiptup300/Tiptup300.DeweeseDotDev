@@ -5,97 +5,93 @@ import { ProjectService } from './project.service';
 import { TagFilter } from './tag-filter';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TagFilterService {
-  private subscription!:Subscription;
+  private subscription!: Subscription;
 
   private subject = new Subject<TagFilter[]>();
   private tagFilters: TagFilter[] = [];
 
-  constructor(private projectService: ProjectService) {
-   // this.loadTagFilters();
-  }
+  constructor(private projectService: ProjectService) {}
 
-  public onGetTagFilters() : Observable<TagFilter[]> {
+  public setTagFiltersFromProjects(
+    projects: Project[]
+  ): Observable<TagFilter[]> {
+    this.tagFilters = this.buildTagFiltersFromProjects(projects);
+
     return this.subject.asObservable();
   }
 
-  public loadTagFilters() {
-    if(!this.subscription)
-    {
-      this.subscription = this.projectService.getProjects()
-        .subscribe((projects) => {
-          this.tagFilters =  this.buildTagFiltersFromProjects(projects);
-            this.tagFilters.sort((a,b) => { return b.count - a.count;});
-          this.subscription.unsubscribe();
-        });
-    }
+  public update() {
+    this.sendUpdate();
+  }
 
+  private sendUpdate(): void {
     this.subject.next(this.tagFilters);
   }
 
-  public buildTagFiltersFromProjects(projects: Project[]) {
+  private buildTagFiltersFromProjects(projects: Project[]) {
     let output: TagFilter[];
 
     output = [];
-    projects.forEach(project => {
+    projects.forEach((project) => {
       if (project) {
-        Array.from(project.tags).forEach(tag => {
+        Array.from(project.tags).forEach((tag) => {
           if (this.isNewTag(tag, output)) {
             output.push(this.buildNewTagFilter(tag));
-          }
-          else {
+          } else {
             this.increaseTagFilterCount(tag, output);
           }
-        })
+        });
       }
+    });
+    output.sort((a, b) => {
+      return b.count - a.count;
     });
 
     return output;
   }
 
-  public toggleTagFilter(tag:string) : void {
+  public toggleTagFilter(tag: string): void {
     let tagFilter = this.getTagFilter(tag);
     tagFilter.enabled = !tagFilter.enabled;
 
-    this.subject.next(this.tagFilters);
+    this.sendUpdate();
   }
 
-  public cropToTagFilter(tag:string) : void {
-    this.tagFilters.forEach(value => {
-      if(value.tag == tag)
-      {
+  public cropToTagFilter(tag: string): void {
+    this.tagFilters.forEach((value) => {
+      if (value.tag == tag) {
         value.enabled = true;
-      }
-      else
-      {
+      } else {
         value.enabled = false;
       }
-    })
+    });
 
-    this.subject.next(this.tagFilters);
+    this.sendUpdate();
   }
 
-  private getTagFilter(tag:string) : TagFilter {
-    return this.tagFilters.find(tagFilter => tagFilter.tag == tag)!;
+  private getTagFilter(tag: string): TagFilter {
+    return this.tagFilters.find((tagFilter) => tagFilter.tag == tag)!;
   }
 
   private buildNewTagFilter(tag: string): TagFilter {
     return {
       tag: tag,
       count: 1,
-      enabled: true
+      enabled: true,
     };
   }
 
   private increaseTagFilterCount(tag: string, tags: TagFilter[]) {
-    var tagToIncrease: TagFilter = tags.find((insideTag) => insideTag.tag == tag)!;
+    var tagToIncrease: TagFilter = tags.find(
+      (insideTag) => insideTag.tag == tag
+    )!;
     tagToIncrease.count++;
   }
 
-
   private isNewTag(tag: string, output: TagFilter[]) {
-    return output.some(outputTag => outputTag.tag === tag) === false;
+    return output.some((outputTag) => outputTag.tag === tag) === false;
   }
 }

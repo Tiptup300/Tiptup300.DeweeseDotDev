@@ -1,28 +1,35 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { Project } from './project';
 import { TagFilter } from './tag-filter';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProjectFiltererService {
+  constructor() {}
 
-  constructor() { }
-
-  public filterProjects(projects: Project[], tagFilters: TagFilter[]): Project[] {
+  public filterProjects(
+    projects: Project[],
+    tagFilters: TagFilter[]
+  ): Project[] {
     let output: Project[];
 
-    output = projects.filter(
-      project => project.tags.some(
-        projectTag => this.isAnyTagEnabled(tagFilters, projectTag)
+    output = projects.filter((project) =>
+      project.tags.some((projectTag) =>
+        this.isAnyTagEnabled(tagFilters, projectTag)
       )
     );
 
     return output;
   }
 
-  private isAnyTagEnabled(tagFilters: TagFilter[], projectTag: string): unknown {
+  private isAnyTagEnabled(
+    tagFilters: TagFilter[],
+    projectTag: string
+  ): unknown {
     return tagFilters.some(
-      tagFilter => projectTag === tagFilter.tag && tagFilter.enabled == true);
+      (tagFilter) => projectTag === tagFilter.tag && tagFilter.enabled == true
+    );
   }
 }

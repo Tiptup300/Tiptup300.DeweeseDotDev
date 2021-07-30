@@ -3,35 +3,67 @@ import { interval, Observable, Subscription, pipe } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 import { Project } from '../../../lib/portfolio/project';
 import { FilteredProjectService } from '../../../lib/portfolio/filtered-project.service';
-
+import { TagFilter } from 'src/lib/portfolio/tag-filter';
+import { ProjectService } from 'src/lib/portfolio/project.service';
+import { TagFilterService } from 'src/lib/portfolio/tag-filter.service';
+import { ProjectFiltererService } from 'src/lib/portfolio/project-filterer.service';
 
 @Component({
   selector: 'portfolio-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  styleUrls: ['./gallery.component.css'],
 })
 export class GalleryComponent implements OnInit {
-  filteredProjectsSubscription!:Subscription;
-  projects!: Observable<Project[]>;
+  projects!: Project[];
+  projectsSub!: Subscription;
 
-  message$!: Observable<string>;
-  constructor(private filteredProjectService:FilteredProjectService) { 
+  tagFilters!: Observable<TagFilter[]>;
 
-    this.filteredProjectsSubscription = this.filteredProjectService.onGetFilteredProjects()
-    .subscribe(
-      data => {
-        this.projects = data;
-      }
-    )
-    this.filteredProjectService.loadFilteredProjects();
+  filteredProjects!: Observable<Project[]>;
+  filteredProjectsActual!: Project[];
 
-  }
+  constructor(
+    private filteredProjectService: FilteredProjectService,
+    private projectService: ProjectService,
+    private tagFilterService: TagFilterService,
+    private projectFiltererService: ProjectFiltererService
+  ) {}
 
   ngOnInit(): void {
+    this.subscribeToProjects();
+  }
+  private subscribeToProjects(): void {
+    this.projectsSub = this.projectService
+      .getProjects()
+      .subscribe((freshProjects) => this.loadFreshProjects(freshProjects));
+  }
+
+  private loadFreshProjects(freshProjects: Project[]): void {
+    this.projects = freshProjects;
+    this.buildTagFilters();
+    this.filterProjects();
+    this.tagFilterService.update();
+  }
+
+  private buildTagFilters() {
+    this.tagFilters = this.tagFilterService.setTagFiltersFromProjects(
+      this.projects
+    );
+  }
+
+  private filterProjects() {
+    this.filteredProjects =
+      this.filteredProjectService.onNextTagFilterFilterProjects(
+        this.projects,
+        this.tagFilters
+      );
+
+    this.filteredProjects.subscribe((x) => {
+      this.filteredProjectsActual = x;
+    });
   }
 
   ngOnDestroy(): void {
-    this.filteredProjectsSubscription.unsubscribe();
+    this.projectsSub.unsubscribe();
   }
-
 }

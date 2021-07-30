@@ -11,7 +11,7 @@ import { HeaderComponent } from './site/header/header.component';
 import { FooterComponent } from './site/footer/footer.component';
 import { NavComponent } from './site/nav/nav.component';
 import { GalleryComponent } from './portfolio/gallery/gallery.component';
-import { GalleryImageComponent } from './portfolio/gallery/gallery-image/gallery-image.component';
+import { GalleryGridArea } from './portfolio/gallery/gallery-grid-area/gallery-grid-area.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ProjectComponent } from './portfolio/project/project.component';
@@ -29,21 +29,21 @@ import { GalleryFilterBoxComponent } from './portfolio/gallery/gallery-filter-bo
     FooterComponent,
     NavComponent,
     GalleryComponent,
-    GalleryImageComponent,
+    GalleryGridArea,
     ProjectComponent,
     ProjectLinksComponent,
     ProjectTagsComponent,
     NotFoundComponent,
-    GalleryFilterBoxComponent
+    GalleryFilterBoxComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

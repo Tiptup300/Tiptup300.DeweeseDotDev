@@ -1,41 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { TagFilterService } from 'src/lib/portfolio/tag-filter.service';
 import { TagFilter } from '../../../../lib/portfolio/tag-filter';
 
 @Component({
   selector: 'gallery-filter-box',
   templateUrl: './gallery-filter-box.component.html',
-  styleUrls: ['./gallery-filter-box.component.css']
+  styleUrls: ['./gallery-filter-box.component.css'],
 })
 export class GalleryFilterBoxComponent implements OnInit {
+  @Input() tagFilters!: Observable<TagFilter[]>;
 
-  tagFilterChangeSubscription!: Subscription;
+  constructor(private tagFilterService: TagFilterService) {}
 
+  ngOnInit(): void {}
 
-  tagFilters: TagFilter[] = [];
+  ngOnDestroy() {}
 
-  constructor(private tagFilterService: TagFilterService) { }
-
-  ngOnInit(): void {
-    this.tagFilterChangeSubscription = this.tagFilterService.onGetTagFilters()
-    .subscribe(
-      value => {
-        this.tagFilters = value}
-      );
-      this.tagFilterService.loadTagFilters();
-  }
-
-  ngOnDestroy() {
-    this.tagFilterChangeSubscription.unsubscribe();
-  }
-
-  checkChanged(tagFilter:TagFilter) {
+  checkChanged(tagFilter: TagFilter) {
     this.tagFilterService.toggleTagFilter(tagFilter.tag);
   }
-
-  cropToTag(tagFilter:TagFilter) {
-    this.tagFilterService.cropToTagFilter(tagFilter.tag);
-  }
-
 }
