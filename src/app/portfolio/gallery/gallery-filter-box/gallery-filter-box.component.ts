@@ -9,7 +9,7 @@ import { TagFilter } from '../../../../lib/portfolio/tag-filter';
   styleUrls: ['./gallery-filter-box.component.css'],
 })
 export class GalleryFilterBoxComponent implements OnInit {
-  @Input() tagFilters!: Observable<TagFilter[]>;
+  @Input() tagFilters: TagFilter[] = [];
 
   constructor(private tagFilterService: TagFilterService) {}
 

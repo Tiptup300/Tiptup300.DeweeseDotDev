@@ -28,10 +28,12 @@ export class FilteredProjectService {
     tagFilters: Observable<TagFilter[]>
   ): Observable<Project[]> {
     return new Observable((observer: Observer<Project[]>) => {
-      tagFilters.subscribe((freshTagFilters) => {
+      const sub = tagFilters.subscribe((freshTagFilters) => {
         observer.next(
           this.projectFiltererService.filterProjects(projects, freshTagFilters)
         );
+
+        return () => sub.unsubscribe();
       });
     });
   }

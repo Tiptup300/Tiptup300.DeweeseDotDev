@@ -1,80 +1,92 @@
 [
     {
-        "_comment": [
-            "SMW Map Studio (2007)",
-            "SMWStuff (2007)",
-            "SMW Stuff Signature Cards (2007)",
-            "Fliptris (2008)",
-            "Sperks Menu (2008)",
-            "Slaam Mobile (2008)",
-            "My Zune Quiz (2008)",
-            "Zive Framework (2008)",
-            "My Contacts (2008)",
-            "Linux Mint Logo (2008)",
-            "ZuneBlade (2009)",
-            "ZuneErrorViewer (2009)",
-            "ZuneClock (2008)",
-            "Altoona's Music Scene (2019)",
-            "Bidding Manager (2020)",
-            "Tax Person Comparison Tool (2021)"
-        ],
         "id": "sperks-menu",
         "title": "Sperks Menu",
         "dateRange": "2008",
         "dateRangeDescription": "2008",
-        "description": "<b>Sperks</b> was being designed to be a multiplayer top down shooter game with mulitplayer functionality similar to Halo. I designed and implemented the menu, it had a glossy motiff with sleek and smooth curves. Very little of the game's logic was implemented.",
-        "links": [
+        "description": "<b>Sperks</b> was being designed to be a multiplayer top down shooter game with mulitplayer functionality similar to Halo. I designed and implemented the menu, it had a glossy motiff with sleek and smooth curves. Very little of the game's logic was implemented, but the main menu was designed & implemented.<br />The menu was designed using Adobe Photoshop & implemented using XNA/C#/Visual Studio Community Edition",
+        "figures": [
+            {
+                "type": "image",
+                "url": "assets/projects/sperks-menu.jpg",
+                "caption": "This is a mock image of the menu designed in Adobe Photoshop."
+            },
             {
                 "type": "youtube",
-                "description": "Youtube Video",
                 "url": "https://www.youtube.com/watch?v=Yf3pK3-Hz-o",
-                "openInSameWindow": false
+                "caption": "This is a video of an ealier prototype before changing the design to 1080p."
             }
         ],
+        "links": [],
         "tags": [
             "design",
             "layout",
             "c-sharp",
             "programming",
-            "dog"
+            "adobe-photoshop",
+            "xna"
         ]
     },
     {
-        "id": "test-thing",
-        "title": "Testing THing",
-        "dateRange": "2008",
-        "dateRangeDescription": "2008",
-        "description": "<b>Lorem Ipsum</b> is a cool guy who doesn't afraid of anything.",
-        "links": [
-            {
-                "type": "youtube",
-                "description": "Youtube Video",
-                "url": "https://www.youtube.com/watch?v=Yf3pK3-Hz-o",
-                "openInSameWindow": false
-            }
-        ],
+        "id": "smw-map-studio",
+        "title": "SMW Map Studio",
+        "dateRange": "2007",
+        "dateRangeDescription": "2007",
+        "description": "The <b>Super Mario War Map Studio</b> was a simple application that allowed the user to create custom maps for the game \"Super Mario War\". It read in the map files using the games native file format, it displayed the map using the game's tileset, & allowed the user to modify it, & save.<br />The insight into the way the .map files were structured later allowed for my work for www.smwstuff.com.<br/>The application was built in Visual Studio Community Edition using C# & .NET Framework Windows Forms. The application is no longer availabe.",
+        "figures": [],
+        "links": [],
         "tags": [
-            "reppy",
-            "dog"
+            "programming",
+            "dot-net-framework",
+            "windows-forms",
+            "c-sharp"
         ]
     },
     {
-        "id": "test-thing2",
-        "title": "Testing THing2",
-        "dateRange": "2008",
-        "dateRangeDescription": "2008",
-        "description": "<b>Lorem Ipsum2</b> is a cool guy who doesn't afraid of anything.",
-        "links": [
+        "id": "smw-stuff-dot-com",
+        "title": "SMW Stuff",
+        "dateRange": "2007",
+        "dateRangeDescription": "2007",
+        "description": "<b>SMW Stuff</b> (www.smwstuff.com) was a website written as a community repository for smw content. This included map files, custom skins, mods, etc. The website was written using PHP, mySQL, and was hosted on a Linux/Apache server. I worked with community leaders within the SMW community to build the website. They provided & maintained the server and I programmed the website. I also designed the website using simple html/css tools.",
+        "figures": [
             {
-                "type": "youtube",
-                "description": "Youtube Video",
-                "url": "https://www.youtube.com/watch?v=Yf3pK3-Hz-o",
-                "openInSameWindow": false
+                "type": "image",
+                "url": "assets/projects/smw-stuff-dot-com.jpg",
+                "caption": "The logo designed by me using Adobe Photoshop."
+            },
+            {
+                "type": "image",
+                "url": "assets/projects/smw-stuff-dot-com-2.jpg",
+                "caption": "A screen capture of the category listing page for downloadable files."
             }
         ],
+        "links": [],
         "tags": [
-            "art",
-            "dog"
+            "web",
+            "programming",
+            "php",
+            "mysql",
+            "html",
+            "css"
+        ]
+    },
+    {
+        "id": "",
+        "title": "",
+        "dateRange": "",
+        "dateRangeDescription": "",
+        "description": "",
+        "figures": [
+            {
+                "type": "",
+                "image": "",
+                "caption": ""
+            }
+        ],
+        "links": [],
+        "tags": [
+            "",
+            ""
         ]
     }
 ]

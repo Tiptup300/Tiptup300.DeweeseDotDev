@@ -6,7 +6,7 @@
     <li
       class="filter-box-item grab"
       (click)="checkChanged(tagFilter)"
-      *ngFor="let tagFilter of tagFilters | async"
+      *ngFor="let tagFilter of tagFilters"
       [ngClass]="tagFilter.enabled ? 'active' : 'inactive'"
     >
       <a>{{ tagFilter.tag }}</a>

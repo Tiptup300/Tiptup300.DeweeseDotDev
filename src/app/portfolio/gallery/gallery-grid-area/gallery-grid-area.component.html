@@ -1,7 +1,7 @@
 <!-- todo -->
 
 <ul class="gallery-items row list-unstyled">
-  <li class="col-3" *ngFor="let project of projects | async">
+  <li class="col-3" *ngFor="let project of projects">
     <div class="gallery-item">
       <a routerLink="project/{{ project.id }}">
         <img

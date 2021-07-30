@@ -7,25 +7,27 @@ import { Project } from '../../../lib/portfolio/project';
 @Component({
   selector: 'portfolio-project',
   templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
+  styleUrls: ['./project.component.css'],
 })
 export class ProjectComponent implements OnInit {
-  private subscription!:Subscription;
+  projectLoadError!: string;
+  private subscription!: Subscription;
 
-  private projectImagesPath: string = "assets/projects/";
+  private projectImagesPath: string = 'assets/projects/';
 
   project!: Project;
 
-  constructor(private route: ActivatedRoute, private projectService: ProjectService) {
-
-
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private projectService: ProjectService
+  ) {}
 
   ngOnInit(): void {
     const projectId = this.getProjectIdFromRoute();
-    this.subscription = this.projectService
-      .getProject(projectId)
-      .subscribe((project) => (this.project = project));
+    this.subscription = this.projectService.getProject(projectId).subscribe(
+      (project) => (this.project = project),
+      (error) => (this.projectLoadError = error)
+    );
   }
 
   getProjectImagePath(): string {
@@ -36,8 +38,7 @@ export class ProjectComponent implements OnInit {
     return this.route.snapshot.params['id'];
   }
 
-  ngOnDestroy(){
-    this.subscription.unsubscribe();
+  ngOnDestroy() {
+    if (this.subscription) this.subscription.unsubscribe();
   }
-
 }

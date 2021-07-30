@@ -6,7 +6,10 @@
   types of programming, here's a collection of some notable projects.
 </p>
 
-<section class="gallery row">
+<div *ngIf="projectsLoadError">
+  <p><b>Error</b> An error occured while loading projects.</p>
+</div>
+<section *ngIf="!projectsLoadError" class="gallery row">
   <gallery-filter-box
     [tagFilters]="tagFilters"
     class="col-lg-3 col-12"

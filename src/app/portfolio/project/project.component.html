@@ -1,7 +1,11 @@
 <a class="btn btn-outline-secondary" routerLink="/portfolio"
   >Return To Portfolio</a
 >
-<article *ngIf="project">
+<div *ngIf="projectLoadError">
+  <p><b>Error</b> An error occured while loading the project.</p>
+</div>
+
+<article *ngIf="!projectLoadError">
   <header>
     <h3>{{ project.title }}</h3>
     <time datetime="project.dateRange">{{ project.dateRangeDescription }}</time>

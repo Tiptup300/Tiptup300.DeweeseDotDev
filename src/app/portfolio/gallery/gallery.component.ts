@@ -16,11 +16,15 @@ import { ProjectFiltererService } from 'src/lib/portfolio/project-filterer.servi
 export class GalleryComponent implements OnInit {
   projects!: Project[];
   projectsSub!: Subscription;
+  projectsLoadError!: string;
 
-  tagFilters!: Observable<TagFilter[]>;
+  tagFilters$!: Observable<TagFilter[]>;
+  tagFilters!: TagFilter[];
+  tagFiltersSub!: Subscription;
 
-  filteredProjects!: Observable<Project[]>;
-  filteredProjectsActual!: Project[];
+  filteredProjects$!: Observable<Project[]>;
+  filteredProjects!: Project[];
+  filteredProjectsSub!: Subscription;
 
   constructor(
     private filteredProjectService: FilteredProjectService,
@@ -32,10 +36,20 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
     this.subscribeToProjects();
   }
+
   private subscribeToProjects(): void {
-    this.projectsSub = this.projectService
-      .getProjects()
-      .subscribe((freshProjects) => this.loadFreshProjects(freshProjects));
+    this.projectsSub = this.projectService.getProjects().subscribe(
+      (freshProjects) => {
+        freshProjects.sort((a, b) =>
+          a.dateRange > b.dateRange ? 1 : b.dateRange > a.dateRange ? -1 : 0
+        );
+        this.loadFreshProjects(freshProjects);
+        this.projectsSub.unsubscribe();
+      },
+      (error) => {
+        this.projectsLoadError = error;
+      }
+    );
   }
 
   private loadFreshProjects(freshProjects: Project[]): void {
@@ -46,24 +60,30 @@ export class GalleryComponent implements OnInit {
   }
 
   private buildTagFilters() {
-    this.tagFilters = this.tagFilterService.setTagFiltersFromProjects(
+    this.tagFilters$ = this.tagFilterService.setTagFiltersFromProjects(
       this.projects
     );
+
+    this.tagFiltersSub = this.tagFilters$.subscribe((x) => {
+      this.tagFilters = x;
+    });
   }
 
   private filterProjects() {
-    this.filteredProjects =
+    this.filteredProjects$ =
       this.filteredProjectService.onNextTagFilterFilterProjects(
         this.projects,
-        this.tagFilters
+        this.tagFilters$
       );
 
-    this.filteredProjects.subscribe((x) => {
-      this.filteredProjectsActual = x;
+    this.filteredProjectsSub = this.filteredProjects$.subscribe((x) => {
+      this.filteredProjects = x;
     });
   }
 
   ngOnDestroy(): void {
-    this.projectsSub.unsubscribe();
+    if (this.projectsSub) this.projectsSub.unsubscribe();
+    if (this.tagFiltersSub) this.tagFiltersSub.unsubscribe();
+    if (this.filteredProjectsSub) this.filteredProjectsSub.unsubscribe();
   }
 }

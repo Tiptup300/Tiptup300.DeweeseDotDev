@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ProjectService } from 'src/lib/portfolio/project.service';
 import { Project } from '../../../../lib/portfolio/project';
 
@@ -9,7 +9,9 @@ import { Project } from '../../../../lib/portfolio/project';
   styleUrls: ['./gallery-grid-area.component.css'],
 })
 export class GalleryGridArea implements OnInit {
-  @Input() projects!: Observable<Project[]>;
+  projectsSub!: Subscription;
+
+  @Input() projects: Project[] = [];
 
   constructor(private projectService: ProjectService) {}
 
@@ -18,4 +20,6 @@ export class GalleryGridArea implements OnInit {
   getProjectImagePath(project: Project): string {
     return this.projectService.getProjectsImagePath(project.id);
   }
+
+  ngOnDestroy(): void {}
 }
