@@ -16,17 +16,23 @@
 
 @media screen, print {
   /* Period */
+
   .period,
   time {
     margin: 0 0.25rem;
+    display: inline-block;
+    font-size: smaller;
+    vertical-align: super;
   }
   .period:before,
   time:before {
-    content: "\2768  ";
+    content: "\2768";
+    margin-right: 0.0625rem;
   }
   .period:after,
   time:after {
-    content: " \2769";
+    content: "\2769";
+    margin-left: 0.0625rem;
   }
 
   /* Section */
