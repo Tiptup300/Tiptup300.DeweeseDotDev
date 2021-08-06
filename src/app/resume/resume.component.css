@@ -12,6 +12,10 @@
   section {
     page-break-inside: avoid;
   }
+
+  no-print {
+    display: none;
+  }
 }
 
 @media screen, print {
