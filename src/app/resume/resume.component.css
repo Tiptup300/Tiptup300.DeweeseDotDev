@@ -1,7 +1,7 @@
 .skills-list {
   list-style: none;
   display: inline;
-  padding: 0;
+  padding-left: 0.25rem;
 }
 
 .skills-list > li {
