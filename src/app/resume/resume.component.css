@@ -10,7 +10,7 @@
   }
 
   section {
-    page-break-inside: avoid-page;
+    page-break-inside: avoid;
   }
 }
 
@@ -101,15 +101,36 @@
   }
 
   /* Work Experience */
+
+  section#work-experience > dl > dd {
+    margin-bottom: 1rem;
+  }
+
   section#work-experience dd.title:before {
     content: "\2014";
     margin: 0 0.25rem;
   }
   section#work-experience dd.duties > ul {
-    list-style: none;
-    padding-left: 0;
+    padding-left: 1.5rem;
     margin-left: 1.5rem;
     margin-bottom: 1.5rem;
+  }
+  section#work-experience dd.duties > ul:first-child {
+    margin-top: 0.25rem;
+  }
+
+  section#work-experience dd.duties > ul > li {
+    margin-bottom: 0.25rem;
+  }
+
+  section#work-experience dd.duties > ul > li > ul {
+    padding-left: 1.5rem;
+  }
+  section#work-experience dd.duties > ul > li > ul > li {
+    margin-bottom: 0;
+  }
+  section#work-experience dd.duties > ul > li > ul:last-child {
+    margin-bottom: 0.25rem;
   }
 
   /* Education */
@@ -118,6 +139,9 @@
     padding-left: 0;
     margin-left: 1.5rem;
     margin-bottom: 1.5rem;
+  }
+  section#education dd.certifications > ul > li {
+    margin-bottom: 0.125rem;
   }
   section#education dd.certifications.high-school::before {
     content: "\2014";
