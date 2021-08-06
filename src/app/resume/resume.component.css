@@ -6,7 +6,11 @@
 
 @media print {
   main {
-    font-size: 0.75em;
+    font-size: 12pt;
+  }
+
+  section {
+    page-break-inside: avoid-page;
   }
 }
 
@@ -26,6 +30,7 @@
   }
 
   /* Section */
+
   section > h2 {
     font-size: 2em;
     font-weight: 300;
