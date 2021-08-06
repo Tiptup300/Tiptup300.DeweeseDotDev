@@ -34,6 +34,8 @@ header > h3 {
 .filter-box-item.active > div.count {
   background-color: #433442;
   color: #d5d7da;
+  background: linear-gradient(47deg, #41313e, transparent);
+  text-shadow: 0.05rem 0.025rem 0.2rem #493d4a;
 }
 
 .filter-box-item.inactive {
