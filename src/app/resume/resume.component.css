@@ -1,22 +1,112 @@
-.skills-list {
-  list-style: none;
-  display: inline;
-  padding-left: 0.25rem;
-}
+@media screen, print {
+  main {
+    font-size: 9pt;
+  }
 
-.skills-list > li {
-  display: inline;
-}
+  /* Period */
+  .period,
+  time {
+    margin: 0 0.25rem;
+  }
+  .period:before,
+  time:before {
+    content: "\2768  ";
+  }
+  .period:after,
+  time:after {
+    content: " \2769";
+  }
 
-.skills-list > li:not(:last-child)::after {
-  content: ", ";
-}
+  /* Section */
+  section > h2 {
+    font-size: 18pt;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  section > dl,
+  section > ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  section > dl > dt {
+    font-size: 10pt;
+    display: inline;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+  }
+  section > dl > dd {
+    display: inline;
+  }
+  section > dl > dd:after {
+    content: "";
+    display: block;
+  }
+  section > dl > dd > dl,
+  section > dl > dd > dl > dd {
+    display: inline;
+  }
+  section > dl > dd > dl > dt {
+    display: none;
+  }
+  section > ul {
+    list-style: none;
+    padding-left: 0;
+  }
 
-main {
-  font-size: 9pt;
-}
+  /* Objective */
+  section#objective > dl > dt:after {
+    content: ";";
+  }
+  section#objective > dl > dd:after {
+    margin-bottom: 0.5rem;
+  }
 
-h2 {
-  font-weight: 300;
-  font-size: 18pt;
+  /* Skills */
+  section#skills > dl > dt:after {
+    content: ":";
+  }
+  section#skills > dl > dd:after {
+    margin-bottom: 0rem;
+  }
+  section#skills > dl > dd > ul {
+    list-style: none;
+    display: inline;
+    padding-left: 0.25rem;
+  }
+  section#skills > dl > dd > ul > li {
+    display: inline;
+  }
+  section#skills > dl > dd > ul > li:not(:last-child)::after {
+    content: ", ";
+  }
+
+  /* Work Experience */
+  section#work-experience dd.title:before {
+    content: "\2014";
+    margin: 0 0.25rem;
+  }
+  section#work-experience dd.duties > ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Education */
+  section#education dd.certifications > ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  section#education dd.certifications.high-school::before {
+    content: "\2014";
+    margin: 0 0.25rem;
+  }
+
+  /* Accomplishments */
+  section#accomplishments > ul > li {
+    margin-bottom: 0.5rem;
+  }
 }
