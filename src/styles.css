@@ -31,6 +31,10 @@
       Helvetica Neue, Arial, sans-serif;
   }
 
+  .display-none {
+    display: none;
+  }
+
   .ng-fa-icon {
     margin: 0.25rem;
     font-size: 1em;

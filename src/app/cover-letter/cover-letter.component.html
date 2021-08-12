@@ -106,11 +106,10 @@
     <span *ngIf="jobTitle.value !== ''">
       Hello, I’m writing to you about the
       {{ jobTitle.value }} position<span *ngIf="isSet(heardAbout.value)"></span>
-        posted on {{ heardAbout.value }}</span
-      >.
-      <span *ngIf="jobReferenceLink.value !== ''"
-        >(<a href="{{ jobReferenceLink.value }}">link</a>)</span
-      ></span
+      posted on {{ heardAbout.value }}</span
+    >.
+    <span *ngIf="jobReferenceLink.value !== ''"
+      >(<a href="{{ jobReferenceLink.value }}">link</a>)</span
     >
     <span *ngIf="jobTitle.value == ''"
       >Hello, I’m writing to you about a software programming position if
