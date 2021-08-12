@@ -1,47 +1,81 @@
-<form class="no-print">
-  <div class="form-group">
-    <label for="job-title">Job Title</label>
-    <input
-      #jobTitle
-      type="text"
-      class="form-control"
-      id="job-title"
-      placeholder="Enter Job Title"
-      (keyup)="(true)"
-    />
-  </div>
-  <div class="form-group">
-    <label for="heard-about">Heard About</label>
-    <input
-      #heardAbout
-      type="text"
-      class="form-control"
-      id="heard-about"
-      placeholder="Where did you hear about this job?"
-      (keyup)="(true)"
-    />
-  </div>
-  <div class="form-group">
-    <label for="jobReferenceLink">Job Reference Link</label>
-    <input
-      #jobReferenceLink
-      type="text"
-      class="form-control"
-      id="jobReferenceLink"
-      placeholder="URL of Job Posting"
-      (keyup)="(true)"
-    />
-  </div>
-  <a class="btn btn-primary" (click)="print()">Print</a>
+<form class="no-print row">
+  <h2 class="col-12">Configuration</h2>
+  <section class="col-6">
+    <h3>Business Details</h3>
+    <div class="form-group">
+      <label for="business-name">Business Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="business-name"
+        #businessName
+        (keyup)="(true)"
+      />
+    </div>
+    <div class="form-group">
+      <label for="business-address-line">Business Address Line</label>
+      <input
+        type="text"
+        class="form-control"
+        id="business-address-line"
+        #businessAddressLine
+        (keyup)="(true)"
+      />
+    </div>
+    <div class="form-group">
+      <label for="business-city">Business City</label>
+      <input
+        type="text"
+        class="form-control"
+        id="business-city"
+        #businessCity
+        (keyup)="(true)"
+      />
+    </div>
+  </section>
+  <section class="col-6">
+    <h3>Letter Details</h3>
+    <div class="form-group">
+      <label for="job-title">Job Title</label>
+      <input
+        #jobTitle
+        type="text"
+        class="form-control"
+        id="job-title"
+        (keyup)="(true)"
+      />
+    </div>
+    <div class="form-group">
+      <label for="heard-about">Heard About</label>
+      <input
+        #heardAbout
+        type="text"
+        class="form-control"
+        id="heard-about"
+        (keyup)="(true)"
+      />
+    </div>
+    <div class="form-group">
+      <label for="jobReferenceLink">Job Reference Link</label>
+      <input
+        #jobReferenceLink
+        type="text"
+        class="form-control"
+        id="jobReferenceLink"
+        (keyup)="(true)"
+      />
+    </div>
+  </section>
+  <a class="btn btn-primary col-12" (click)="print()">Print</a>
 </form>
 
 <article>
   <p id="date">{{ now() | date: "longDate" }}</p>
 
   <section id="receiving-address">
-    <p>Business Name</p>
-    <p>Business Address Line</p>
-    <p>Business City</p>
+    <p>{{ businessName.value }}</p>
+    <p>{{ businessAddressLine.value }}</p>
+    <p>{{ businessCity.value }}</p>
   </section>
 
   <p id="greeting">To Whom It May Concern,</p>
