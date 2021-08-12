@@ -12,7 +12,10 @@
         (keyup)="(true)"
       />
     </div>
-    <div class="form-group">
+    <div
+      class="form-group"
+      [ngClass]="isNotSet(businessName.value) ? 'display-none' : ''"
+    >
       <label for="business-address-line">Business Address Line</label>
       <input
         type="text"
@@ -22,7 +25,10 @@
         (keyup)="(true)"
       />
     </div>
-    <div class="form-group">
+    <div
+      class="form-group"
+      [ngClass]="isNotSet(businessAddressLine.value) ? 'display-none' : ''"
+    >
       <label for="business-city">Business City</label>
       <input
         type="text"
@@ -45,8 +51,11 @@
         (keyup)="(true)"
       />
     </div>
-    <div class="form-group">
-      <label for="heard-about">Heard About</label>
+    <div
+      class="form-group"
+      [ngClass]="isNotSet(jobTitle.value) ? 'display-none' : ''"
+    >
+      <label for="heard-about">Posted On</label>
       <input
         #heardAbout
         type="text"
@@ -55,7 +64,10 @@
         (keyup)="(true)"
       />
     </div>
-    <div class="form-group">
+    <div
+      class="form-group"
+      [ngClass]="isNotSet(heardAbout.value) ? 'display-none' : ''"
+    >
       <label for="jobReferenceLink">Job Reference Link</label>
       <input
         #jobReferenceLink
@@ -73,17 +85,29 @@
   <p id="date">{{ now() | date: "longDate" }}</p>
 
   <section id="receiving-address">
-    <p>{{ businessName.value }}</p>
-    <p>{{ businessAddressLine.value }}</p>
-    <p>{{ businessCity.value }}</p>
+    <p>
+      {{ isSet(businessName.value) ? businessName.value : "BUSSINESS NAME" }}
+    </p>
+    <p>
+      {{
+        isSet(businessAddressLine.value)
+          ? businessAddressLine.value
+          : "BUSSINESS ADDRESS LINE"
+      }}
+    </p>
+    <p>
+      {{ isSet(businessCity.value) ? businessCity.value : "BUSSINESS CITY" }}
+    </p>
   </section>
 
   <p id="greeting">To Whom It May Concern,</p>
 
   <p>
     <span *ngIf="jobTitle.value !== ''">
-      Hello, I’m writing to you about the <em>{{ jobTitle.value }}</em> position
-      posted on {{ heardAbout.value }}.
+      Hello, I’m writing to you about the
+      {{ jobTitle.value }} position<span *ngIf="isSet(heardAbout.value)"></span>
+        posted on {{ heardAbout.value }}</span
+      >.
       <span *ngIf="jobReferenceLink.value !== ''"
         >(<a href="{{ jobReferenceLink.value }}">link</a>)</span
       ></span
