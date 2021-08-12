@@ -1,0 +1,22 @@
+article {
+  font-family: "Roboto Mono", monospace;
+  text-align: justify;
+  font-size: 14pt;
+  margin-top: 28pt;
+}
+
+section#receiving-address {
+  margin-bottom: 56pt;
+}
+
+section#receiving-address > p {
+  line-height: 7pt;
+}
+
+p {
+  margin-bottom: 14pt;
+}
+
+p#date {
+  text-align: right;
+}

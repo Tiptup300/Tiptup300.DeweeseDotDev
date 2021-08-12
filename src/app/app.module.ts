@@ -19,6 +19,7 @@ import { ProjectLinksComponent } from './portfolio/project/project-links/project
 import { ProjectTagsComponent } from './portfolio/project/project-tags/project-tags.component';
 import { NotFoundComponent } from './site/not-found/not-found.component';
 import { GalleryFilterBoxComponent } from './portfolio/gallery/gallery-filter-box/gallery-filter-box.component';
+import { CoverLetterComponent } from './cover-letter/cover-letter.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { GalleryFilterBoxComponent } from './portfolio/gallery/gallery-filter-bo
     ProjectTagsComponent,
     NotFoundComponent,
     GalleryFilterBoxComponent,
+    CoverLetterComponent,
   ],
   imports: [
     BrowserModule,

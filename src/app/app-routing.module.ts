@@ -5,9 +5,11 @@ import { GalleryComponent } from './portfolio/gallery/gallery.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ProjectComponent } from './portfolio/project/project.component';
 import { ResumeComponent } from './resume/resume.component';
+import { CoverLetterComponent } from './cover-letter/cover-letter.component';
 
 const routes: Routes = [
   { path: '', component: ResumeComponent },
+  { path: 'cover-letter', component: CoverLetterComponent },
   {
     path: 'portfolio',
     component: PortfolioComponent,
@@ -18,16 +20,16 @@ const routes: Routes = [
       },
       {
         path: '',
-        component: GalleryComponent
-      }
-    ]
+        component: GalleryComponent,
+      },
+    ],
   },
   { path: '404', component: NotFoundComponent },
-  { path: '**', redirectTo: '404' }
+  { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -11,6 +11,10 @@
   .text-dark {
     color: black !important;
   }
+
+  .no-print {
+    display: none;
+  }
 }
 
 @media screen {
@@ -22,7 +26,7 @@
 }
 
 @media screen, print {
-  * {
+  body {
     font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans,
       Helvetica Neue, Arial, sans-serif;
   }
