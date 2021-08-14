@@ -6,9 +6,11 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ProjectComponent } from './portfolio/project/project.component';
 import { ResumeComponent } from './resume/resume.component';
 import { CoverLetterComponent } from './cover-letter/cover-letter.component';
+import { DotNetDeveloperComponent } from './resume/dot-net-developer/dot-net-developer.component';
 
 const routes: Routes = [
   { path: '', component: ResumeComponent },
+  { path: 'dot-net-developer', component: DotNetDeveloperComponent },
   { path: 'cover-letter', component: CoverLetterComponent },
   {
     path: 'portfolio',
@@ -32,4 +34,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

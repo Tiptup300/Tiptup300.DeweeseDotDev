@@ -20,6 +20,7 @@ import { ProjectTagsComponent } from './portfolio/project/project-tags/project-t
 import { NotFoundComponent } from './site/not-found/not-found.component';
 import { GalleryFilterBoxComponent } from './portfolio/gallery/gallery-filter-box/gallery-filter-box.component';
 import { CoverLetterComponent } from './cover-letter/cover-letter.component';
+import { DotNetDeveloperComponent } from './resume/dot-net-developer/dot-net-developer.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CoverLetterComponent } from './cover-letter/cover-letter.component';
     NotFoundComponent,
     GalleryFilterBoxComponent,
     CoverLetterComponent,
+    DotNetDeveloperComponent,
   ],
   imports: [
     BrowserModule,
