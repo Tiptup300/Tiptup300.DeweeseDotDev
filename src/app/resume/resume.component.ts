@@ -11,7 +11,7 @@ export class ResumeComponent implements OnInit {
   constructor(private titleService:Title) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle("Matthew Deweese - My Resume");
+    this.titleService.setTitle("Matthew Deweese - Software Developer");
   }
 
 }
