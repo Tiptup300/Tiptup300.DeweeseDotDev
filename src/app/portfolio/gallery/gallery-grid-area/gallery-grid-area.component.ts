@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ProjectService } from 'src/lib/portfolio/ProjectService';
-import { Project } from '../../../../lib/portfolio/Project';
+import { ProjectService } from 'src/_PortfolioLibrary/ProjectService';
+import { Project } from '../../../../_PortfolioLibrary/Project';
 
 @Component({
   selector: 'gallery-grid-area',
