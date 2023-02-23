@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, Observer, Subject, Subscription } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
-import { Project } from './project';
-import { ProjectService } from './project.service';
-import { ProjectFiltererService } from './project-filterer.service';
-import { TagFilter } from './tag-filter';
-import { TagFilterService } from './tag-filter.service';
+import { Project } from './Project';
+import { ProjectFiltererService } from './ProjectFiltererService';
+import { ProjectService } from './ProjectService';
+import { TagFilter } from './TagFilter';
+import { TagFilterService } from './TagFilterService';
 
 @Injectable({
   providedIn: 'root',

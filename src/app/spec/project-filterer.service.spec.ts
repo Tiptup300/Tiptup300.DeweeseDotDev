@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { ProjectFiltererService } from 'src/lib/portfolio/project-filterer.service';
-import { Project } from '../../lib/portfolio/project';
+import { ProjectFiltererService } from 'src/lib/portfolio/ProjectFiltererService';
+import { Project } from '../../lib/portfolio/Project';
 
-import { TagFilter } from '../../lib/portfolio/tag-filter';
+import { TagFilter } from '../../lib/portfolio/TagFilter';
 
 describe('ProjectFiltererService', () => {
   let service: ProjectFiltererService;
