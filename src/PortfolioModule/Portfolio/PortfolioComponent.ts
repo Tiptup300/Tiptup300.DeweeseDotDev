@@ -4,14 +4,12 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-portfolio',
-  templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.css']
+  template: '<main><router-outlet></router-outlet></main>',
 })
 export class PortfolioComponent implements OnInit {
-
-  constructor(private titleService: Title, private router: Router) { }
+  constructor(private titleService: Title, private router: Router) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle("Matthew Deweese - My Portfolio");
+    this.titleService.setTitle('Matthew Deweese - My Portfolio');
   }
 }
