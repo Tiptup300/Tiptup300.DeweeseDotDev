@@ -2,18 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProjectService } from 'src/lib_project/ProjectService';
-import { Project } from '../../../lib_project/Project';
+import { Project } from '../../lib_project/Project';
 
 @Component({
   selector: 'portfolio-project',
-  templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css'],
+  templateUrl: './ProjectComponentTemplate.html',
+  styleUrls: ['./ProjectComponentStyle.css'],
 })
 export class ProjectComponent implements OnInit {
   projectLoadError!: string;
   private subscription!: Subscription;
-
-  private projectImagesPath: string = 'assets/projects/';
 
   project!: Project;
 
