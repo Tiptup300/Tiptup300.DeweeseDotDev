@@ -5,10 +5,10 @@ import { Project } from '../../../lib_project/Project';
 
 @Component({
   selector: 'gallery-grid-area',
-  templateUrl: './gallery-grid-area.component.html',
-  styleUrls: ['./gallery-grid-area.component.css'],
+  templateUrl: './GridAreaComponent.html',
+  styleUrls: ['./GridAreaComponent.css'],
 })
-export class GalleryGridArea implements OnInit {
+export class GridAreaComponent implements OnInit {
   projectsSub!: Subscription;
 
   @Input() projects: Project[] = [];

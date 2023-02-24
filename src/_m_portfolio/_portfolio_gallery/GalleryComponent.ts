@@ -9,8 +9,8 @@ import { Project } from '../../lib_project/Project';
 
 @Component({
   selector: 'portfolio-gallery',
-  templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css'],
+  templateUrl: './GalleryComponent.html',
+  styleUrls: ['./GalleryComponent.css'],
 })
 export class GalleryComponent implements OnInit {
   projects!: Project[];
