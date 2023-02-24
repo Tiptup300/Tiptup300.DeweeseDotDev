@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable, Observer, Subscription } from 'rxjs';
-import { Project } from './Project';
+import { ProjectModel } from '../_models/ProjectModel';
+import { ProjectTagFilterModel } from '../_models/ProjectTagFilterModel';
 import { ProjectFiltererService } from './ProjectFiltererService';
-import { ProjectTagFilter } from './ProjectTagFilter';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FilteredProjectService {
   tagFilterChangeSubscription!: Subscription;
-  tagFilters: ProjectTagFilter[] = [];
+  tagFilters: ProjectTagFilterModel[] = [];
 
   constructor(private projectFiltererService: ProjectFiltererService) {}
 
   public onNextTagFilterFilterProjects(
-    projects: Project[],
-    tagFilters: Observable<ProjectTagFilter[]>
-  ): Observable<Project[]> {
-    return new Observable((observer: Observer<Project[]>) => {
+    projects: ProjectModel[],
+    tagFilters: Observable<ProjectTagFilterModel[]>
+  ): Observable<ProjectModel[]> {
+    return new Observable((observer: Observer<ProjectModel[]>) => {
       const sub = tagFilters.subscribe((freshTagFilters) => {
         observer.next(
           this.projectFiltererService.filterProjects(projects, freshTagFilters)

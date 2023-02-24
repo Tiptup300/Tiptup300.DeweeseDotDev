@@ -1,11 +1,11 @@
-import { ProjectLink } from './ProjectLink';
+import { ProjectLinkModel } from './ProjectLinkModel';
 
-export interface Project {
+export interface ProjectModel {
   id: string;
   title: string;
   dateRange: string;
   dateRangeDescription: string;
   description: string;
-  links?: ProjectLink[];
+  links?: ProjectLinkModel[];
   tags: string[];
 }

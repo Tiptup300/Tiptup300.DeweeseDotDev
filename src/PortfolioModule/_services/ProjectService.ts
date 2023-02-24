@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { Project } from '../PortfolioModule/Project';
+import { ProjectModel } from '../_models/ProjectModel';
 
 @Injectable({
   providedIn: 'root',
@@ -14,13 +14,13 @@ export class ProjectService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getProjects(): Observable<Project[]> {
-    return this.httpClient.get<Project[]>(this.apiUrl);
+  getProjects(): Observable<ProjectModel[]> {
+    return this.httpClient.get<ProjectModel[]>(this.apiUrl);
   }
 
-  getProject(id: string): Observable<Project> {
-    let foundProject: Project;
-    var subject = new Subject<Project>();
+  getProject(id: string): Observable<ProjectModel> {
+    let foundProject: ProjectModel;
+    var subject = new Subject<ProjectModel>();
 
     this.subscription = this.getProjects().subscribe((projects) => {
       foundProject = projects.find((project) => project.id === id)!;

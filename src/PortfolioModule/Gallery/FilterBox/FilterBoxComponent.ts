@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProjectTagFilter } from '../../ProjectTagFilter';
-import { ProjectTagFilterService } from '../../ProjectTagFilterService';
+import { ProjectTagFilterModel } from '../../_models/ProjectTagFilterModel';
+import { ProjectTagFilterService } from '../../_services/ProjectTagFilterService';
 
 @Component({
   selector: 'gallery-filter-box',
@@ -8,7 +8,7 @@ import { ProjectTagFilterService } from '../../ProjectTagFilterService';
   styleUrls: ['./FilterBoxComponentStyle.css'],
 })
 export class FilterBoxComponent implements OnInit {
-  @Input() tagFilters: ProjectTagFilter[] = [];
+  @Input() tagFilters: ProjectTagFilterModel[] = [];
 
   constructor(private tagFilterService: ProjectTagFilterService) {}
 
@@ -16,7 +16,7 @@ export class FilterBoxComponent implements OnInit {
 
   ngOnDestroy() {}
 
-  checkChanged(tagFilter: ProjectTagFilter) {
+  checkChanged(tagFilter: ProjectTagFilterModel) {
     this.tagFilterService.toggleTagFilter(tagFilter.tag);
   }
 }

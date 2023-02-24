@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Project } from '../Project';
-import { ProjectService } from '../ProjectService';
+import { ProjectModel } from '../_models/ProjectModel';
+import { ProjectService } from '../_services/ProjectService';
 
 @Component({
   selector: 'portfolio-project',
@@ -13,7 +13,7 @@ export class ProjectComponent implements OnInit {
   projectLoadError!: string;
   private subscription!: Subscription;
 
-  project!: Project;
+  project!: ProjectModel;
 
   constructor(
     private route: ActivatedRoute,

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { Project } from '../PortfolioModule/Project';
-import { ProjectTagFilter } from '../PortfolioModule/ProjectTagFilter';
+import { ProjectModel } from '../_models/ProjectModel';
+import { ProjectTagFilterModel } from '../_models/ProjectTagFilterModel';
 import { ProjectService } from './ProjectService';
 
 @Injectable({
@@ -10,14 +10,14 @@ import { ProjectService } from './ProjectService';
 export class ProjectTagFilterService {
   private subscription!: Subscription;
 
-  private subject = new Subject<ProjectTagFilter[]>();
-  private tagFilters: ProjectTagFilter[] = [];
+  private subject = new Subject<ProjectTagFilterModel[]>();
+  private tagFilters: ProjectTagFilterModel[] = [];
 
   constructor(private projectService: ProjectService) {}
 
   public setTagFiltersFromProjects(
-    projects: Project[]
-  ): Observable<ProjectTagFilter[]> {
+    projects: ProjectModel[]
+  ): Observable<ProjectTagFilterModel[]> {
     this.tagFilters = this.buildTagFiltersFromProjects(projects);
 
     return this.subject.asObservable();
@@ -31,8 +31,8 @@ export class ProjectTagFilterService {
     this.subject.next(this.tagFilters);
   }
 
-  private buildTagFiltersFromProjects(projects: Project[]) {
-    let output: ProjectTagFilter[];
+  private buildTagFiltersFromProjects(projects: ProjectModel[]) {
+    let output: ProjectTagFilterModel[];
 
     output = [];
     projects.forEach((project) => {
@@ -72,11 +72,11 @@ export class ProjectTagFilterService {
     this.sendUpdate();
   }
 
-  private getTagFilter(tag: string): ProjectTagFilter {
+  private getTagFilter(tag: string): ProjectTagFilterModel {
     return this.tagFilters.find((tagFilter) => tagFilter.tag == tag)!;
   }
 
-  private buildNewTagFilter(tag: string): ProjectTagFilter {
+  private buildNewTagFilter(tag: string): ProjectTagFilterModel {
     return {
       tag: tag,
       count: 1,
@@ -84,14 +84,14 @@ export class ProjectTagFilterService {
     };
   }
 
-  private increaseTagFilterCount(tag: string, tags: ProjectTagFilter[]) {
-    var tagToIncrease: ProjectTagFilter = tags.find(
+  private increaseTagFilterCount(tag: string, tags: ProjectTagFilterModel[]) {
+    var tagToIncrease: ProjectTagFilterModel = tags.find(
       (insideTag) => insideTag.tag == tag
     )!;
     tagToIncrease.count++;
   }
 
-  private isNewTag(tag: string, output: ProjectTagFilter[]) {
+  private isNewTag(tag: string, output: ProjectTagFilterModel[]) {
     return output.some((outputTag) => outputTag.tag === tag) === false;
   }
 }
