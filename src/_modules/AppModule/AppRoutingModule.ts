@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from '../CommonUIModule/NotFoundComponent/NotFoundComponent';
+import { NotFoundComponent } from '../CommonUIModule/_components/NotFoundComponent/NotFoundComponent';
 import { CoverLetterComponent } from '../CoverLetterModule/CoverLetterComponent';
 import { GalleryComponent } from '../PortfolioModule/Gallery/GalleryComponent';
 import { PortfolioComponent } from '../PortfolioModule/PortfolioComponent';
