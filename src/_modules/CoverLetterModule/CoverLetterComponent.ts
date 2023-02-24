@@ -3,8 +3,8 @@ import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cover-letter',
-  templateUrl: './cover-letter.component.html',
-  styleUrls: ['./cover-letter.component.css'],
+  templateUrl: './CoverLetterComponentTemplate.html',
+  styleUrls: ['./CoverLetterComponentStyle.css'],
 })
 export class CoverLetterComponent implements OnInit, OnChanges {
   constructor(private titleService: Title) {}

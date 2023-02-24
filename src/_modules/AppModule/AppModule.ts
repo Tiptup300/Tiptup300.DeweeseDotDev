@@ -5,7 +5,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './AppRoutingModule';
 
 import { HttpClientModule } from '@angular/common/http';
-import { CoverLetterComponent } from '../mod_coverLetter/cover-letter.component';
+import { FooterComponent } from '../CommonUIModule/footer/footer.component';
+import { HeaderComponent } from '../CommonUIModule/header/header.component';
+import { NavBarComponent } from '../CommonUIModule/NavBarComponent/NavBarComponent';
+import { NotFoundComponent } from '../CommonUIModule/NotFoundComponent/NotFoundComponent';
+import { CoverLetterComponent } from '../CoverLetterModule/CoverLetterComponent';
 import { FilterBoxComponent } from '../PortfolioModule/Gallery/FilterBox/FilterBoxComponent';
 import { GalleryComponent } from '../PortfolioModule/Gallery/GalleryComponent';
 import { GridAreaComponent } from '../PortfolioModule/Gallery/GridArea/GridAreaComponent';
@@ -14,10 +18,6 @@ import { ProjectComponent } from '../PortfolioModule/Project/ProjectComponent';
 import { ProjectLinksComponent } from '../PortfolioModule/Project/ProjectLinks/ProjectLInksComponent';
 import { ProjectTagsComponent } from '../PortfolioModule/Project/ProjectTags/ProjectTagsComponent';
 import { ResumeComponent } from '../ResumeModule/ResumeComponent';
-import { FooterComponent } from '../_UICommonLibrary/footer/footer.component';
-import { HeaderComponent } from '../_UICommonLibrary/header/header.component';
-import { NavComponent } from '../_UICommonLibrary/nav/nav.component';
-import { NotFoundComponent } from '../_UICommonLibrary/not-found/not-found.component';
 import { AppComponent } from './AppComponent';
 
 @NgModule({
@@ -27,7 +27,7 @@ import { AppComponent } from './AppComponent';
     PortfolioComponent,
     HeaderComponent,
     FooterComponent,
-    NavComponent,
+    NavBarComponent,
     GalleryComponent,
     GridAreaComponent,
     ProjectComponent,

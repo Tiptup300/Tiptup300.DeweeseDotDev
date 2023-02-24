@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CoverLetterComponent } from '../mod_coverLetter/cover-letter.component';
+import { NotFoundComponent } from '../CommonUIModule/NotFoundComponent/NotFoundComponent';
+import { CoverLetterComponent } from '../CoverLetterModule/CoverLetterComponent';
 import { GalleryComponent } from '../PortfolioModule/Gallery/GalleryComponent';
 import { PortfolioComponent } from '../PortfolioModule/PortfolioComponent';
 import { ProjectComponent } from '../PortfolioModule/Project/ProjectComponent';
 import { ResumeComponent } from '../ResumeModule/ResumeComponent';
-import { NotFoundComponent } from '../_UICommonLibrary/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: ResumeComponent },
