@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { ProjectFiltererService } from 'src/_PortfolioLibrary/ProjectFiltererService';
-import { ProjectService } from 'src/_PortfolioLibrary/ProjectService';
-import { TagFilter } from 'src/_PortfolioLibrary/TagFilter';
-import { TagFilterService } from 'src/_PortfolioLibrary/TagFilterService';
-import { FilteredProjectService } from '../../../_PortfolioLibrary/FilteredProjectService';
-import { Project } from '../../../_PortfolioLibrary/Project';
+import { ProjectFiltererService } from 'src/lib_project/ProjectFiltererService';
+import { ProjectService } from 'src/lib_project/ProjectService';
+import { ProjectTagFilter } from 'src/lib_project/ProjectTagFilter';
+import { ProjectTagFilterService } from 'src/lib_project/ProjectTagFilterService';
+import { FilteredProjectService } from '../../lib_project/FilteredProjectService';
+import { Project } from '../../lib_project/Project';
 
 @Component({
   selector: 'portfolio-gallery',
@@ -17,8 +17,8 @@ export class GalleryComponent implements OnInit {
   projectsSub!: Subscription;
   projectsLoadError!: string;
 
-  tagFilters$!: Observable<TagFilter[]>;
-  tagFilters!: TagFilter[];
+  tagFilters$!: Observable<ProjectTagFilter[]>;
+  tagFilters!: ProjectTagFilter[];
   tagFiltersSub!: Subscription;
 
   filteredProjects$!: Observable<Project[]>;
@@ -28,7 +28,7 @@ export class GalleryComponent implements OnInit {
   constructor(
     private filteredProjectService: FilteredProjectService,
     private projectService: ProjectService,
-    private tagFilterService: TagFilterService,
+    private tagFilterService: ProjectTagFilterService,
     private projectFiltererService: ProjectFiltererService
   ) {}
 
