@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Project } from './Project';
-import { ProjectTagFilter } from './ProjectTagFilter';
+import { Project } from '../PortfolioModule/Project';
+import { ProjectTagFilter } from '../PortfolioModule/ProjectTagFilter';
 
 @Injectable({
   providedIn: 'root',

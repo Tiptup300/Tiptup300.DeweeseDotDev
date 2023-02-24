@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProjectTagFilterService } from 'src/lib_project/ProjectTagFilterService';
-import { ProjectTagFilter } from '../../../lib_project/ProjectTagFilter';
+import { ProjectTagFilter } from '../../ProjectTagFilter';
+import { ProjectTagFilterService } from '../../ProjectTagFilterService';
 
 @Component({
   selector: 'gallery-filter-box',
-  templateUrl: './FilterBoxTemplate.html',
-  styleUrls: ['./FilterBoxStyle.css'],
+  templateUrl: './FilterBoxComponentTemplate.html',
+  styleUrls: ['./FilterBoxComponentStyle.css'],
 })
 export class FilterBoxComponent implements OnInit {
   @Input() tagFilters: ProjectTagFilter[] = [];

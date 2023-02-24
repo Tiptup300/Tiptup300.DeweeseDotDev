@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { Project } from './Project';
-
+import { Project } from '../PortfolioModule/Project';
 
 @Injectable({
   providedIn: 'root',
