@@ -1,0 +1,13 @@
+<section class="links">
+  <h4>Links</h4>
+  <ul>
+    <li *ngFor="let link of links">
+      <a
+        href="{{link.url}}"
+        [attr.target]="link.openInSameWindow ? '_blank' : undefined"
+        >{{link.type}}</a
+      >
+      - {{link.description}}
+    </li>
+  </ul>
+</section>

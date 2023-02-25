@@ -16,7 +16,7 @@ import { GalleryComponent } from '../PortfolioModule/Gallery/GalleryComponent';
 import { GridAreaComponent } from '../PortfolioModule/Gallery/GridArea/GridAreaComponent';
 import { PortfolioComponent } from '../PortfolioModule/PortfolioComponent';
 import { ProjectComponent } from '../PortfolioModule/Project/ProjectComponent';
-import { ProjectLinksComponent } from '../PortfolioModule/Project/ProjectLinks/ProjectLInksComponent';
+import { ProjectLinksComponent } from '../PortfolioModule/Project/ProjectLinks/ProjectLinksComponent';
 import { ProjectTagsComponent } from '../PortfolioModule/Project/ProjectTags/ProjectTagsComponent';
 import { ResumeComponent } from '../ResumeModule/ResumeComponent';
 import { AppComponent } from './AppComponent';
