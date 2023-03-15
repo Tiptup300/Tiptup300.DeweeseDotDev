@@ -6,10 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CoverLetterComponent } from '../mod_coverLetter/cover-letter.component';
-import { FilterBoxComponent } from '../PortfolioModule/FilterBox/FilterBoxComponent';
-import { GalleryComponent } from '../PortfolioModule/Gallery/GalleryComponent';
-import { GridAreaComponent } from '../PortfolioModule/GridArea/GridAreaComponent';
-import { PortfolioComponent } from '../PortfolioModule/Portfolio/PortfolioComponent';
+import { PortfolioComponent } from '../_m_portfolio/portfolio.component';
+import { GalleryFilterBoxComponent } from '../_m_portfolio/_portfolio_gallery/FilterBox/FilterBoxComponent';
+import { GalleryComponent } from '../_m_portfolio/_portfolio_gallery/GalleryComponent';
+import { GridAreaComponent } from '../_m_portfolio/_portfolio_gallery/GridArea/GridAreaComponent';
 import { FooterComponent } from '../_UICommonLibrary/footer/footer.component';
 import { HeaderComponent } from '../_UICommonLibrary/header/header.component';
 import { NavComponent } from '../_UICommonLibrary/nav/nav.component';
@@ -34,7 +34,7 @@ import { ResumeComponent } from './resume/resume.component';
     ProjectLinksComponent,
     ProjectTagsComponent,
     NotFoundComponent,
-    FilterBoxComponent,
+    GalleryFilterBoxComponent,
     CoverLetterComponent,
   ],
   imports: [

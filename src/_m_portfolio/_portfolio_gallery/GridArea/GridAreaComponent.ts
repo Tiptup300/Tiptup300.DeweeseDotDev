@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProjectService } from 'src/lib_project/ProjectService';
-import { Project } from '../../lib_project/Project';
+import { Project } from '../../../lib_project/Project';
 
 @Component({
   selector: 'gallery-grid-area',
   templateUrl: './GridAreaComponent.html',
+  styleUrls: ['./GridAreaComponent.css'],
 })
 export class GridAreaComponent implements OnInit {
   projectsSub!: Subscription;
