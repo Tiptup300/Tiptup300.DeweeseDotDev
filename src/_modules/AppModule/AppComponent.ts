@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Guid } from 'guid-typescript';
+import { MediatorNode } from '../CommonUIModule/_services/MediatorService/MediatorNode';
 import { MediatorService } from '../CommonUIModule/_services/MediatorService/MediatorService';
 
 @Component({
@@ -8,18 +8,16 @@ import { MediatorService } from '../CommonUIModule/_services/MediatorService/Med
   styleUrls: ['./AppComponentStyle.css'],
 })
 export class AppComponent {
-  constructor(private mediator: MediatorService) {}
+  constructor(private mediator: MediatorService) {
+    let callBack = (payload: string) => {};
 
-  private receiveMessage(payload: any) {
-    console.log(payload);
-  }
+    let node: MediatorNode = {
+      guid: '',
+      channel: '',
+      onMessageReceived: callBack,
+    };
 
-  ngOnInit() {
-    this.mediator.AddNode({
-      guid: Guid.create().toString(),
-      channel: 'navigationMessage',
-      onMessageReceived: this.receiveMessage,
-    });
+    mediator.AddNode(node);
   }
   title = 'deweese-dev-app';
 }

@@ -34,7 +34,7 @@ export class MediatorService {
     this.log(() =>
       console.log(`📮 Node Added`, {
         channel: newNode.channel,
-        guid: newNode.guid,
+        ...this.getNodeElement(newNode.guid),
       })
     );
   }
@@ -54,6 +54,7 @@ export class MediatorService {
     this.log(() =>
       console.log(`📮 Node Removed`, {
         channel,
+        ...this.getNodeElement(guid),
       })
     );
   }
@@ -78,9 +79,33 @@ export class MediatorService {
     this.log(() =>
       console.log(`📮 Message Sent`, {
         message,
-        receivers: receiverNodes.map((n) => n.guid),
+        receivers: receiverNodes.map((n) => this.getNodeElement(n.guid)),
       })
     );
+  }
+
+  private getNodeElement(guid: string) {
+    let elementId = guid.substring(0, guid.lastIndexOf('.'));
+    let nodeElement = document.getElementById(elementId);
+    let parentElement = getFirstVisibleParent(nodeElement);
+    return {
+      guid,
+      nodeElement,
+      nodeParentElement: parentElement,
+    };
+
+    function getFirstVisibleParent(element: HTMLElement | null) {
+      if (!element) {
+        return null;
+      }
+
+      while (element.offsetWidth === 0 || element.offsetHeight === 0) {
+        if (element.parentElement) {
+          element = element.parentElement;
+        }
+      }
+      return element;
+    }
   }
 
   ngOnDestroy() {}
