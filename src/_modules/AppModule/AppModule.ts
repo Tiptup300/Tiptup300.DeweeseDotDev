@@ -5,11 +5,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './AppRoutingModule';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FooterComponent } from '../CommonUIModule/_components/FooterComponent/FooterComponent';
-import { HeaderComponent } from '../CommonUIModule/_components/HeaderComponent/HeaderComponent';
-import { NavBarComponent } from '../CommonUIModule/_components/NavBarComponent/NavBarComponent';
-import { NotFoundComponent } from '../CommonUIModule/_components/NotFoundComponent/NotFoundComponent';
-import { MediatorService } from '../CommonUIModule/_services/MediatorService/MediatorService';
+import { FooterComponent } from '../CommonUIModule/footer/footer.component';
+import { HeaderComponent } from '../CommonUIModule/header/header.component';
+import { NavBarComponent } from '../CommonUIModule/NavBarComponent/NavBarComponent';
+import { NotFoundComponent } from '../CommonUIModule/NotFoundComponent/NotFoundComponent';
 import { CoverLetterComponent } from '../CoverLetterModule/CoverLetterComponent';
 import { FilterBoxComponent } from '../PortfolioModule/Gallery/FilterBox/FilterBoxComponent';
 import { GalleryComponent } from '../PortfolioModule/Gallery/GalleryComponent';
@@ -45,7 +44,7 @@ import { AppComponent } from './AppComponent';
     NgbModule,
     HttpClientModule,
   ],
-  providers: [MediatorService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
