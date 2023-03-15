@@ -69,5 +69,24 @@
             "html",
             "css"
         ]
+    },
+    {
+        "id": "",
+        "title": "",
+        "dateRange": "",
+        "dateRangeDescription": "",
+        "description": "",
+        "figures": [
+            {
+                "type": "",
+                "image": "",
+                "caption": ""
+            }
+        ],
+        "links": [],
+        "tags": [
+            "",
+            ""
+        ]
     }
 ]
