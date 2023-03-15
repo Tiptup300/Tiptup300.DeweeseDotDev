@@ -5,11 +5,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
-import { CoverLetterComponent } from '../mod_coverLetter/cover-letter.component';
+import { CoverLetterComponent } from '../_m_coverLetter/cover-letter.component';
 import { PortfolioComponent } from '../_m_portfolio/portfolio.component';
-import { GalleryFilterBoxComponent } from '../_m_portfolio/_portfolio_gallery/FilterBox/FilterBoxComponent';
-import { GalleryComponent } from '../_m_portfolio/_portfolio_gallery/GalleryComponent';
-import { GridAreaComponent } from '../_m_portfolio/_portfolio_gallery/GridArea/GridAreaComponent';
+import { GalleryFilterBoxComponent } from '../_m_portfolio/_portfolio_gallery/gallery-filter-box/gallery-filter-box.component';
+import { GalleryGridArea } from '../_m_portfolio/_portfolio_gallery/gallery-grid-area/gallery-grid-area.component';
+import { GalleryComponent } from '../_m_portfolio/_portfolio_gallery/gallery.component';
 import { FooterComponent } from '../_UICommonLibrary/footer/footer.component';
 import { HeaderComponent } from '../_UICommonLibrary/header/header.component';
 import { NavComponent } from '../_UICommonLibrary/nav/nav.component';
@@ -29,7 +29,7 @@ import { ResumeComponent } from './resume/resume.component';
     FooterComponent,
     NavComponent,
     GalleryComponent,
-    GridAreaComponent,
+    GalleryGridArea,
     ProjectComponent,
     ProjectLinksComponent,
     ProjectTagsComponent,
