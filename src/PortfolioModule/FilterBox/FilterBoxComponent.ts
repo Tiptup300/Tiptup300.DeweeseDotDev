@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProjectTagFilterService } from 'src/lib_project/ProjectTagFilterService';
-import { ProjectTagFilter } from '../../../lib_project/ProjectTagFilter';
+import { ProjectTagFilter } from '../../lib_project/ProjectTagFilter';
 
 @Component({
   selector: 'gallery-filter-box',

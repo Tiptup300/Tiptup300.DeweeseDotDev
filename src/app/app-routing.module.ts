@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoverLetterComponent } from '../mod_coverLetter/cover-letter.component';
 import { GalleryComponent } from '../PortfolioModule/Gallery/GalleryComponent';
-import { PortfolioComponent } from '../PortfolioModule/PortfolioComponent';
-import { ProjectComponent } from '../PortfolioModule/Project/ProjectComponent';
+import { PortfolioComponent } from '../PortfolioModule/Portfolio/PortfolioComponent';
 import { NotFoundComponent } from '../_UICommonLibrary/not-found/not-found.component';
+import { ProjectComponent } from './portfolio/project/project.component';
 import { ResumeComponent } from './resume/resume.component';
 
 const routes: Routes = [
