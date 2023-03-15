@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { ProjectFiltererService } from 'src/_PortfolioLibrary/ProjectFiltererService';
-import { ProjectService } from 'src/_PortfolioLibrary/ProjectService';
-import { TagFilter } from 'src/_PortfolioLibrary/TagFilter';
-import { TagFilterService } from 'src/_PortfolioLibrary/TagFilterService';
-import { FilteredProjectService } from '../../../_PortfolioLibrary/FilteredProjectService';
-import { Project } from '../../../_PortfolioLibrary/Project';
+import { ProjectFiltererService } from 'src/lib/portfolio/ProjectFiltererService';
+import { ProjectService } from 'src/lib/portfolio/ProjectService';
+import { TagFilter } from 'src/lib/portfolio/TagFilter';
+import { TagFilterService } from 'src/lib/portfolio/TagFilterService';
+import { FilteredProjectService } from '../../../lib/portfolio/FilteredProjectService';
+import { Project } from '../../../lib/portfolio/Project';
 
 @Component({
   selector: 'portfolio-gallery',

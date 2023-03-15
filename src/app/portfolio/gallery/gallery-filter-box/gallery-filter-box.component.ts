@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TagFilterService } from 'src/_PortfolioLibrary/TagFilterService';
-import { TagFilter } from '../../../../_PortfolioLibrary/TagFilter';
+import { TagFilterService } from 'src/lib/portfolio/TagFilterService';
+import { TagFilter } from '../../../../lib/portfolio/TagFilter';
 
 @Component({
   selector: 'gallery-filter-box',
