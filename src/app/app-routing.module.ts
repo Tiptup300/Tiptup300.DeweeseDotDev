@@ -4,8 +4,8 @@ import { CoverLetterComponent } from '../mod_coverLetter/cover-letter.component'
 import { GalleryComponent } from '../PortfolioModule/Gallery/GalleryComponent';
 import { PortfolioComponent } from '../PortfolioModule/PortfolioComponent';
 import { ProjectComponent } from '../PortfolioModule/Project/ProjectComponent';
-import { ResumeComponent } from '../ResumeModule/ResumeComponent';
 import { NotFoundComponent } from '../_UICommonLibrary/not-found/not-found.component';
+import { ResumeComponent } from './resume/resume.component';
 
 const routes: Routes = [
   { path: '', component: ResumeComponent },

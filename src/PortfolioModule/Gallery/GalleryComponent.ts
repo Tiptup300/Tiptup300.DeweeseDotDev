@@ -1,32 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { ProjectModel } from '../_models/ProjectModel';
-import { ProjectTagFilterModel } from '../_models/ProjectTagFilterModel';
-import { FilteredProjectService } from '../_services/FilteredProjectService';
-import { ProjectService } from '../_services/ProjectService';
-import { ProjectTagFilterService } from '../_services/ProjectTagFilterService';
+import { ProjectTagFilter } from 'src/PortfolioModule/ProjectTagFilter';
+import { FilteredProjectService } from '../FilteredProjectService';
+import { Project } from '../Project';
+import { ProjectFiltererService } from '../ProjectFiltererService';
+import { ProjectService } from '../ProjectService';
+import { ProjectTagFilterService } from '../ProjectTagFilterService';
 
 @Component({
   selector: 'portfolio-gallery',
-  templateUrl: './GalleryComponentTemplate.html',
+  templateUrl: './GalleryComponent.html',
 })
 export class GalleryComponent implements OnInit {
-  projects!: ProjectModel[];
+  projects!: Project[];
   projectsSub!: Subscription;
   projectsLoadError!: string;
 
-  tagFilters$!: Observable<ProjectTagFilterModel[]>;
-  tagFilters!: ProjectTagFilterModel[];
+  tagFilters$!: Observable<ProjectTagFilter[]>;
+  tagFilters!: ProjectTagFilter[];
   tagFiltersSub!: Subscription;
 
-  filteredProjects$!: Observable<ProjectModel[]>;
-  filteredProjects!: ProjectModel[];
+  filteredProjects$!: Observable<Project[]>;
+  filteredProjects!: Project[];
   filteredProjectsSub!: Subscription;
 
   constructor(
     private filteredProjectService: FilteredProjectService,
     private projectService: ProjectService,
-    private tagFilterService: ProjectTagFilterService
+    private tagFilterService: ProjectTagFilterService,
+    private projectFiltererService: ProjectFiltererService
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +50,7 @@ export class GalleryComponent implements OnInit {
     );
   }
 
-  private loadFreshProjects(freshProjects: ProjectModel[]): void {
+  private loadFreshProjects(freshProjects: Project[]): void {
     this.projects = freshProjects;
     this.buildTagFilters();
     this.filterProjects();

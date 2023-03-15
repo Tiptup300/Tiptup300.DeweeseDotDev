@@ -1,22 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ProjectModel } from '../../_models/ProjectModel';
-import { ProjectService } from '../../_services/ProjectService';
+import { Project } from '../../Project';
+import { ProjectService } from '../../ProjectService';
 
 @Component({
   selector: 'gallery-grid-area',
-  templateUrl: './GridAreaComponentTemplate.html',
+  templateUrl: './GridAreaComponent.html',
 })
 export class GridAreaComponent implements OnInit {
   projectsSub!: Subscription;
 
-  @Input() projects: ProjectModel[] = [];
+  @Input() projects: Project[] = [];
 
   constructor(private projectService: ProjectService) {}
 
   ngOnInit(): void {}
 
-  getProjectImagePath(project: ProjectModel): string {
+  getProjectImagePath(project: Project): string {
     return this.projectService.getProjectsImagePath(project.id);
   }
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProjectLinkModel } from '../../_models/ProjectLinkModel';
+import { ProjectLink } from '../../ProjectLink';
 
 @Component({
   selector: 'project-links',
@@ -7,7 +7,7 @@ import { ProjectLinkModel } from '../../_models/ProjectLinkModel';
   styleUrls: ['./ProjectLinksComponentStyle.css'],
 })
 export class ProjectLinksComponent implements OnInit {
-  @Input() links!: ProjectLinkModel[];
+  @Input() links!: ProjectLink[];
 
   constructor() {}
 
