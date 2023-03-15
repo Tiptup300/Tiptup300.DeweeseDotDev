@@ -1,7 +1,5 @@
-export class ProjectTagFilterModel {
-  constructor(
-    readonly tag: string,
-    readonly count: number,
-    readonly enabled: boolean
-  ) {}
+export interface ProjectTagFilterModel {
+  tag: string;
+  count: number;
+  enabled: boolean;
 }

@@ -41,7 +41,7 @@ export class ProjectTagFilterService {
           if (this.isNewTag(tag, output)) {
             output.push(this.buildNewTagFilter(tag));
           } else {
-            output = this.increaseTagFilterCount(tag, output);
+            this.increaseTagFilterCount(tag, output);
           }
         });
       }
@@ -54,23 +54,19 @@ export class ProjectTagFilterService {
   }
 
   public toggleTagFilter(tag: string): void {
-    this.tagFilters = this.tagFilters.map((tagFilter) => {
-      return new ProjectTagFilterModel(
-        tagFilter.tag,
-        tagFilter.count,
-        tagFilter.tag === tag ? !tagFilter.enabled : tagFilter.enabled
-      );
-    });
+    let tagFilter = this.getTagFilter(tag);
+    tagFilter.enabled = !tagFilter.enabled;
+
     this.sendUpdate();
   }
 
   public cropToTagFilter(tag: string): void {
-    this.tagFilters = this.tagFilters.map((tagFilter) => {
-      return new ProjectTagFilterModel(
-        tagFilter.tag,
-        tagFilter.count,
-        tagFilter.tag === tag ? true : false
-      );
+    this.tagFilters.forEach((value) => {
+      if (value.tag == tag) {
+        value.enabled = true;
+      } else {
+        value.enabled = false;
+      }
     });
 
     this.sendUpdate();
@@ -89,13 +85,10 @@ export class ProjectTagFilterService {
   }
 
   private increaseTagFilterCount(tag: string, tags: ProjectTagFilterModel[]) {
-    return tags.map((tagFilter) => {
-      return new ProjectTagFilterModel(
-        tagFilter.tag,
-        tagFilter.tag === tag ? tagFilter.count + 1 : tagFilter.count,
-        tagFilter.enabled
-      );
-    });
+    var tagToIncrease: ProjectTagFilterModel = tags.find(
+      (insideTag) => insideTag.tag == tag
+    )!;
+    tagToIncrease.count++;
   }
 
   private isNewTag(tag: string, output: ProjectTagFilterModel[]) {
