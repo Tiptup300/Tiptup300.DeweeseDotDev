@@ -5,10 +5,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FooterComponent } from '../_UICommonLibrary/footer/footer.component';
-import { HeaderComponent } from '../_UICommonLibrary/header/header.component';
-import { NavComponent } from '../_UICommonLibrary/nav/nav.component';
-import { NotFoundComponent } from '../_UICommonLibrary/not-found/not-found.component';
 import { AppComponent } from './app.component';
 import { CoverLetterComponent } from './cover-letter/cover-letter.component';
 import { GalleryFilterBoxComponent } from './portfolio/gallery/gallery-filter-box/gallery-filter-box.component';
@@ -18,7 +14,12 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ProjectLinksComponent } from './portfolio/project/project-links/project-links.component';
 import { ProjectTagsComponent } from './portfolio/project/project-tags/project-tags.component';
 import { ProjectComponent } from './portfolio/project/project.component';
+import { DotNetDeveloperComponent } from './resume/dot-net-developer/dot-net-developer.component';
 import { ResumeComponent } from './resume/resume.component';
+import { FooterComponent } from './site/footer/footer.component';
+import { HeaderComponent } from './site/header/header.component';
+import { NavComponent } from './site/nav/nav.component';
+import { NotFoundComponent } from './site/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ResumeComponent } from './resume/resume.component';
     NotFoundComponent,
     GalleryFilterBoxComponent,
     CoverLetterComponent,
+    DotNetDeveloperComponent,
   ],
   imports: [
     BrowserModule,
