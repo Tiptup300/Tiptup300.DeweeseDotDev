@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { Project } from './Project';
-import { ProjectService } from './ProjectService';
-import { TagFilter } from './TagFilter';
+import { Project } from './project';
+import { ProjectService } from './project.service';
+import { TagFilter } from './tag-filter';
 
 @Injectable({
   providedIn: 'root',

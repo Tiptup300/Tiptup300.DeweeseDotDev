@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Project } from './Project';
-import { TagFilter } from './TagFilter';
+import { Observable, Subject } from 'rxjs';
+import { Project } from './project';
+import { TagFilter } from './tag-filter';
 
 @Injectable({
   providedIn: 'root',
