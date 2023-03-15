@@ -3,8 +3,8 @@ import { Observable, Observer, Subject, Subscription } from 'rxjs';
 import { Project } from './Project';
 import { ProjectFiltererService } from './ProjectFiltererService';
 import { ProjectService } from './ProjectService';
-import { ProjectTagFilter } from './ProjectTagFilter';
-import { ProjectTagFilterService } from './ProjectTagFilterService';
+import { TagFilter } from './TagFilter';
+import { TagFilterService } from './TagFilterService';
 
 @Injectable({
   providedIn: 'root',
@@ -14,17 +14,17 @@ export class FilteredProjectService {
   private projects!: Observable<Project[]>;
 
   tagFilterChangeSubscription!: Subscription;
-  tagFilters: ProjectTagFilter[] = [];
+  tagFilters: TagFilter[] = [];
 
   constructor(
     private projectService: ProjectService,
-    private tagFilterService: ProjectTagFilterService,
+    private tagFilterService: TagFilterService,
     private projectFiltererService: ProjectFiltererService
   ) {}
 
   public onNextTagFilterFilterProjects(
     projects: Project[],
-    tagFilters: Observable<ProjectTagFilter[]>
+    tagFilters: Observable<TagFilter[]>
   ): Observable<Project[]> {
     return new Observable((observer: Observer<Project[]>) => {
       const sub = tagFilters.subscribe((freshTagFilters) => {

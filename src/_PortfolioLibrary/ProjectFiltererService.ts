@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Project } from './Project';
-import { ProjectTagFilter } from './ProjectTagFilter';
+import { TagFilter } from './TagFilter';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ export class ProjectFiltererService {
 
   public filterProjects(
     projects: Project[],
-    tagFilters: ProjectTagFilter[]
+    tagFilters: TagFilter[]
   ): Project[] {
     let output: Project[];
 
@@ -24,7 +24,7 @@ export class ProjectFiltererService {
   }
 
   private isAnyTagEnabled(
-    tagFilters: ProjectTagFilter[],
+    tagFilters: TagFilter[],
     projectTag: string
   ): unknown {
     return tagFilters.some(

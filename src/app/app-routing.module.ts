@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CoverLetterComponent } from '../_m_coverLetter/cover-letter.component';
-import { PortfolioComponent } from '../_m_portfolio/portfolio.component';
-import { GalleryComponent } from '../_m_portfolio/_portfolio_gallery/gallery.component';
 import { NotFoundComponent } from '../_UICommonLibrary/not-found/not-found.component';
+import { CoverLetterComponent } from './cover-letter/cover-letter.component';
+import { GalleryComponent } from './portfolio/gallery/gallery.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ProjectComponent } from './portfolio/project/project.component';
 import { ResumeComponent } from './resume/resume.component';
 
