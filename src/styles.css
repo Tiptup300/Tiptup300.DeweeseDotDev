@@ -17,6 +17,23 @@
   }
 }
 
+app-root:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(11rem + 3px);
+  background-color: #270817;
+  z-index: -5;
+  border-bottom: 1px solid hsl(0deg 0% 100% / 30%);
+  box-shadow: 0 0px 12rem 0 black;
+}
+
+.main-container {
+  margin-top: 0 !important;
+}
+
 @media screen {
   body {
     background-color: #270817;
@@ -46,17 +63,18 @@
 
   .container-small {
     max-width: calc(100% - 1rem);
+    /* transition: width 2s cubic-bezier(0.16, 0.81, 1, 0.29); */
   }
 
   @media (min-width: 576px) {
     .container-small {
-      width: 576px;
+      width: 800px;
     }
   }
 
   @media (min-width: 992px) {
     .container-small {
-      width: 800px;
+      width: 900px;
     }
   }
 }
