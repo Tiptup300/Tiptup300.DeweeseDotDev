@@ -36,5 +36,9 @@
     background: linear-gradient(169deg, white 15%, #f8f9fa 67%);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     background-color: #f8f9fa !important;
+  
+    margin-top: 1rem !important;
   }
+
+  
 }

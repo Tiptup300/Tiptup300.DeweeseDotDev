@@ -13,13 +13,17 @@
 @media screen, print {
   header {
     border-bottom: 1px solid #6e7984;
-    margin-bottom: 1em;
-    font-size: 0.75em;
+    margin-bottom: 1.5em;
+    font-size: 1.125em;
+    font-weight: 600;
+    margin-top: -0.8rem;
   }
 
   header h1 {
-    color: black;
-  }
+      font-size: 3.5rem;
+      font-weight: 1000;
+      text-shadow: 1px 1px 0 hsl(0deg 0% 100% / 35%), 0 0.125rem 0.125rem hsl(0deg 0% 0% / 22%);
+    }
 
   @media (min-width: 0px) {
     .list-contact {
