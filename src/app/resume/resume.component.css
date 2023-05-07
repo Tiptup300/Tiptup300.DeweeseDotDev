@@ -7,7 +7,7 @@
 @media (min-width: 679px) {
   section#i-prefer {
     float: right;
-    margin-right: -4rem !important;
+    margin-right: -3.5rem !important;
     margin-left: 1rem !important;
   }
 }
