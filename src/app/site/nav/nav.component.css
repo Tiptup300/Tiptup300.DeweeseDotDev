@@ -1,18 +1,17 @@
 nav {
   font-size: 0.75em;
   padding: 0.25rem 0.125rem;
-  background: none;
-  background-color: unset !important;
-  box-shadow: none !important;
-}
-
-.navbar-brand {
-  display: none;
 }
 
 nav ul {
   justify-content: flex-end;
-  flex-grow: 1;
+  flex-direction: row;
+  margin-bottom: 0;
+  display: flex;
+  padding-left: 0;
+  list-style:none;
+  margin-top: 0;
+
 }
 
 nav ul li {
@@ -25,10 +24,12 @@ nav ul li {
   transition: cubic-bezier(0.16, 0.81, 1, 0.29) background-color 1s;
 }
 
-
-
-.nav-item.external {
-  
+nav ul li a {
+  color: rgba(0,0,0,.5);
+  padding: 0.5rem 1rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  display: block;
 }
 
 nav ul li:hover {
