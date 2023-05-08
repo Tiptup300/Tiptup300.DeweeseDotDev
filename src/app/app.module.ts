@@ -1,26 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app.component';
-import { ResumeComponent } from './resume/resume.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
-import { HeaderComponent } from './site/header/header.component';
-import { FooterComponent } from './site/footer/footer.component';
-import { NavComponent } from './site/nav/nav.component';
-import { GalleryComponent } from './portfolio/gallery/gallery.component';
-import { GalleryGridArea } from './portfolio/gallery/gallery-grid-area/gallery-grid-area.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { ProjectComponent } from './portfolio/project/project.component';
+import { AppComponent } from './app.component';
+import { CoverLetterComponent } from './cover-letter/cover-letter.component';
+import { GalleryFilterBoxComponent } from './portfolio/gallery/gallery-filter-box/gallery-filter-box.component';
+import { GalleryGridArea } from './portfolio/gallery/gallery-grid-area/gallery-grid-area.component';
+import { GalleryComponent } from './portfolio/gallery/gallery.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ProjectLinksComponent } from './portfolio/project/project-links/project-links.component';
 import { ProjectTagsComponent } from './portfolio/project/project-tags/project-tags.component';
+import { ProjectComponent } from './portfolio/project/project.component';
+import { ResumeComponent } from './resume/resume.component';
+import { FooterComponent } from './site/footer/footer.component';
+import { HeaderComponent } from './site/header/header.component';
+import { NavComponent } from './site/nav/nav.component';
 import { NotFoundComponent } from './site/not-found/not-found.component';
-import { GalleryFilterBoxComponent } from './portfolio/gallery/gallery-filter-box/gallery-filter-box.component';
-import { CoverLetterComponent } from './cover-letter/cover-letter.component';
-import { DotNetDeveloperComponent } from './resume/dot-net-developer/dot-net-developer.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +36,6 @@ import { DotNetDeveloperComponent } from './resume/dot-net-developer/dot-net-dev
     NotFoundComponent,
     GalleryFilterBoxComponent,
     CoverLetterComponent,
-    DotNetDeveloperComponent,
   ],
   imports: [
     BrowserModule,

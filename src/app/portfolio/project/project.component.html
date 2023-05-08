@@ -1,6 +1,4 @@
-<a class="btn btn-outline-secondary" routerLink="/portfolio"
-  >Return To Portfolio</a
->
+<a class="btn btn-outline-secondary" routerLink="/portfolio">Return To Portfolio</a>
 <div *ngIf="projectLoadError">
   <p><b>Error</b> An error occured while loading the project.</p>
 </div>
@@ -11,11 +9,8 @@
     <time datetime="project.dateRange">{{ project.dateRangeDescription }}</time>
   </header>
 
-  <img
-    src="{{ getProjectImagePath() }}"
-    class="img-fluid rounded mb-3"
-    alt="An image showing some aspect of {{ project.title }}."
-  />
+  <img src="{{ getProjectImagePath() }}" class="img-fluid rounded mb-3"
+    alt="An image showing some aspect of {{ project.title }}." />
 
   <project-links *ngIf="project.links" [links]="project.links!"></project-links>
 
