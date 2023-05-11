@@ -1,15 +1,18 @@
 article {
   font-family: "Roboto Mono", monospace;
   text-align: justify;
-  font-size: 14pt;
   margin-top: 28pt;
+}
+
+* {
+  font-size: 12pt;
 }
 
 section#receiving-address {
   margin-bottom: 56pt;
 }
 
-section#receiving-address > p {
+section#receiving-address>p {
   line-height: 7pt;
 }
 

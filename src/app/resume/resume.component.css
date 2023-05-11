@@ -146,11 +146,14 @@ print {
 
   section#objective>dl>dt:after {
     content: ";";
+    padding-left: 0.025rem;
+
   }
 
   section#objective>dl>dd {
     text-align: justify;
     grid-row: 2;
+    font-size: 0.8rem;
   }
 
   section#objective>dl>dd:after {
