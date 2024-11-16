@@ -1,0 +1,131 @@
+﻿@media print {
+}
+
+@media screen {
+    li.personal-website-link {
+        display: none;
+    }
+
+    .list-contact-item:nth-last-child(2)::after {
+        display: none;
+    }
+}
+
+@media screen, print {
+    header {
+        border-bottom: 1px solid #6e7984;
+        margin-bottom: 1.5em;
+        font-size: 1.125em;
+        font-weight: 600;
+        margin-top: -0.8rem;
+    }
+
+        header h1 {
+            font-size: 4.25rem;
+            font-weight: 50;
+            text-shadow: 1px 1px 0 hsl(0deg 0% 100% / 35%), 0 0.125rem 0.125rem hsl(0deg 0% 0% / 22%);
+        }
+
+    @media (min-width: 0px) {
+        .list-contact {
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+            margin-bottom: 0;
+            border-radius: 0.25rem;
+        }
+
+        .list-contact-item {
+            position: relative;
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #212529;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+        }
+
+            .list-contact-item:first-child {
+                border-top-left-radius: inherit;
+                border-top-right-radius: inherit;
+            }
+
+            .list-contact-item:nth-last-child(2) {
+                border-bottom-right-radius: inherit;
+                border-bottom-left-radius: inherit;
+            }
+
+        .list-contact-item {
+            width: 100%;
+            color: #495057;
+            text-align: inherit;
+        }
+
+            .list-contact-item + .list-contact-item {
+                border-top-width: 0;
+            }
+
+            .list-contact-item > a {
+                display: block;
+            }
+    }
+
+    @media (min-width: 576px) {
+        .list-contact {
+            list-style: none;
+        }
+
+        .list-contact-item {
+            display: inline;
+        }
+
+            .list-contact-item:not(:last-child)::after {
+                content: " |";
+                margin: 0.75rem;
+                font-size: 1em;
+                color: grey;
+            }
+
+            .list-contact-item > a {
+                display: inline;
+            }
+
+        .list-contact {
+            display: initial;
+            flex-direction: initial;
+            padding-left: initial;
+            margin-bottom: initial;
+            border-radius: initial;
+        }
+
+        .list-contact-item {
+            position: initial;
+            display: initial;
+            padding: initial;
+            color: initial;
+            text-decoration: initial;
+            background-color: initial;
+            border: initial;
+        }
+
+            .list-contact-item:first-child {
+                border-top-left-radius: initial;
+                border-top-right-radius: initial;
+            }
+
+            .list-contact-item:last-child {
+                border-bottom-right-radius: initial;
+                border-bottom-left-radius: initial;
+            }
+
+        .list-contact-item {
+            width: initial;
+            color: initial;
+            text-align: initial;
+        }
+
+            .list-contact-item + .list-contact-item {
+                border-top-width: initial;
+            }
+    }
+}

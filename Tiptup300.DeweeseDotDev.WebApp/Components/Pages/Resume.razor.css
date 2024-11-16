@@ -1,0 +1,246 @@
+﻿@media screen {
+    main {
+        font-size: 0.75em;
+    }
+}
+
+@media (min-width: 679px) {
+    section#i-prefer {
+        float: right;
+        margin-right: -3.5rem !important;
+        margin-left: 1rem !important;
+    }
+
+
+    section#objective {
+        flex-direction: row !important;
+    }
+}
+
+section#i-prefer {
+    margin: 0 -5rem;
+    background-color: hsl(0deg 0% 100% / 0%);
+    background-image: linear-gradient(45deg, hsl(-217deg 50% 91% / 95%) 23%, hsl(0deg 63% 100% / 92%));
+    padding: 1.5em;
+    border-radius: 0.5em;
+    box-shadow: 0px 0.25px 0.25rem hsl(0deg 0% 100% / 87%);
+    border-bottom: 0.25rem solid #24284a;
+    filter: invert(1);
+    padding-bottom: 0;
+    margin: 0;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+
+    section#i-prefer h2 {
+        font-weight: 1000;
+        font-size: 1.75rem;
+    }
+
+    section#i-prefer ul {
+        list-style: none;
+        padding-left: 0;
+        margin-left: 0.75rem;
+    }
+
+        section#i-prefer ul li {
+            margin-bottom: 0.25em;
+            /* display: grid; */
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
+
+@media print {
+    main {
+        font-size: 12pt;
+    }
+
+    section {
+        /* page-break-inside: avoid; */
+    }
+}
+
+@media screen, print {
+    /* Period */
+
+    .period,
+    time {
+        margin: 0 0.25rem;
+        display: inline-block;
+        font-size: smaller;
+        vertical-align: super;
+    }
+
+        .period:before,
+        time:before {
+            content: "\2768";
+            margin-right: 0.0625rem;
+        }
+
+        .period:after,
+        time:after {
+            content: "\2769";
+            margin-left: 0.0625rem;
+        }
+
+    /* Section */
+
+    section > h2 {
+        font-size: 1.75em;
+        margin-bottom: 0.75rem;
+    }
+
+    section > dl,
+    section > ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+        section > dl > dt {
+            font-size: 1em;
+            display: inline;
+            font-weight: 600;
+            line-height: normal;
+            margin: 0;
+        }
+
+        section > dl > dd {
+            display: inline;
+        }
+
+            section > dl > dd:after {
+                content: "";
+                display: block;
+            }
+
+            section > dl > dd > dl,
+            section > dl > dd > dl > dd {
+                display: inline;
+            }
+
+                section > dl > dd > dl > dt {
+                    display: none;
+                }
+
+    section > ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+
+
+    /* Objective */
+    section#objective {
+        display: flex;
+        gap: 0.5rem 2.5rem;
+        flex-direction: column;
+    }
+
+
+    section#objective > div {
+        text-align: justify;
+        grid-row: 2;
+        font-size: 0.8rem;
+    }
+
+    section#objective > div > h3 {
+        font-size: 1rem;
+        display: block;
+        font-weight: 600;
+        line-height: normal;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Skills */
+    section#skills > dl {
+    }
+
+        section#skills > dl > dd {
+            margin-bottom: 1rem;
+        }
+
+        section#skills > dl > dt:after {
+            content: ":";
+        }
+
+        section#skills > dl > dd:after {
+            margin-bottom: 0.5rem;
+        }
+
+        section#skills > dl > dd > ul {
+            list-style: none;
+            display: inline;
+            padding-left: 0.25rem;
+        }
+
+            section#skills > dl > dd > ul > li {
+                display: inline;
+            }
+
+                section#skills > dl > dd > ul > li:not(:last-child)::after {
+                    content: ", ";
+                }
+
+    /* Work Experience */
+
+    section#work-experience > dl > dd {
+        margin-bottom: 1rem;
+    }
+
+    section#work-experience dd.title:before {
+        content: "\2014";
+        margin: 0 0.25rem;
+    }
+
+    section#work-experience dd.duties > ul {
+        padding-left: 0rem;
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+        section#work-experience dd.duties > ul:first-child {
+            margin-top: 0.25rem;
+        }
+
+        section#work-experience dd.duties > ul > li {
+            margin-bottom: 0.25rem;
+        }
+
+            section#work-experience dd.duties > ul > li > ul {
+                padding-left: 0rem;
+                padding-left: 1.5rem;
+            }
+
+                section#work-experience dd.duties > ul > li > ul > li {
+                    margin-bottom: 0;
+                }
+
+                section#work-experience dd.duties > ul > li > ul:last-child {
+                    margin-bottom: 0.25rem;
+                }
+
+    /* Education */
+    section#education dd.certifications > ul {
+        list-style: none;
+        padding-left: 0;
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+        section#education dd.certifications > ul > li {
+            margin-bottom: 0.125rem;
+        }
+
+    section#education dd.certifications.high-school::before {
+        content: "\2014";
+        margin: 0 0.25rem;
+    }
+
+    /* Accomplishments */
+    section#accomplishments > ul > li {
+        margin-bottom: 0.5rem;
+    }
+}

@@ -1,0 +1,41 @@
+﻿@media print {
+    div.main-container {
+        width: unset !important;
+        min-width: unset !important;
+        max-width: unset !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+@media screen {
+    ::ng-deep .ng-fa-icon {
+        margin: 0.25rem;
+        font-size: 1em;
+    }
+
+    @media (min-width: 0px) {
+        .fill {
+            min-height: calc(100vh - 6.6rem);
+        }
+    }
+
+    @media (min-width: 576px) {
+        .fill {
+            min-height: calc(100vh - 7.1rem);
+        }
+    }
+
+    @media (min-width: 768px) {
+        .fill {
+            min-height: calc(100vh - 9.1rem);
+        }
+    }
+
+    .main-container {
+        background: linear-gradient(169deg, white 15%, #f8f9fa 67%);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        background-color: #f8f9fa !important;
+        margin-top: 1rem !important;
+    }
+}

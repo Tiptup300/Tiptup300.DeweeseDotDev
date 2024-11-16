@@ -1,0 +1,27 @@
+﻿<Tiptup300.DeweeseDotDev.WebApp.Components.Site.Nav />
+<div class="
+    container container-small
+    main-container
+    col-print-12
+    p-lg-5
+    pl-4
+    pr-4
+    pt-1
+    pb-4
+    rounded
+    mt-2 mt-sm-3 mt-md-5
+    mb-1
+    fill
+  ">
+    <Tiptup300.DeweeseDotDev.WebApp.Components.Site.Header />
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>
+           <Tiptup300.DeweeseDotDev.WebApp.Components.Site.NotFound />
+        </NotFound>
+    </Router>
+</div>
+<Tiptup300.DeweeseDotDev.WebApp.Components.Site.Footer />
