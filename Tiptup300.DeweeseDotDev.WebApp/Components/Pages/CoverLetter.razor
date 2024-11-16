@@ -1,0 +1,126 @@
+﻿@page "/cover-letter"
+
+<form class="no-print row">
+    <h2 class="col-12">Configuration</h2>
+    <section class="col-6">
+        <h3>Business Details</h3>
+        <div class="form-group">
+            <label for="business-name">Business Name</label>
+            <input type="text" class="form-control" id="business-name" @bind="businessName" @bind:event="oninput" />
+        </div>
+        @if (!string.IsNullOrEmpty(businessName))
+        {
+            <div class="form-group">
+                <label for="business-address-line">Business Address Line</label>
+                <input type="text" class="form-control" id="business-address-line" @bind="businessAddressLine" @bind:event="oninput" />
+            </div>
+
+        }
+        @if (!string.IsNullOrEmpty(businessAddressLine)) 
+        {
+            <div class="form-group">
+                <label for="business-city">Business City</label>
+                <input type="text"class="form-control" id="business-city" @bind="businessCity" @bind:event="oninput" />
+            </div>
+        }
+    </section>
+    <section class="col-6">
+        <h3>Letter Details</h3>
+        <div class="form-group">
+            <label for="job-title">Job Title</label>
+            <input type="text" class="form-control" id="job-title"  @bind="jobTitle" @bind:event="oninput" />
+        </div>
+        @if (!string.IsNullOrEmpty(jobTitle))
+        {
+            <div class="form-group">
+                <label for="heard-about">Posted On</label>
+                <input type="text" class="form-control" id="heard-about" @bind="heardAbout" @bind:event="oninput"/>
+            </div>
+        }
+        @if (!string.IsNullOrEmpty(heardAbout))
+        {
+            <div class="form-group">
+                <label for="jobReferenceLink">Job Reference Link</label>
+                <input type="text" class="form-control" id="jobReferenceLink" @bind="jobReferenceLink" @bind:event="oninput" />
+            </div>
+        }
+       
+    </section>
+    <a class="btn btn-primary col-12" @onclick="Print">Print</a>
+</form>
+
+<article>
+    <p id="date">@DateTime.Now.ToString("D")</p>
+
+    <section id="receiving-address">
+        <p>@(!string.IsNullOrEmpty(businessName) ? businessName : "BUSINESS NAME")</p>
+        <p>@(!string.IsNullOrEmpty(businessAddressLine) ? businessAddressLine : "BUSINESS ADDRESS LINE")</p>
+        <p>@(!string.IsNullOrEmpty(businessCity) ? businessCity : "BUSINESS CITY")</p>
+    </section>
+
+    <p id="greeting">To Whom It May Concern,</p>
+
+    <p>
+        @if (!string.IsNullOrEmpty(jobTitle) && !string.IsNullOrEmpty(heardAbout))
+        {
+            <span>
+                <span>
+                    Hello, I’m writing to you about the
+                    @(jobTitle) position posted on @(heardAbout).
+                </span>
+                @if (!string.IsNullOrEmpty(jobReferenceLink))
+                {
+                    <span> (<a href="@(jobReferenceLink)">link</a>)</span>
+                }
+            </span>
+        }else{
+            <span>
+                Hello, I’m writing to you about a software programming position if
+                available.
+            </span>
+        }
+        
+        I am an experienced programmer who has been programming since 2003. My focus
+        of programming has been object-oriented business applications, primarily in
+        C#, but I’m very eager to work on many new types of projects in different
+        languages and environments. I’m a professional and a hard worker whose
+        priority is to make quality applications that both meets & exceeds the
+        client’s needs.
+    </p>
+
+    <p>
+        My current job is at the Greater Altoona Career & Technology Center Computer
+        Consortium. I work with local school districts providing support for
+        business applications, developing processes, and programming applications to
+        meet the needs of yearly financial & student data processes. Within the last
+        year I developed an aggregation, bidding, & purchasing application which
+        replaced legacy applications and infrastructures saving the company over
+        $20,000 & over $16,000 annually.
+    </p>
+
+    <p>
+        In addition to the bidding system, I’ve also implemented applications to
+        automate the process of taking student photos, & archiving legacy business
+        data. I’ve also implemented various large scale SQL processes such as
+        generating back-to-school census forms, BMI notification letters for
+        parents, & generating honor-roll reports.
+    </p>
+
+    <p>
+        This past year I have been working hard to improve & expand my abilities,
+        reading programming books, listening to conference talks, programming in
+        unfamiliar programming environments, finding places for self-growth.
+    </p>
+
+    <p>
+        I feel as though I would be a valuable asset to your company. Please view my
+        attached resume, if you would prefer a web application, please visit my
+        personal website deweese.dev for my most up-to-date information.
+    </p>
+
+    <p>Thank you for your time today,</p>
+
+    <p>-Matthew Deweese</p>
+
+    <p>PS: References are available upon request.</p>
+</article>

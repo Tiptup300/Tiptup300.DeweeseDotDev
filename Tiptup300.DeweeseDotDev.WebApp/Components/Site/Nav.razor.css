@@ -1,36 +1,41 @@
-﻿nav {
+﻿a, a:hover, a:focus, a:visited {
+    text-decoration: none !important;
+}
+
+nav {
     font-size: 0.75em;
     padding: 0.25rem 0.125rem;
 }
 
-    nav ul {
-        justify-content: flex-end;
-        flex-direction: row;
-        margin-bottom: 0;
-        display: flex;
-        padding-left: 0;
-        list-style: none;
-        margin-top: 0;
-    }
+nav ul {
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-bottom: 0;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+}
 
-        nav ul li {
-            padding: 0rem;
-            background-color: lightgray;
-            margin: 0 0.125rem;
-            border-radius: 0.25rem;
-            line-height: 1rem;
-            padding-right: 0.25rem;
-            transition: cubic-bezier(0.16, 0.81, 1, 0.29) background-color 1s;
-        }
+nav ul li {
+    padding: 0rem;
+    background-color: #c3c3c3;
+    margin: 0 0.125rem;
+    border-radius: 0.25rem;
+    line-height: 1rem;
+    padding-right: 0.25rem;
+    transition: cubic-bezier(0.02, 0.93, 0.46, 0.86) background-color 1s;
+}
 
-            nav ul li a {
-                color: rgba(0,0,0,.5);
-                padding: 0.5rem 1rem;
-                padding-right: 0.5rem;
-                padding-left: 0.5rem;
-                display: block;
-            }
+nav ul li a {
+    color: rgba(0,0,0,.5);
+    padding: 0.5rem 1rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    display: block;
+    font-size: 0.75rem;
+}
 
-            nav ul li:hover {
-                background-color: darkgray;
-            }
+nav ul li:hover {
+    background-color: #939393;
+}

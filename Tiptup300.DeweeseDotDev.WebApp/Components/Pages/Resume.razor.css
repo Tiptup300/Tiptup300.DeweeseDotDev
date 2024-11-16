@@ -12,7 +12,7 @@
     }
 
 
-    section#objective {
+    section#core-qualities {
         flex-direction: row !important;
     }
 }
@@ -132,30 +132,48 @@ section#i-prefer {
 
 
 
-    /* Objective */
-    section#objective {
+    /* Core Qualities */
+    section#core-qualities {
         display: flex;
         gap: 0.5rem 2.5rem;
         flex-direction: column;
+        margin: 1rem 0;
     }
 
 
-    section#objective > div {
-        text-align: justify;
-        grid-row: 2;
-        font-size: 0.8rem;
-    }
+        section#core-qualities > div {
+            text-align: justify;
+            grid-row: 2;
+            font-size: 0.8rem;
+            line-height: 1.2;
+            color: hsl(0 4% 27% / 1);
+            /* font-style: italic; */
+        }
 
-    section#objective > div > h3 {
-        font-size: 1rem;
-        display: block;
-        font-weight: 600;
-        line-height: normal;
-        margin-bottom: 0.25rem;
-    }
+            section#core-qualities > div > h3 {
+                font-size: 1rem;
+                display: block;
+                font-weight: 600;
+                line-height: 2;
+                /* margin-bottom: 0.75rem; */
+                /* background-color: hsl(330 54% 21% / 1); */
+                /* color: white; */
+                /* font-weight: bold; */
+                /* padding: 0; */
+                /* display: inline; */
+                /* padding: 0 0.5rem; */
+                border-radius: 0.125rem;
+                /* border: 1px solid hsl(329 3% 77% / 1); */
+                /* background: linear-gradient(0deg, hsl(330 12% 87% / 1), hsl(333 68% 78% / 1)); */
+                /* box-shadow: 5px 1px 1px black; */
+            }
+
+        section#core-qualities p {
+            font-size: 0.8rem;
+        }
 
     /* Skills */
-    section#skills > dl {
+                section #skills > dl {
     }
 
         section#skills > dl > dd {
