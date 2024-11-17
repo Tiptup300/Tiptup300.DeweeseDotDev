@@ -1,5 +1,7 @@
-﻿<Tiptup300.DeweeseDotDev.WebApp.Components.Site.Nav />
-<div class="
+﻿@inject IJSRuntime JS
+
+<Tiptup300.DeweeseDotDev.WebApp.Components.Site.Nav />
+<div id="main-container" class="
     container container-small
     main-container
     col-print-12
@@ -12,15 +14,24 @@
     mt-2 mt-sm-3 mt-md-5
     mb-1
     fill
-  ">
+">
     <Tiptup300.DeweeseDotDev.WebApp.Components.Site.Header />
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
             <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         </Found>
         <NotFound>
-           <Tiptup300.DeweeseDotDev.WebApp.Components.Site.NotFound />
+            <Tiptup300.DeweeseDotDev.WebApp.Components.Site.NotFound />
         </NotFound>
     </Router>
 </div>
 <Tiptup300.DeweeseDotDev.WebApp.Components.Site.Footer />
+
+@code 
+{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await Task.Delay(10);
+        await JS.InvokeVoidAsync("unblurMainContainer");
+    }
+}

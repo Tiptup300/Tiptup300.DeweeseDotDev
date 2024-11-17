@@ -21,7 +21,7 @@ namespace Tiptup300.DeweeseDotDev.WebApp.Components.Pages
 
       private void Print()
       {
-         _jsRuntime.InvokeVoidAsync("window.print");
+         _jsRuntime.InvokeVoidAsync("window.print").GetAwaiter().GetResult();
       }
 
    }

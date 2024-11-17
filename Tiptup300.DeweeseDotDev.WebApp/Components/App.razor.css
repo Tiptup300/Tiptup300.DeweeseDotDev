@@ -8,6 +8,11 @@
     }
 }
 
+div.main-container {
+    filter: blur(4px);
+    transition: filter 1s cubic-bezier(0.02, 0.93, 0.46, 0.86);
+}
+
 @media screen {
     ::ng-deep .ng-fa-icon {
         margin: 0.25rem;

@@ -1,20 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--
-
-//============================================//
-//  A SPECIAL MESSAGE FROM index.html
-//============================================//
-
-//  ------------------------------------------
-
-    Hello there,
-
-    I hope you're doing well today.
-
-//  ------------------------------------------
-
--->
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,9 +29,14 @@
     <!-- webmanifest? no idea. TODO()-->
     <link href="manifest.webmanifest" rel="manifest" />
 
-
-
     <link rel="apple-touch-icon" sizes="64x64" href="assets/face.png" />
+
+    <script>
+        window.unblurMainContainer = () => {
+            document.getElementById("main-container").classList.add("unblur")
+        };
+    </script>
+
 </head>
 
 <body>
@@ -55,14 +45,17 @@
     <!-- APP START-->
     <div id="app">
 
-        <!-- loading progress-->
-        <div>
-            <svg class="loading-progress">
-                <circle r="40%" cx="50%" cy="50%" />
-                <circle r="40%" cx="50%" cy="50%" />
-            </svg>
-            <div class="loading-progress-text"></div>
+        <!-- loading progress START-->
+        <div id="loading">
+            <div class="load-circle">
+                <svg class="loading-progress">
+                    <circle r="40%" cx="50%" cy="50%" />
+                    <circle r="40%" cx="50%" cy="50%" />
+                </svg>
+            </div>
         </div>
+        <!-- loading progress END-->
+
     </div>
     <!-- APP END  -->
     <!-- ERROR START-->
@@ -76,50 +69,47 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
     <!-- BLAZOR BOILERPLATE END  -->
-
-</body>
-
-<!-- META DATA START -->
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "Person",
-      "name": "Matthew Deweese",
-      "url": "http://deweese.dev/",
-      "image": "http://deweese.dev/img/site-thumbnail.jpg",
-      "sameAs": [
-        "https://www.linkedin.com/in/matthew-deweese-31b302b7/",
-        "https://github.com/Tiptup300/",
-        "http://deweese.dev/"
-      ]
-    }
-</script>
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://deweese.dev/index.html"
-      },
-      "headline": "Matthew Deweese - My Resume",
-      "description": "This is the resume for the computer programmer Matthew Deweese. This is also his personal website. Matthew Deweese has been programming since 2003. He is experienced, professional, & driven.",
-      "image": "http://deweese.dev/img/site-thumbnail.jpg",
-      "author": {
-        "@type": "Person",
-        "name": "Matthew Deweese"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "",
-        "logo": {
-          "@type": "ImageObject",
-          "url": ""
+    <!-- META DATA START -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "Person",
+          "name": "Matthew Deweese",
+          "url": "http://deweese.dev/",
+          "image": "http://deweese.dev/img/site-thumbnail.jpg",
+          "sameAs": [
+            "https://www.linkedin.com/in/matthew-deweese-31b302b7/",
+            "https://github.com/Tiptup300/",
+            "http://deweese.dev/"
+          ]
         }
-      },
-      "datePublished": "2021-07-19"
-    }
-</script>
-<!-- META DATA END  -->
-
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http://deweese.dev/index.html"
+          },
+          "headline": "Matthew Deweese - My Resume",
+          "description": "This is the resume for the computer programmer Matthew Deweese. This is also his personal website. Matthew Deweese has been programming since 2003. He is experienced, professional, & driven.",
+          "image": "http://deweese.dev/img/site-thumbnail.jpg",
+          "author": {
+            "@type": "Person",
+            "name": "Matthew Deweese"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "",
+            "logo": {
+              "@type": "ImageObject",
+              "url": ""
+            }
+          },
+          "datePublished": "2021-07-19"
+        }
+    </script>
+    <!-- META DATA END  -->
+</body>
 </html>

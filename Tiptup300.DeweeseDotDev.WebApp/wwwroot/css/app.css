@@ -38,10 +38,13 @@ section p, section dl {
     box-shadow: 0 0px 12rem 0 black;
 }
 
+.unblur {
+    filter: blur(0px) !important;
+}
 
 @media screen {
     body {
-        background-color: #270817;
+        background-color: #270817 !important;
         background-image: linear-gradient(#6e7984,#270817);
         background-repeat: no-repeat;
     }
