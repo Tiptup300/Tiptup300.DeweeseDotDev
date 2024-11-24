@@ -18,7 +18,7 @@ jobs:
     - name: Publish
       run: dotnet publish Tiptup300.DeweeseDotDev.WebApp/Tiptup300.DeweeseDotDev.WebApp.csproj -c Release -o release --nologo
     - name: Change base href in index.html
-      run: sed -i 's/<base href="\/" \/>/<base href="\/https:\/\/deweese.dev\/\/" \/>/g' release/wwwroot/index.html
+      run: sed -i 's/<base href="\/" \/>/<base href="https:\/\/deweese.dev\/" \/>/g' release/wwwroot/index.html
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
     - name: Commit wwwroot to GitHub Pages
