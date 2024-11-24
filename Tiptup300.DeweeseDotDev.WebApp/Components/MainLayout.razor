@@ -1,3 +1,31 @@
 ﻿@inherits LayoutComponentBase
+@inject IJSRuntime JS
 
-@Body
+<Nav />
+<div id="main-container" class="
+    container container-small
+    main-container
+    col-print-12
+    p-lg-5
+    pl-4
+    pr-4
+    pt-1
+    pb-4
+    rounded
+    mt-2 mt-sm-3 mt-md-5
+    mb-1
+    fill
+">
+    <Header />
+    @Body
+</div>
+<Footer />
+
+@code
+{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await Task.Delay(10);
+        await JS.InvokeVoidAsync("unblurMainContainer");
+    }
+}
