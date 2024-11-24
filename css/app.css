@@ -1,0 +1,89 @@
+﻿@media print {
+    body {
+        color: black !important;
+    }
+
+    body {
+        padding: 0;
+        padding-top: 2rem;
+        min-width: unset !important;
+    }
+
+    .text-dark {
+        color: black !important;
+    }
+
+    .no-print {
+        display: none;
+    }
+}
+
+section p, section dl {
+    font-size: 0.9rem;
+}
+
+
+
+#app:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(13rem + 3px);
+    background-color: #270817;
+    z-index: -5;
+    border-bottom: 1px solid hsl(0deg 0% 100% / 30%);
+    background-image: linear-gradient(54deg, #313339, transparent);
+    box-shadow: 0 0px 12rem 0 black;
+}
+
+.unblur {
+    filter: blur(0px) !important;
+    opacity: 1 !important;
+}
+
+@media screen {
+    body {
+        background-color: #270817 !important;
+        background-image: linear-gradient(#6e7984,#270817);
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen, print {
+    body {
+        font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+    }
+
+    .display-none {
+        display: none;
+    }
+
+    .ng-fa-icon {
+        margin: 0.25rem;
+        font-size: 1em;
+    }
+
+    a.link-plain {
+        text-decoration: none;
+    }
+
+    .container-small {
+        max-width: calc(100% - 1rem);
+        /* transition: width 2s cubic-bezier(0.16, 0.81, 1, 0.29); */
+    }
+
+    @media (min-width: 576px) {
+        .container-small {
+            width: 800px;
+        }
+    }
+
+
+    @media (min-width: 992px) {
+        .container-small {
+            width: 1100px;
+        }
+    }
+}

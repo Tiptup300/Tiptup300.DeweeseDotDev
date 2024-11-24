@@ -1,0 +1,17 @@
+{
+  "name": "Matthew Deweese - My Resume",
+  "short_name": "Matthew Deweese",
+  "id": "./",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#280a19",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "assets/face.png.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    }
+  ]
+}
