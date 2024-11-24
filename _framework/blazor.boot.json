@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Tiptup300.DeweeseDotDev.WebApp",
   "resources": {
-    "hash": "sha256-BtePF0KGmXBit26hXIMjvoaWZqS2jMbwPiGbMqApgws=",
+    "hash": "sha256-PdpVdc7UBROE8Uk4APAZv5hiNV2BWKGcS9t1jXfFUPs=",
     "fingerprinting": {
       "Blazorise.Icons.FontAwesome.6ycm3hzghv.wasm": "Blazorise.Icons.FontAwesome.wasm",
       "Blazorise.Licensing.5q2r77toij.wasm": "Blazorise.Licensing.wasm",
@@ -54,7 +54,7 @@
       "System.Text.RegularExpressions.sxw6146usn.wasm": "System.Text.RegularExpressions.wasm",
       "System.Threading.86bdawey9w.wasm": "System.Threading.wasm",
       "System.6bp5k9v1ih.wasm": "System.wasm",
-      "Tiptup300.DeweeseDotDev.WebApp.b0evqkkz8b.wasm": "Tiptup300.DeweeseDotDev.WebApp.wasm",
+      "Tiptup300.DeweeseDotDev.WebApp.lzqamd1qil.wasm": "Tiptup300.DeweeseDotDev.WebApp.wasm",
       "dotnet.native.ann9bewb11.js": "dotnet.native.js",
       "dotnet.native.gf36etqif3.wasm": "dotnet.native.wasm",
       "dotnet.js": "dotnet.js",
@@ -131,7 +131,7 @@
       "System.Text.RegularExpressions.sxw6146usn.wasm": "sha256-wAI5V1ZNIsPg+8t3mb4g750LSoIVCE4My7cuUbC8e3E=",
       "System.Threading.86bdawey9w.wasm": "sha256-MFzhvscwoz2nkFYkFdmAfAeI4Mg91l3qmrkIJHzUjnw=",
       "System.6bp5k9v1ih.wasm": "sha256-nmhUPBjB8ZbEN0U5j2acgnW4fkbSYlov7U3e30Lsp8A=",
-      "Tiptup300.DeweeseDotDev.WebApp.b0evqkkz8b.wasm": "sha256-q4L5xUi90YF4wWwba8gJDiiF//trHQezctcMe5c3cD4="
+      "Tiptup300.DeweeseDotDev.WebApp.lzqamd1qil.wasm": "sha256-IWE9sfY3kKRYv+40NuD8eCizKvHogBBmrrt0a9fD958="
     }
   },
   "cacheBootResources": true,

@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "UMBPyT+5",
+  "version": "ti4A4QH4",
   "assets": [
     {
       "hash": "sha256-bVh/RYJsE1VYAJArS8nLXf0ziaxx+81U24UUjUnWboc=",
@@ -470,11 +470,11 @@ self.assetsManifest = {
       "url": "_framework/System.Threading.86bdawey9w.wasm"
     },
     {
-      "hash": "sha256-q4L5xUi90YF4wWwba8gJDiiF//trHQezctcMe5c3cD4=",
-      "url": "_framework/Tiptup300.DeweeseDotDev.WebApp.b0evqkkz8b.wasm"
+      "hash": "sha256-IWE9sfY3kKRYv+40NuD8eCizKvHogBBmrrt0a9fD958=",
+      "url": "_framework/Tiptup300.DeweeseDotDev.WebApp.lzqamd1qil.wasm"
     },
     {
-      "hash": "sha256-LHtiOS7gvl6qZQ55f8/cRbVFsrZAF4X2sXsnQxI9kCY=",
+      "hash": "sha256-8T99xu1IbaDsdsZ7khyGaU2W3ErCbdkLI4qwFbjrQpQ=",
       "url": "_framework/blazor.boot.json"
     },
     {
