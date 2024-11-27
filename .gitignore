@@ -9,6 +9,7 @@
 # Only exists if Bazel was run
 /bazel-out
 obj/
+bin/
 
 # dependencies
 /node_modules

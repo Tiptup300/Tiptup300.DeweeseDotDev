@@ -1,0 +1,31 @@
+﻿@page "/portfolio"
+@using Tiptup300.DeweeseDotDev.Portfolio.Projects
+@inject Tiptup300.Mediation.IResolver<Tiptup300.DeweeseDotDev.Portfolio.Resolvers.GetProjectsByPagination.Request, Tiptup300.DeweeseDotDev.Portfolio.Resolvers.GetProjectsByPagination.Response> _getProjects
+
+<PageTitle>My Portfoilo</PageTitle>
+
+<h3>portfolio</h3>
+
+@foreach (var project in _projects) {
+    <h4>@project.Title</h4>
+}
+
+@code {
+    private IReadOnlyList<Project> _projects = new Project[0];
+
+    protected override async Task OnInitializedAsync()
+    {
+        try{
+            var response = await _getProjects.ResolveAsync(new DeweeseDotDev.Portfolio.Resolvers.GetProjectsByPagination.Request(
+                PageNumber: 0,
+                PageSize: 10,
+                DeweeseDotDev.Portfolio.Resolvers.GetProjectsByPagination.SortOrder.DateAsc
+            ));
+            _projects = response.Projects;
+        }
+        catch(Exception ex){
+
+        }
+        
+    }
+}

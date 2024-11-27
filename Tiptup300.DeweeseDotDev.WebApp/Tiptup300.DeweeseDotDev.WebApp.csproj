@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\assets\face.gif" />
+    <Content Remove="wwwroot\assets\projects.json" />
     <Content Remove="wwwroot\assets\site-thumbnail.jpg" />
     <Content Remove="wwwroot\favicon.ico" />
   </ItemGroup>
@@ -25,8 +26,14 @@
 
   <ItemGroup>
     <None Include="wwwroot\assets\face.gif" />
+    <None Include="wwwroot\assets\projects.json" />
     <None Include="wwwroot\assets\site-thumbnail.jpg" />
     <None Include="wwwroot\favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client\Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.csproj" />
+    <ProjectReference Include="..\Tiptup300.DeweeseDotDev.Portfolio\Tiptup300.DeweeseDotDev.Portfolio.csproj" />
   </ItemGroup>
 
 </Project>
