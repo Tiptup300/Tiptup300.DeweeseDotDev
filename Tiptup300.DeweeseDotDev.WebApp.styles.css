@@ -1,6 +1,7 @@
 /* /Components/App.razor.rz.scp.css */
+/* /Components/MainLayout.razor.rz.scp.css */
 @media print {
-    div.main-container[b-sxtdci38qf] {
+    div.main-container[b-5lenn8cie0] {
         width: unset !important;
         min-width: unset !important;
         max-width: unset !important;
@@ -9,37 +10,37 @@
     }
 }
 
-div.main-container[b-sxtdci38qf] {
+div.main-container[b-5lenn8cie0] {
     opacity: 0;
     filter: blur(4px);
     transition: opacity 1s cubic-bezier(0.02, 0.93, 0.46, 0.86), filter 1s cubic-bezier(0.02, 0.93, 0.46, 0.86);
 }
 
 @media screen {
-    ::ng-deep .ng-fa-icon[b-sxtdci38qf] {
+    ::ng-deep .ng-fa-icon[b-5lenn8cie0] {
         margin: 0.25rem;
         font-size: 1em;
     }
 
     @media (min-width: 0px) {
-        .fill[b-sxtdci38qf] {
+        .fill[b-5lenn8cie0] {
             min-height: calc(100vh - 6.6rem);
         }
     }
 
     @media (min-width: 576px) {
-        .fill[b-sxtdci38qf] {
+        .fill[b-5lenn8cie0] {
             min-height: calc(100vh - 7.1rem);
         }
     }
 
     @media (min-width: 768px) {
-        .fill[b-sxtdci38qf] {
+        .fill[b-5lenn8cie0] {
             min-height: calc(100vh - 9.1rem);
         }
     }
 
-    .main-container[b-sxtdci38qf] {
+    .main-container[b-5lenn8cie0] {
         background: linear-gradient(169deg, white 15%, #f8f9fa 67%);
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
         background-color: #f8f9fa !important;
@@ -506,23 +507,28 @@ nav ul[b-lvm02n30ct] {
     margin-top: 0;
 }
 
-nav ul li[b-lvm02n30ct] {
-    padding: 0rem;
-    background-color: #c3c3c3;
-    margin: 0 0.125rem;
-    border-radius: 0.25rem;
-    line-height: 1rem;
-    padding-right: 0.25rem;
-    transition: cubic-bezier(0.02, 0.93, 0.46, 0.86) background-color 1s;
-}
+    nav ul li[b-lvm02n30ct] {
+        padding: 0rem;
+        background-color: #c3c3c3;
+        margin: 0 0.125rem;
+        border-radius: 0.25rem;
+        line-height: 1rem;
+        transition: cubic-bezier(0.02, 0.93, 0.46, 0.86) background-color 1s;
+        overflow: hidden;
+    }
 
-nav ul li a[b-lvm02n30ct] {
+nav[b-lvm02n30ct]  ul li a {
     color: rgba(0,0,0,.5);
     padding: 0.5rem 1rem;
-    padding-right: 0.5rem;
+    padding-right: 0.75rem;
     padding-left: 0.5rem;
     display: block;
     font-size: 0.75rem;
+    text-decoration: none;
+}
+
+nav[b-lvm02n30ct]  ul li a.active {
+    background-color: white;
 }
 
 nav ul li:hover[b-lvm02n30ct] {
