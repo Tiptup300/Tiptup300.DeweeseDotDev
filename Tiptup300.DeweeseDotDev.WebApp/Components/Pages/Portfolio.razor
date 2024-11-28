@@ -1,6 +1,6 @@
 ﻿@page "/portfolio"
 @using Tiptup300.DeweeseDotDev.Portfolio.Projects
-@inject Tiptup300.Mediation.IResolver<Tiptup300.DeweeseDotDev.Portfolio.Resolvers.GetProjectsByPagination.Request, Tiptup300.DeweeseDotDev.Portfolio.Resolvers.GetProjectsByPagination.Response> _getProjects
+@inject IMediator Mediator
 
 <PageTitle>My Portfoilo</PageTitle>
 
@@ -16,11 +16,13 @@
     protected override async Task OnInitializedAsync()
     {
         try{
-            var response = await _getProjects.ResolveAsync(new DeweeseDotDev.Portfolio.Resolvers.GetProjectsByPagination.Request(
-                PageNumber: 0,
-                PageSize: 10,
-                DeweeseDotDev.Portfolio.Resolvers.GetProjectsByPagination.SortOrder.DateAsc
-            ));
+            var response = await Mediator.Resolve<GetProjectsByPagination.Request, GetProjectsByPagination.Response>(
+                new GetProjectsByPagination.Request(
+                    PageNumber: 0,
+                    PageSize: 10,
+                    DeweeseDotDev.Portfolio.Resolvers.GetProjectsByPagination.SortOrder.DateAsc
+                )
+            );
             _projects = response.Projects;
         }
         catch(Exception ex){

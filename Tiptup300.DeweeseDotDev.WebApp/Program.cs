@@ -16,8 +16,18 @@ public class Program
       builder.RootComponents.Add<HeadOutlet>("head::after");
 
       builder.Services
+
          .AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) })
+
          .AddScoped<IProjectRepository, ProjectRepository>()
+
+         .AddScoped<IMediator, Mediator>()
+
+         .AddScoped<ResolverDescriptorCollection>(sp => new ResolverDescriptorCollection([
+            sp.GetRequiredService<IResolver<GetProjectByProjectId.Request, GetProjectByProjectId.Response>>(),
+            sp.GetRequiredService<IResolver<GetProjectsByPagination.Request, GetProjectsByPagination.Response>>(),
+         ]))
+
          .AddScoped<IResolver<GetProjectByProjectId.Request, GetProjectByProjectId.Response>, GetProjectByProjectIdResolver>()
          .AddScoped<IResolver<GetProjectsByPagination.Request, GetProjectsByPagination.Response>, GetProjectsByPaginationResolver>();
 

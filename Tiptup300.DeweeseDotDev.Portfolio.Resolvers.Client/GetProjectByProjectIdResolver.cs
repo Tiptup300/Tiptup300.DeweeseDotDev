@@ -4,23 +4,22 @@ namespace Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client;
 
 public class GetProjectByProjectIdResolver : IResolver<GetProjectByProjectId.Request, GetProjectByProjectId.Response>
 {
-   private readonly ProjectRepository _projectRepository;
+   private readonly IProjectRepository _projectRepository;
 
-   public GetProjectByProjectIdResolver(ProjectRepository projectRepository)
+   public GetProjectByProjectIdResolver(IProjectRepository projectRepository)
    {
       _projectRepository = projectRepository;
    }
 
-   public GetProjectByProjectId.Response Resolve(GetProjectByProjectId.Request request)
-      => ResolveAsync(request).GetAwaiter().GetResult();
-
-   public async Task<GetProjectByProjectId.Response> ResolveAsync(GetProjectByProjectId.Request request)
+   public async Task<GetProjectByProjectId.Response> Resolve(GetProjectByProjectId.Request request)
    {
       GetProjectByProjectId.Response output;
 
       var projects = await _projectRepository.GetAllProjects();
+
       var project = projects.FirstOrDefault(x => x.ProjectId == request.ProjectId)
          ?? throw new Exception("Failed to locate project by ProjectId");
+
       output = new GetProjectByProjectId.Response(project);
 
       return output;

@@ -9,6 +9,7 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Tiptup300.DeweeseDotDev.Rea
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5A67FAB2-EFE2-44B2-8F28-31791243339C}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		CNAME = CNAME
 		README.md = README.md

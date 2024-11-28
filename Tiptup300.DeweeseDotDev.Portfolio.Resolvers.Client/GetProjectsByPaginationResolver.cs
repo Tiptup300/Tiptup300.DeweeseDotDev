@@ -15,10 +15,7 @@ public class GetProjectsByPaginationResolver : IResolver<GetProjectsByPagination
       _projectRepository = projectRepository;
    }
 
-   public GetProjectsByPagination.Response Resolve(GetProjectsByPagination.Request request)
-      => ResolveAsync(request).GetAwaiter().GetResult();
-
-   public async Task<GetProjectsByPagination.Response> ResolveAsync(GetProjectsByPagination.Request request)
+   public async Task<GetProjectsByPagination.Response> Resolve(GetProjectsByPagination.Request request)
    {
       GetProjectsByPagination.Response output;
 
@@ -32,14 +29,14 @@ public class GetProjectsByPaginationResolver : IResolver<GetProjectsByPagination
       {
          throw new ArgumentException();
       }
-      var paginatedProjects = await PaginateProjects(projects, pageNumber, pageSize, sortOrder);
+      var paginatedProjects = PaginateProjects(projects, pageNumber, pageSize, sortOrder);
 
       output = new GetProjectsByPagination.Response(paginatedProjects.ToImmutableArray());
 
       return output;
    }
 
-   private async Task<Project[]> PaginateProjects(IEnumerable<Project> projects, int pageNumber, int pageSize, GetProjectsByPagination.SortOrder sortOrder)
+   private Project[] PaginateProjects(IEnumerable<Project> projects, int pageNumber, int pageSize, GetProjectsByPagination.SortOrder sortOrder)
    {
       Project[] output;
 
