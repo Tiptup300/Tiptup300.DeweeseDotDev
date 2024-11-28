@@ -1,5 +1,5 @@
-﻿using System.Text.Json;
-using Tiptup300.DeweeseDotDev.Portfolio.Projects;
+﻿using Tiptup300.DeweeseDotDev.Portfolio.Projects;
+using Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.Json;
 
 namespace Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client;
 
@@ -12,10 +12,12 @@ public class ProjectRepository : IProjectRepository
 {
    private IReadOnlyList<Project>? _projectsCache;
    private readonly HttpClient _httpClient;
+   private IProjectJsonParser _projectJsonParser;
 
-   public ProjectRepository(HttpClient httpClient)
+   public ProjectRepository(HttpClient httpClient, IProjectJsonParser projectJsonParser)
    {
       _httpClient = httpClient;
+      _projectJsonParser = projectJsonParser;
    }
 
    public async Task<IReadOnlyList<Project>> GetAllProjects()
@@ -34,7 +36,7 @@ public class ProjectRepository : IProjectRepository
          var response = await _httpClient.GetAsync("assets/projects.json");
          var responseStr = await response.Content.ReadAsStringAsync();
 
-         output = JsonSerializer.Deserialize<Project[]>(responseStr) ??
+         output = _projectJsonParser.ParseProjects(responseStr) ??
             throw new Exception("Failed to deserialize projects.");
       }
       catch (Exception ex)

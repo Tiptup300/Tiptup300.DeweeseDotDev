@@ -12,22 +12,31 @@ public interface IFigure
    FigureType FigureType { get; }
 }
 
-public record ImageFigure
-(
-   string ImageUri,
-   string Caption,
-   bool IsPrimary,
-   int Width,
-   int Height
-) : IFigure
+public class ImageFigure : IFigure
 {
+   public string Uri { get; }
+   public string Caption { get; }
+   public int Width { get; }
+   public int Height { get; }
+   public bool IsPrimary { get; }
+
+   public ImageFigure(string uri, string caption, int width, int height, bool? isPrimary = null)
+   {
+      Uri = uri;
+      Caption = caption;
+      Width = width;
+      Height = height;
+      IsPrimary = isPrimary ?? false;
+   }
+
    public FigureType FigureType => FigureType.Image;
    public float Ratio => Width / Height;
 }
 
 public record YoutubeFigure
 (
-   string YoutubeUri
+   string Uri,
+   string Caption
 ) : IFigure
 {
    public FigureType FigureType => FigureType.YoutubeVideo;

@@ -6,23 +6,33 @@ public interface IDateRange
    DateTime SortDate { get; }
 }
 
-public class DayBasedDateRange
-(
-   DateTime Start,
-   DateTime End
-) : IDateRange
+public class DayBasedDateRange : IDateRange
 {
+   public DateTime Start { get; }
+   public DateTime End { get; }
+
+   public DayBasedDateRange(DateTime start, DateTime end)
+   {
+      Start = start;
+      End = end;
+   }
+
    public string Description => $"{Start:d} -> {End:d}";
    public DateTime SortDate => Start;
 }
 
-public class YearBasedDateRange
-(
-   int YearStart,
-   int? YearEnd
-) : IDateRange
+public class YearBasedDateRange : IDateRange
 {
-   public string Description => YearEnd.HasValue
+   public int YearStart { get; }
+   public int YearEnd { get; }
+
+   public YearBasedDateRange(int yearStart, int? yearEnd = null)
+   {
+      YearStart = yearStart;
+      YearEnd = yearEnd ?? yearStart;
+   }
+
+   public string Description => YearStart == YearEnd
       ? $"{YearStart}-{YearEnd}"
       : $"{YearStart}";
 
