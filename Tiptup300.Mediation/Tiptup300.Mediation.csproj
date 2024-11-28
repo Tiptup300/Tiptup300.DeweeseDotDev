@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Tiptup300.Mediation\Tiptup300.Mediation.csproj" />
-    <ProjectReference Include="..\Tiptup300\Tiptup300.csproj" />
-  </ItemGroup>
-
 </Project>
