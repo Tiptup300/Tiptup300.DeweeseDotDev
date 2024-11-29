@@ -3,7 +3,7 @@
 @inject IMediator Mediator
 @code {
     [Parameter]
-    public string ProjectId { get; set; }
+    public required string ProjectId { get; set; }
 
     private Project? project;
 
@@ -18,88 +18,91 @@
     }
 }
 
-<!-- Hero Image (Full-width, locked to width, no ratio concern) -->
-@if (project.PrimaryFigure is ImageFigure primaryImageFigure)
+@if (project is not null) 
 {
-    <div class="hero-image mb-4">
-        <img src="@(primaryImageFigure.Uri)" alt="@(primaryImageFigure.Caption)" class="img-fluid w-100 h-100" />
-    </div>
-}
-
-<!----------------------------------------------------->
-<h4 class="mb-3 d-flex justify-content-between align-items-center">
-    @project.Title
-    <a href="/portfolio" class="btn btn-secondary mb-4">
-        <i class="bi bi-arrow-left-circle"></i> Back to Portfolio
-    </a>
-</h4>
-
-
-
-<!-- Project Overview -->
-<div class="row">
-    <div class="col-md-12">
-        <!-- Project Description -->
-        <p class="lead">@((MarkupString)project.Description)</p>
-
-        <!-- Project Tags -->
-        <div class="mb-4">
-            <strong>Technologies Used:</strong>
-            <div>
-                @foreach (var tag in project.Tags)
-                {
-                    <span class="badge bg-info text-dark me-2">@tag</span>
-                }
-            </div>
-        </div>
-
-        <!-- Project Date Range -->
-        <div class="mb-4">
-            <strong>Project Duration:</strong>
-            <p>@project.DateRange.Description</p>
-        </div>
-    </div>
-</div>
-
-<!-- Project Figures (Images/Videos) -->
-<div class="row g-4">
-    @foreach (var figure in project.Figures)
+    <!-- Hero Image (Full-width, locked to width, no ratio concern) -->
+    @if (project?.PrimaryFigure is ImageFigure primaryImageFigure)
     {
-        @if (figure is ImageFigure imageFigure)
-        {
-            <div class="col-md-6 col-lg-4">
-                <div class="figure-container">
-                    <img src="@(imageFigure.Uri)" alt="@(imageFigure.Caption)" class="figure-image" />
+        <div class="hero-image mb-4">
+            <img src="@(primaryImageFigure.Uri)" alt="@(primaryImageFigure.Caption)" class="img-fluid w-100 h-100" />
+        </div>
+    }
+
+    <!----------------------------------------------------->
+    <h4 class="mb-3 d-flex justify-content-between align-items-center">
+        @project?.Title
+        <a href="/portfolio" class="btn btn-secondary mb-4">
+            <i class="bi bi-arrow-left-circle"></i> Back to Portfolio
+        </a>
+    </h4>
+
+
+
+    <!-- Project Overview -->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Project Description -->
+            <p class="lead">@((MarkupString)(project?.Description ?? ""))</p>
+
+            <!-- Project Tags -->
+            <div class="mb-4">
+                <strong>Technologies Used:</strong>
+                <div>
+                    @foreach (var tag in project?.Tags!)
+                    {
+                        <span class="badge bg-info text-dark me-2">@tag</span>
+                    }
                 </div>
             </div>
-        }
-        @if (figure is YoutubeFigure youtubeFigure)
+
+            <!-- Project Date Range -->
+            <div class="mb-4">
+                <strong>Project Duration:</strong>
+                <p>@project?.DateRange.Description</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Figures (Images/Videos) -->
+    <div class="row g-4">
+        @foreach (var figure in project?.Figures!)
         {
-            <div class="col-md-6 col-lg-4">
-                <div class="figure-container">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="@(youtubeFigure.Uri)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            @if (figure is ImageFigure imageFigure)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="figure-container">
+                        <img src="@(imageFigure.Uri)" alt="@(imageFigure.Caption)" class="figure-image" />
                     </div>
                 </div>
-            </div>
-        }
-    }
-</div>
-
-<!-- Project Links (if any) -->
-@if (project.Links.Any())
-{
-    <div class="mt-4">
-        <h5>Related Links</h5>
-        <ul class="list-group list-group-flush">
-            @foreach (var link in project.Links)
-            {
-                <li class="list-group-item">
-                    @(link.Description) (<a href="@link.Uri" target="_blank" class="link-primary">Link</a>)
-                </li>
             }
-        </ul>
+            @if (figure is YoutubeFigure youtubeFigure)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="figure-container">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="@(youtubeFigure.Uri)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
     </div>
+
+    <!-- Project Links (if any) -->
+    @if (project?.Links.Any() ?? false)
+    {
+        <div class="mt-4">
+            <h5>Related Links</h5>
+            <ul class="list-group list-group-flush">
+                @foreach (var link in project?.Links!)
+                {
+                    <li class="list-group-item">
+                        @(link.Description) (<a href="@link.Uri" target="_blank" class="link-primary">Link</a>)
+                    </li>
+                }
+            </ul>
+        </div>
+    }
 }
 
 <!-- Custom Styles -->

@@ -12,22 +12,13 @@ public interface IFigure
    FigureType FigureType { get; }
 }
 
-public class ImageFigure : IFigure
+public class ImageFigure(string uri, string caption, int width, int height, bool? isPrimary = null) : IFigure
 {
-   public string Uri { get; }
-   public string Caption { get; }
-   public int Width { get; }
-   public int Height { get; }
-   public bool IsPrimary { get; }
-
-   public ImageFigure(string uri, string caption, int width, int height, bool? isPrimary = null)
-   {
-      Uri = uri;
-      Caption = caption;
-      Width = width;
-      Height = height;
-      IsPrimary = isPrimary ?? false;
-   }
+   public string Uri { get; } = uri;
+   public string Caption { get; } = caption;
+   public int Width { get; } = width;
+   public int Height { get; } = height;
+   public bool IsPrimary { get; } = isPrimary ?? false;
 
    public FigureType FigureType => FigureType.Image;
    public float Ratio => Width / Height;

@@ -21,42 +21,14 @@
             );
             _projects = response.Projects;
         }
-        catch (Exception ex) { }
+        catch { }
     }
 
     private string getProjectLink(Project project) => $"/portfolio/{project.ProjectId}";
 }
-<style>
-    .card {
-        transition: filter 0.3s ease, background-color 0.3s ease; /* Smooth transitions for filter and background-color */
-    }
-
-        .card:hover {
-            filter: brightness(1.2); /* Increases brightness on hover */
-        }
-
-    .card-body {
-        transition: background-color 0.3s ease; /* Smooth background color transition */
-    }
-
-    .card:hover .card-body {
-        background-color: rgba(0, 0, 0, 0.05); /* Subtle darkening of the card body */
-    }
-
-    .card-img-top {
-        transition: filter 0.3s ease; /* Smooth transition for image brightness */
-    }
-
-    .card:hover .card-img-top {
-        filter: brightness(0.8); /* Slightly darken the image on hover */
-    }
-
-
-</style>
 <PageTitle>My Portfoilo</PageTitle>
 <!------------------------------------------------------------------------------------------------->
 <h3 class="mb-4">Portfolio</h3>
-
 <div class="container">
     <div class="row g-4">
 

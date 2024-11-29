@@ -9,7 +9,8 @@
         if (Uri.TryCreate(youtubeLink, UriKind.Absolute, out var uri))
         {
             var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
-            return query["v"];
+
+            return query["v"] ?? string.Empty;
         }
 
         return string.Empty;
