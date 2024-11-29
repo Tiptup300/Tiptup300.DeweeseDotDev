@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\assets\face.gif" />
+    <Content Remove="wwwroot\assets\portfolio\sperks-menu.jpg" />
     <Content Remove="wwwroot\assets\projects.json" />
     <Content Remove="wwwroot\assets\site-thumbnail.jpg" />
     <Content Remove="wwwroot\favicon.ico" />
@@ -26,6 +27,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\assets\face.gif" />
+    <None Include="wwwroot\assets\portfolio\sperks-menu.jpg" />
     <None Include="wwwroot\assets\projects.json" />
     <None Include="wwwroot\assets\site-thumbnail.jpg" />
     <None Include="wwwroot\favicon.ico" />

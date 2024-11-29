@@ -1,6 +1,14 @@
 ﻿@inherits LayoutComponentBase
 @inject IJSRuntime JS
-
+@code
+{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await Task.Delay(10);
+        await JS.InvokeVoidAsync("unblurMainContainer");
+    }
+}
+<!----------------------------------------------------------------------------------->
 <Nav />
 <div id="main-container" class="
     container container-small
@@ -20,12 +28,3 @@
     @Body
 </div>
 <Footer />
-
-@code
-{
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await Task.Delay(10);
-        await JS.InvokeVoidAsync("unblurMainContainer");
-    }
-}

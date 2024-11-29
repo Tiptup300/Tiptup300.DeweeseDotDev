@@ -1,0 +1,32 @@
+﻿@code {
+    [Parameter]
+    public string YouTubeLink { get; set; } = string.Empty;
+
+    private string VideoId => ExtractVideoId(YouTubeLink);
+
+    private string ExtractVideoId(string youtubeLink)
+    {
+        if (Uri.TryCreate(youtubeLink, UriKind.Absolute, out var uri))
+        {
+            var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+            return query["v"];
+        }
+
+        return string.Empty;
+    }
+}
+<!---------------------------------------------------------------------------->
+@if (!string.IsNullOrEmpty(VideoId))
+{
+    <iframe width="560"
+            height="315"
+            src="https://www.youtube.com/embed/@VideoId"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+}
+else
+{
+    <p>Invalid or missing YouTube video link.</p>
+}

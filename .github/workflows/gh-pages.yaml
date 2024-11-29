@@ -1,28 +1,31 @@
 name: Deploy to GitHub Pages
 on:
-  workflow_dispatch:    
-  push:
-    branches: [ main ]
+   workflow_dispatch:
+   push:
+      branches: [main]
 jobs:
-  deploy-to-github-pages:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        # https://github.com/actions/setup-dotnet#supported-version-syntax
-        dotnet-version: '9.x'
-    - name: Install .NET wasm-tools
-      run: dotnet workload install wasm-tools
-    - name: Publish
-      run: dotnet publish Tiptup300.DeweeseDotDev.WebApp/Tiptup300.DeweeseDotDev.WebApp.csproj -c Release -o release --nologo
-    - name: Change base href in index.html
-      run: sed -i 's/<base href="\/" \/>/<base href="https:\/\/deweese.dev\/" \/>/g' release/wwwroot/index.html
-    - name: Add .nojekyll file
-      run: touch release/wwwroot/.nojekyll
-    - name: Commit wwwroot to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4.6.3
-      with:
-        BRANCH: gh-pages
-        FOLDER: release/wwwroot
+   deploy-to-github-pages:
+      runs-on: ubuntu-latest
+      steps:
+         - uses: actions/checkout@v4
+         - name: Setup .NET
+           uses: actions/setup-dotnet@v4
+           with:
+              # https://github.com/actions/setup-dotnet#supported-version-syntax
+              dotnet-version: "9.x"
+         - name: Install .NET wasm-tools
+           run: dotnet workload install wasm-tools
+         - name: Publish
+           run: dotnet publish Tiptup300.DeweeseDotDev.WebApp/Tiptup300.DeweeseDotDev.WebApp.csproj -c Release -o release --nologo
+         - name: Change base href in index.html
+           run: sed -i 's/<base href="\/" \/>/<base href="https:\/\/deweese.dev\/" \/>/g' release/wwwroot/index.html
+         - name: Copy index.html to 404.html
+           # this allows us to intercept other pages and pass those page requests to the wasm app
+           run: cp release/wwwroot/index.html release/wwwroot/404.html
+         - name: Add .nojekyll file
+           run: touch release/wwwroot/.nojekyll
+         - name: Commit wwwroot to GitHub Pages
+           uses: JamesIves/github-pages-deploy-action@v4.6.3
+           with:
+              BRANCH: gh-pages
+              FOLDER: release/wwwroot

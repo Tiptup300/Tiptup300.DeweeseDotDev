@@ -1,4 +1,18 @@
 ﻿@page "/cover-letter"
+@inject IJSRuntime js
+@code
+{
+    private string? businessName;
+    private string? businessAddressLine;
+    private string? businessCity;
+    private string? jobTitle;
+    private string? heardAbout;
+    private string? jobReferenceLink;
+
+    private void Print() => js.InvokeVoidAsync("window.print").GetAwaiter().GetResult();
+}
+
+<!------------------------------------------------------------------------------------------>
 
 <form class="no-print row">
     <h2 class="col-12">Configuration</h2>

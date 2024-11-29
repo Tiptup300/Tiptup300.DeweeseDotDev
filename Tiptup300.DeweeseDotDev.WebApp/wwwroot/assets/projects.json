@@ -10,7 +10,7 @@
     "Figures": [
       {
         "Type": "ImageFigure",
-        "Uri": "assets/projects/sperks-menu.jpg",
+        "Uri": "assets/portfolio/sperks-menu.jpg",
         "Caption": "This is a mock image of the menu designed in Adobe Photoshop.",
         "Width": 100,
         "Height": 100,
@@ -60,7 +60,7 @@
     "Figures": [
       {
         "Type": "ImageFigure",
-        "Uri": "assets/projects/smw-stuff-dot-com.jpg",
+        "Uri": "assets/portfolio/smw-stuff-dot-com.jpg",
         "Caption": "The logo designed by me using Adobe Photoshop.",
         "Width": 100,
         "Height": 100,
@@ -68,7 +68,7 @@
       },
       {
         "Type": "ImageFigure",
-        "Uri": "assets/projects/smw-stuff-dot-com-2.jpg",
+        "Uri": "assets/portfolio/smw-stuff-dot-com-2.jpg",
         "Caption": "A screen capture of the category listing page for downloadable files.",
         "Width": 100,
         "Height": 100,

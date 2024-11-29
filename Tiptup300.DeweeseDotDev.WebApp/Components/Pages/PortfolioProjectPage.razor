@@ -1,0 +1,139 @@
+﻿@page "/portfolio/{ProjectId}"
+@using Tiptup300.DeweeseDotDev.Portfolio.Projects
+@inject IMediator Mediator
+@code {
+    [Parameter]
+    public string ProjectId { get; set; }
+
+    private Project? project;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var response = await Mediator.Resolve<Tiptup300.DeweeseDotDev.Portfolio.Resolvers.GetProjectByProjectId.Request, Tiptup300.DeweeseDotDev.Portfolio.Resolvers.GetProjectByProjectId.Response>(new GetProjectByProjectId.Request(ProjectId));
+        if(response is null)
+        {
+            return;
+        }
+        project = response.Project;
+    }
+}
+
+<!-- Hero Image (Full-width, locked to width, no ratio concern) -->
+@if (project.PrimaryFigure is ImageFigure primaryImageFigure)
+{
+    <div class="hero-image mb-4">
+        <img src="@(primaryImageFigure.Uri)" alt="@(primaryImageFigure.Caption)" class="img-fluid w-100 h-100" />
+    </div>
+}
+
+<!----------------------------------------------------->
+<h4 class="mb-3 d-flex justify-content-between align-items-center">
+    @project.Title
+    <a href="/portfolio" class="btn btn-secondary mb-4">
+        <i class="bi bi-arrow-left-circle"></i> Back to Portfolio
+    </a>
+</h4>
+
+
+
+<!-- Project Overview -->
+<div class="row">
+    <div class="col-md-12">
+        <!-- Project Description -->
+        <p class="lead">@((MarkupString)project.Description)</p>
+
+        <!-- Project Tags -->
+        <div class="mb-4">
+            <strong>Technologies Used:</strong>
+            <div>
+                @foreach (var tag in project.Tags)
+                {
+                    <span class="badge bg-info text-dark me-2">@tag</span>
+                }
+            </div>
+        </div>
+
+        <!-- Project Date Range -->
+        <div class="mb-4">
+            <strong>Project Duration:</strong>
+            <p>@project.DateRange.Description</p>
+        </div>
+    </div>
+</div>
+
+<!-- Project Figures (Images/Videos) -->
+<div class="row g-4">
+    @foreach (var figure in project.Figures)
+    {
+        @if (figure is ImageFigure imageFigure)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="figure-container">
+                    <img src="@(imageFigure.Uri)" alt="@(imageFigure.Caption)" class="figure-image" />
+                </div>
+            </div>
+        }
+        @if (figure is YoutubeFigure youtubeFigure)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="figure-container">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="@(youtubeFigure.Uri)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<!-- Project Links (if any) -->
+@if (project.Links.Any())
+{
+    <div class="mt-4">
+        <h5>Related Links</h5>
+        <ul class="list-group list-group-flush">
+            @foreach (var link in project.Links)
+            {
+                <li class="list-group-item">
+                    @(link.Description) (<a href="@link.Uri" target="_blank" class="link-primary">Link</a>)
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+<!-- Custom Styles -->
+<style>
+    .hero-image {
+        width: 100%;
+        overflow: hidden;
+    }
+
+        .hero-image img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.375rem; /* Optional for rounded corners */
+        }
+
+    .figure-container {
+        position: relative;
+        width: 100%;
+        height: 200px; /* Ensuring consistent height */
+        overflow: hidden;
+    }
+
+        .figure-container img,
+        .figure-container iframe {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+    /* Flexbox utility to align title and back button */
+    .d-flex.justify-content-between {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+</style>

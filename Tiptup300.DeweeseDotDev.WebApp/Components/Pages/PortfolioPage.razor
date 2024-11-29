@@ -1,0 +1,95 @@
+﻿
+@page "/portfolio"
+@using Tiptup300.DeweeseDotDev.Portfolio.Projects
+@inject IMediator Mediator
+@code {
+    private IReadOnlyList<Project> _projects = new Project[0];
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var response = await Mediator.Resolve
+                <GetProjectsByPagination.Request,
+                GetProjectsByPagination.Response>
+            (
+                new GetProjectsByPagination.Request(
+                    PageNumber: 0,
+                    PageSize: 10,
+                    DeweeseDotDev.Portfolio.Resolvers.GetProjectsByPagination.SortOrder.DateAsc
+                )
+            );
+            _projects = response.Projects;
+        }
+        catch (Exception ex) { }
+    }
+
+    private string getProjectLink(Project project) => $"/portfolio/{project.ProjectId}";
+}
+<style>
+    .card {
+        transition: filter 0.3s ease, background-color 0.3s ease; /* Smooth transitions for filter and background-color */
+    }
+
+        .card:hover {
+            filter: brightness(1.2); /* Increases brightness on hover */
+        }
+
+    .card-body {
+        transition: background-color 0.3s ease; /* Smooth background color transition */
+    }
+
+    .card:hover .card-body {
+        background-color: rgba(0, 0, 0, 0.05); /* Subtle darkening of the card body */
+    }
+
+    .card-img-top {
+        transition: filter 0.3s ease; /* Smooth transition for image brightness */
+    }
+
+    .card:hover .card-img-top {
+        filter: brightness(0.8); /* Slightly darken the image on hover */
+    }
+
+
+</style>
+<PageTitle>My Portfoilo</PageTitle>
+<!------------------------------------------------------------------------------------------------->
+<h3 class="mb-4">Portfolio</h3>
+
+<div class="container">
+    <div class="row g-4">
+
+        @foreach (var project in _projects)
+        {
+            <div class="col-md-4 col-sm-6 col-lg-3">
+                <NavLink href="@getProjectLink(project)" class="text-decoration-none text-dark">
+                    <div class="card shadow-sm h-100">
+                        @if (project.PrimaryFigure is ImageFigure primaryImageFigure)
+                        {
+                            <div class="ratio ratio-4x3">
+                                <img src="@(primaryImageFigure.Uri)"
+                                     class="card-img-top rounded-top object-fit-cover"
+                                     alt="@(primaryImageFigure.Caption)"
+                                     onerror="this.onerror=null;this.src='/assets/face.gif';">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="card-img-top bg-secondary ratio ratio-4x3">
+                            </div>
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                @project.Title
+                            </h5>
+                            <p class="card-text small">
+                                @((MarkupString)project.Description)
+                            </p>
+                        </div>
+                    </div>
+                </NavLink>
+            </div>
+        }
+    </div>
+</div>
