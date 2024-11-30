@@ -27,7 +27,6 @@
             _logger.LogError(() => $"Error getting Projects: {ex.Message}", ex);
         }
     }
-    }
 
     private string getProjectLink(Project project) => $"/portfolio/{project.ProjectId}";
 }
