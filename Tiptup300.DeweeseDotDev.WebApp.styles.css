@@ -338,6 +338,45 @@ section#i-prefer[b-p51ukx1vg9] {
         margin-bottom: 0.5rem;
     }
 }
+/* /Components/Site/ErrorBox.razor.rz.scp.css */
+
+
+/* Keyframe for new error message animation */
+@keyframes fadeInSlideUp-b-kcdkj9o9ha {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut-b-kcdkj9o9ha {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Transition for existing messages shifting upward smoothly */
+.toast-container .toast:not(:last-child)[b-kcdkj9o9ha] {
+    transition: transform 0.3s ease, margin 0.3s ease;
+}
+
+.toast[b-kcdkj9o9ha] {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeInSlideUp-b-kcdkj9o9ha 0.3s ease forwards;
+}
+.removing[b-kcdkj9o9ha] {
+    animation: fadeOut-b-kcdkj9o9ha 0.15s ease forwards;
+    background-color: blue;
+}
 /* /Components/Site/Footer.razor.rz.scp.css */
 @media screen {
     footer[b-0s7dtrnhej] {
