@@ -1,0 +1,113 @@
+﻿@inject ErrorLogEventReceiver _errorLogEventReceiver
+@inject IJSRuntime _js
+@code {
+
+    private List<(LogEvent LogEvent, bool Removing)> _logEvents = new List<(LogEvent, bool Removing)>();
+
+    protected override Task OnInitializedAsync()
+    {
+        _errorLogEventReceiver.ForwardMessages = async (logEvent) =>
+        {
+            var logEventTuple = (LogEvent: logEvent, Removing: false);
+            AddLogEvent(logEventTuple);
+            await Task.Delay(25000);
+
+            RemoveLogEvent(logEventTuple);
+        };
+        return Task.CompletedTask;
+    }
+
+    private void AddLogEvent((LogEvent LogEvent, bool Removing) logEventTuple)
+    {
+        lock (_logEvents) _logEvents.Add(logEventTuple);
+        StateHasChanged();
+    }
+
+    private async Task RemoveLogEvent((LogEvent LogEvent, bool Removing) logEvent)
+    {
+        lock(_logEvents)
+        {
+            var index = _logEvents.FindIndex(x => x.LogEvent.Guid == logEvent.LogEvent.Guid);
+            _logEvents.RemoveAt(index);
+            _logEvents.Insert(index, logEvent with { Removing = true });
+
+        }
+        StateHasChanged();
+
+
+        await Task.Delay(150);
+
+        lock (_logEvents)
+         _logEvents.RemoveAt(_logEvents.FindIndex(x => x.LogEvent.Guid == logEvent.LogEvent.Guid));
+        StateHasChanged();
+    }
+
+    private string GetBootstrapClass(LoggingLevel logLevel)
+    {
+        return logLevel switch
+        {
+            LoggingLevel.Error => "bg-danger text-white",
+            LoggingLevel.Warn => "bg-warning text-dark",
+            LoggingLevel.Info => "bg-info text-white",
+            LoggingLevel.Debug => "bg-secondary text-white",
+            _ => "bg-light text-dark"
+        };
+    }
+
+    private string GetFontAwesomeIcon(LoggingLevel logLevel)
+    {
+        return logLevel switch
+        {
+            LoggingLevel.Error => "fa-solid fa-circle-exclamation",
+            LoggingLevel.Warn => "fa-solid fa-triangle-exclamation",
+            LoggingLevel.Info => "fa-solid fa-circle-info",
+            LoggingLevel.Debug => "fa-solid fa-bug",
+            _ => "fa-solid fa-comment-dots"
+        };
+    }
+
+    private async Task CopyToClipboard(string message)
+    {
+        await _js.InvokeVoidAsync("navigator.clipboard.writeText", message);
+    }
+
+    private string GetRemovingClass((LogEvent LogEvent, bool Removing) logEventTuple)
+    {
+        return logEventTuple.Removing ? "removing" : "";
+    }
+}
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3" id="errorContainer" style="z-index: 1050;">
+    @foreach (var logEventTuple in _logEvents.Reverse<(LogEvent LogEvent, bool Removing)>())
+    {
+        var logEvent = logEventTuple.LogEvent;
+
+        <div class="toast show @GetBootstrapClass(logEvent.LogLevel) @GetRemovingClass(logEventTuple)" role="alert">
+            <div class="toast-header">
+                <i class="@GetFontAwesomeIcon(logEvent.LogLevel) me-2"></i>
+                <strong class="me-auto">Log Level: @logEvent.LogLevel</strong>
+                <small class="text-muted">@logEvent.OccurTime.ToShortTimeString()</small>
+                <button style="color: var(--bs-btn-close-color)" type="button" class="btn btn-link" @onclick="() => CopyToClipboard(logEvent.Message)">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+                <button type="button" class="btn-close" aria-label="Close" @onclick="() => RemoveLogEvent(logEventTuple)"></button>
+            </div>
+            <div class="toast-body">
+                <p class="mb-1"><strong>Message:</strong> @logEvent.Message</p>
+                @if (logEvent.Exception is not null)
+                {
+                    <div class="alert alert-danger mt-2">
+                        <div class="text-wrap">
+                            <p class="mb-1"><strong>Exception Message:</strong> @logEvent.Exception.Message</p>
+                            <p class="mb-1"><strong>Stack Trace:</strong></p>
+                            <pre class="mb-1">@logEvent.Exception.StackTrace</pre>
+                            <p class="mb-1"><strong>Source:</strong> @logEvent.Exception.Source</p>
+                            <p class="mb-1"><strong>Target Site:</strong> @logEvent.Exception.TargetSite</p>
+                        </div>
+                    </div>
+                }
+                <small class="text-muted">ID: @logEvent.Guid</small>
+            </div>
+        </div>
+    }
+</div>

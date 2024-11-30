@@ -22,8 +22,6 @@ section p, section dl {
     font-size: 0.9rem;
 }
 
-
-
 #app:before {
     content: '';
     position: absolute;

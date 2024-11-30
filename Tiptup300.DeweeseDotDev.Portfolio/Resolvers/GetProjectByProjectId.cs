@@ -1,5 +1,5 @@
 ﻿using Tiptup300.DeweeseDotDev.Portfolio.Projects;
-using Tiptup300.Mediation;
+using Tiptup300.Mediation.Requests;
 
 namespace Tiptup300.DeweeseDotDev.Portfolio.Resolvers;
 
@@ -13,5 +13,5 @@ public class GetProjectByProjectId
    public record Response
    (
       Project Project
-   ) : IResponse;
+   ) : IRequestResponse;
 }

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tiptup300.DeweeseDotDev.Por
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tiptup300.Mediation", "Tiptup300.Mediation\Tiptup300.Mediation.csproj", "{92E2784C-CCB1-450A-ABBA-5DD93E9B3CCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tiptup300.Logging", "Tiptup300.Logging\Tiptup300.Logging.csproj", "{81BAA280-677D-4019-907F-E764EA9AEAC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{92E2784C-CCB1-450A-ABBA-5DD93E9B3CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92E2784C-CCB1-450A-ABBA-5DD93E9B3CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92E2784C-CCB1-450A-ABBA-5DD93E9B3CCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81BAA280-677D-4019-907F-E764EA9AEAC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81BAA280-677D-4019-907F-E764EA9AEAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81BAA280-677D-4019-907F-E764EA9AEAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81BAA280-677D-4019-907F-E764EA9AEAC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

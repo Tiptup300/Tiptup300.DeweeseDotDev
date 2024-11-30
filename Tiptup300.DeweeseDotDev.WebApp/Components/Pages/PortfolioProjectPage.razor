@@ -1,6 +1,7 @@
 ﻿@page "/portfolio/{ProjectId}"
 @using Tiptup300.DeweeseDotDev.Portfolio.Projects
-@inject IMediator Mediator
+@inject IMediator _mediator
+@inject ILogger _logger
 @code {
     [Parameter]
     public required string ProjectId { get; set; }
@@ -9,12 +10,19 @@
 
     protected override async Task OnParametersSetAsync()
     {
-        var response = await Mediator.Resolve<Tiptup300.DeweeseDotDev.Portfolio.Resolvers.GetProjectByProjectId.Request, Tiptup300.DeweeseDotDev.Portfolio.Resolvers.GetProjectByProjectId.Response>(new GetProjectByProjectId.Request(ProjectId));
-        if(response is null)
-        {
-            return;
+        try{
+            var response = await _mediator.Resolve
+                <Tiptup300.DeweeseDotDev.Portfolio.Resolvers.GetProjectByProjectId.Request,
+                Tiptup300.DeweeseDotDev.Portfolio.Resolvers.GetProjectByProjectId.Response>(
+                    new GetProjectByProjectId.Request(ProjectId)
+            );
+            project = response.Project;
         }
-        project = response.Project;
+        catch (Exception ex)
+        {
+            _logger.LogError(() => $"Unable to get project from project id `{ProjectId}: {ex.Message}", ex);
+        }
+        
     }
 }
 

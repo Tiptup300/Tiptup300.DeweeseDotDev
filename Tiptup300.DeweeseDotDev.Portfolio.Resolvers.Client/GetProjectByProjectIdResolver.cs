@@ -1,8 +1,8 @@
-﻿using Tiptup300.Mediation;
+﻿using Tiptup300.Mediation.Requests;
 
 namespace Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client;
 
-public class GetProjectByProjectIdResolver : IResolver<GetProjectByProjectId.Request, GetProjectByProjectId.Response>
+public class GetProjectByProjectIdResolver : IRequestResolver<GetProjectByProjectId.Request, GetProjectByProjectId.Response>
 {
    private readonly IProjectRepository _projectRepository;
 

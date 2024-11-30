@@ -1,7 +1,9 @@
 ﻿
 @page "/portfolio"
 @using Tiptup300.DeweeseDotDev.Portfolio.Projects
-@inject IMediator Mediator
+@inject IMediator _mediator
+@inject ILogger _logger
+
 @code {
     private IReadOnlyList<Project> _projects = new Project[0];
 
@@ -9,7 +11,7 @@
     {
         try
         {
-            var response = await Mediator.Resolve
+            var response = await _mediator.Resolve
                 <GetProjectsByPagination.Request,
                 GetProjectsByPagination.Response>
             (
@@ -21,7 +23,10 @@
             );
             _projects = response.Projects;
         }
-        catch { }
+        catch (Exception ex) {
+            _logger.LogError(() => $"Error getting Projects: {ex.Message}", ex);
+        }
+    }
     }
 
     private string getProjectLink(Project project) => $"/portfolio/{project.ProjectId}";

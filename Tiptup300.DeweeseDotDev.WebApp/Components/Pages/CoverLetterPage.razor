@@ -9,7 +9,7 @@
     private string? heardAbout;
     private string? jobReferenceLink;
 
-    private void Print() => js.InvokeVoidAsync("window.print").GetAwaiter().GetResult();
+    private async Task Print() => await js.InvokeVoidAsync("window.print");
 }
 
 <!------------------------------------------------------------------------------------------>

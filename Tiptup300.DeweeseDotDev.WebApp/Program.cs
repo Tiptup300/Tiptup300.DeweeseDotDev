@@ -4,7 +4,9 @@ using System.Reflection;
 using Tiptup300.DeweeseDotDev.Portfolio.Resolvers;
 using Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client;
 using Tiptup300.DeweeseDotDev.WebApp.Components;
-using Tiptup300.Mediation;
+using Tiptup300.DeweeseDotDev.WebApp.Services;
+using Tiptup300.Mediation.Messages;
+using Tiptup300.Mediation.Requests;
 
 namespace Tiptup300.DeweeseDotDev.WebApp;
 
@@ -20,19 +22,30 @@ public class Program
 
          .AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) })
 
+
+
          .AddMatchingImplementations([
             typeof(Program).Assembly,
             typeof(Tiptup300.Mediation.Mediator).Assembly,
-            typeof(Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.GetProjectByProjectIdResolver).Assembly
+            typeof(Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.GetProjectByProjectIdResolver).Assembly,
+            typeof(Tiptup300.Logging.ILogger).Assembly
          ])
 
-         .AddScoped<ResolverDescriptorCollection>(sp => new ResolverDescriptorCollection([
-            sp.GetRequiredService<IResolver<GetProjectByProjectId.Request, GetProjectByProjectId.Response>>(),
-            sp.GetRequiredService<IResolver<GetProjectsByPagination.Request, GetProjectsByPagination.Response>>(),
+         // TODO: Need to create a extension method that takes in stuff 
+         .AddScoped<IRequestResolver<GetProjectByProjectId.Request, GetProjectByProjectId.Response>, GetProjectByProjectIdResolver>()
+         .AddScoped<IRequestResolver<GetProjectsByPagination.Request, GetProjectsByPagination.Response>, GetProjectsByPaginationResolver>()
+         .AddScoped<RequestResolverDescriptorCollection>(sp => new RequestResolverDescriptorCollection([
+            sp.GetRequiredService<IRequestResolver<GetProjectByProjectId.Request, GetProjectByProjectId.Response>>(),
+            sp.GetRequiredService<IRequestResolver<GetProjectsByPagination.Request, GetProjectsByPagination.Response>>(),
          ]))
 
-         .AddScoped<IResolver<GetProjectByProjectId.Request, GetProjectByProjectId.Response>, GetProjectByProjectIdResolver>()
-         .AddScoped<IResolver<GetProjectsByPagination.Request, GetProjectsByPagination.Response>, GetProjectsByPaginationResolver>();
+         // TODO: Need to create an extension method to do this.
+         .AddScoped<ErrorLogEventReceiver>()
+         .AddScoped<MessageListenerDescriptorCollection>(sp => new MessageListenerDescriptorCollection([
+            sp.GetRequiredService<ErrorLogEventReceiver>()
+         ]));
+
+
 
       await builder.Build().RunAsync();
    }

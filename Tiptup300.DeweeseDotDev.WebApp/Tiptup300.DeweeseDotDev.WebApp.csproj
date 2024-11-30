@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client\Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.csproj" />
     <ProjectReference Include="..\Tiptup300.DeweeseDotDev.Portfolio\Tiptup300.DeweeseDotDev.Portfolio.csproj" />
+    <ProjectReference Include="..\Tiptup300.Logging\Tiptup300.Logging.csproj" />
     <ProjectReference Include="..\Tiptup300.Mediation\Tiptup300.Mediation.csproj" />
   </ItemGroup>
 

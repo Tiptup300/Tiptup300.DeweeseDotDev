@@ -1,10 +1,10 @@
 ﻿using System.Collections.Immutable;
 using Tiptup300.DeweeseDotDev.Portfolio.Projects;
-using Tiptup300.Mediation;
+using Tiptup300.Mediation.Requests;
 
 namespace Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client;
 
-public class GetProjectsByPaginationResolver : IResolver<GetProjectsByPagination.Request, GetProjectsByPagination.Response>
+public class GetProjectsByPaginationResolver : IRequestResolver<GetProjectsByPagination.Request, GetProjectsByPagination.Response>
 {
    private const int MAX_PAGE_SIZE = 100;
 
