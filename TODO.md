@@ -1,6 +1,17 @@
 
 ## Resume Page
 
+      Savana 
+       - Hired a position for a project 
+       - Led a Team to Implemented Postman System
+        Javascript, testing 
+       - Implemented Multi Communication System
+        Async Parallel batch processes high Rrequency code
+      - Planning & Implementation of New Serverless system
+      - Hotfixes in live production environments, debugging 
+      - Data Anaylsis research sql, json
+
+
 Canary Labs - December 2023-Present Software Engineer
 * Attend Weekly standup meetings reporting project progress, show stoppers, announcments
 * onboard, train, lecture, and guide interns through programming exercises and best practices
