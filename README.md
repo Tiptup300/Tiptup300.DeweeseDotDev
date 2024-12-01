@@ -36,5 +36,7 @@ Right now, I’m delving into:
 
 Thank you for visiting—please join me as I delve into the ever-evolving journey of exploration, learning, and growth!
 
--m a d
-ps: LLMs may have been used in the writing of this README
+## Thank You
+
+- m a d
+ > ps: LLMs may have been used in the writing of this README
