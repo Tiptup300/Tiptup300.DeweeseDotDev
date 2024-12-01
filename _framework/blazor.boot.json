@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Tiptup300.DeweeseDotDev.WebApp",
   "resources": {
-    "hash": "sha256-MDS5VDhcUayPtBccNLmbtJ4MXY6fwTADOIr2rb2089M=",
+    "hash": "sha256-M84sOdweW0lnLxh3hYzCjqgQfA5HU5WVmbRG7LyYIkQ=",
     "fingerprinting": {
       "Blazorise.Icons.FontAwesome.6ycm3hzghv.wasm": "Blazorise.Icons.FontAwesome.wasm",
       "Blazorise.Licensing.5q2r77toij.wasm": "Blazorise.Licensing.wasm",
@@ -56,12 +56,12 @@
       "System.Threading.86bdawey9w.wasm": "System.Threading.wasm",
       "System.6bp5k9v1ih.wasm": "System.wasm",
       "System.Web.HttpUtility.072zm64hke.wasm": "System.Web.HttpUtility.wasm",
-      "Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.wi3dobnoqp.wasm": "Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.wasm",
-      "Tiptup300.DeweeseDotDev.Portfolio.lcuz9hkcmn.wasm": "Tiptup300.DeweeseDotDev.Portfolio.wasm",
-      "Tiptup300.DeweeseDotDev.WebApp.zae5evdkfa.wasm": "Tiptup300.DeweeseDotDev.WebApp.wasm",
-      "Tiptup300.Logging.00tewezkju.wasm": "Tiptup300.Logging.wasm",
-      "Tiptup300.Mediation.xq18yktlwv.wasm": "Tiptup300.Mediation.wasm",
-      "Tiptup300.qq8ualjyqj.wasm": "Tiptup300.wasm",
+      "Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.hp4wu0rny9.wasm": "Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.wasm",
+      "Tiptup300.DeweeseDotDev.Portfolio.eh8z7jgd05.wasm": "Tiptup300.DeweeseDotDev.Portfolio.wasm",
+      "Tiptup300.DeweeseDotDev.WebApp.vdcp0dxe2o.wasm": "Tiptup300.DeweeseDotDev.WebApp.wasm",
+      "Tiptup300.Logging.nz8gifn3zl.wasm": "Tiptup300.Logging.wasm",
+      "Tiptup300.Mediation.8xe8csbpxo.wasm": "Tiptup300.Mediation.wasm",
+      "Tiptup300.magjnmlhc3.wasm": "Tiptup300.wasm",
       "dotnet.native.ann9bewb11.js": "dotnet.native.js",
       "dotnet.native.hlkxphsexg.wasm": "dotnet.native.wasm",
       "dotnet.js": "dotnet.js",
@@ -140,12 +140,12 @@
       "System.Threading.86bdawey9w.wasm": "sha256-MFzhvscwoz2nkFYkFdmAfAeI4Mg91l3qmrkIJHzUjnw=",
       "System.6bp5k9v1ih.wasm": "sha256-nmhUPBjB8ZbEN0U5j2acgnW4fkbSYlov7U3e30Lsp8A=",
       "System.Web.HttpUtility.072zm64hke.wasm": "sha256-JNwY9ymWcfzQOoEPDizXA2d7Uik3Ehq57OVHW6mg4ww=",
-      "Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.wi3dobnoqp.wasm": "sha256-GOeTXadiJVgyrpyLyLTDo3U2ifaif8G6atcLBQH8Y/o=",
-      "Tiptup300.DeweeseDotDev.Portfolio.lcuz9hkcmn.wasm": "sha256-ZVG/us3XgW5CmpGkkHcrlHM4GVhsdBV10FLv19Qs8j8=",
-      "Tiptup300.DeweeseDotDev.WebApp.zae5evdkfa.wasm": "sha256-Va5TzgyitmzNejnaArLMnFgiuwUGeF/a9rN/SQnxe8w=",
-      "Tiptup300.Logging.00tewezkju.wasm": "sha256-sC3lBajOAdDW1AFWlgE8tSbnhJiZlDRLnEQhYoLUVz4=",
-      "Tiptup300.Mediation.xq18yktlwv.wasm": "sha256-2fx9HLBRtbxCvocD9/np5BrnZbArOJ7le4oGIQV092c=",
-      "Tiptup300.qq8ualjyqj.wasm": "sha256-PgrCa/k2dg+6wV2l/JMuq93H3R108WY/6iL8wfd91XI="
+      "Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.hp4wu0rny9.wasm": "sha256-K9KzEBkuM0CvoVWL09OzQSnoG/tFG1H06rRt9BqDkp8=",
+      "Tiptup300.DeweeseDotDev.Portfolio.eh8z7jgd05.wasm": "sha256-sug0lGQWtWYuHn9mq7DCOBXqzhl+4SV+E0bOz1+Z4gA=",
+      "Tiptup300.DeweeseDotDev.WebApp.vdcp0dxe2o.wasm": "sha256-DRGpeOhymtnRXHTOqGfv116xRlaOPjYgNLSe+/VF88Y=",
+      "Tiptup300.Logging.nz8gifn3zl.wasm": "sha256-fVCLnbvS22HMBJYNwGTDRB4K8Nukq5Ogfsl8rsSwUxI=",
+      "Tiptup300.Mediation.8xe8csbpxo.wasm": "sha256-jGkOuidTE/tlWH9694lNDk8tKUw5Gy8gxafJSbnlwTY=",
+      "Tiptup300.magjnmlhc3.wasm": "sha256-PvhLlJ7xpNxWdOguMlGhni1PNbSWVHouiQNhNvny72A="
     }
   },
   "cacheBootResources": true,
