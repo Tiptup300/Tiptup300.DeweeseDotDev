@@ -17,6 +17,10 @@ public class Mediator : IMediator
 {
    private readonly RequestResolverDescriptorCollection _resolvers;
    private readonly MessageListenerDescriptorCollection _listeners;
+   // TODO: Add logging to this class
+   // add to Resolve and ReportMessage
+   // I believe I'll have to pull this implementation class up to Tiptup300.DeweeseDotDev. Although for fugure YAGNI situations, maybe I'll want it somewhere else.
+   // either way, it's a distraction for now. I'm happy with the current implemntation of logging and Mediator.
 
    public Mediator(RequestResolverDescriptorCollection resolverDescriptorCollection, MessageListenerDescriptorCollection listeners)
    {

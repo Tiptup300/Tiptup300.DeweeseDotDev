@@ -9,10 +9,8 @@
         if (Uri.TryCreate(youtubeLink, UriKind.Absolute, out var uri))
         {
             var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
-
             return query["v"] ?? string.Empty;
         }
-
         return string.Empty;
     }
 }
@@ -21,9 +19,11 @@
 {
     <iframe width="560"
             height="315"
+            style="background-color: cornflowerblue"
             src="https://www.youtube.com/embed/@VideoId"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
             allowfullscreen>
     </iframe>
 }

@@ -25,95 +25,6 @@
         
     }
 }
-
-@if (project is not null) 
-{
-    <!-- Hero Image (Full-width, locked to width, no ratio concern) -->
-    @if (project?.PrimaryFigure is ImageFigure primaryImageFigure)
-    {
-        <div class="hero-image mb-4">
-            <img src="@(primaryImageFigure.Uri)" alt="@(primaryImageFigure.Caption)" class="img-fluid w-100 h-100" />
-        </div>
-    }
-
-    <!----------------------------------------------------->
-    <h4 class="mb-3 d-flex justify-content-between align-items-center">
-        @project?.Title
-        <a href="/portfolio" class="btn btn-secondary mb-4">
-            <i class="bi bi-arrow-left-circle"></i> Back to Portfolio
-        </a>
-    </h4>
-
-
-
-    <!-- Project Overview -->
-    <div class="row">
-        <div class="col-md-12">
-            <!-- Project Description -->
-            <p class="lead">@((MarkupString)(project?.Description ?? ""))</p>
-
-            <!-- Project Tags -->
-            <div class="mb-4">
-                <strong>Technologies Used:</strong>
-                <div>
-                    @foreach (var tag in project?.Tags!)
-                    {
-                        <span class="badge bg-info text-dark me-2">@tag</span>
-                    }
-                </div>
-            </div>
-
-            <!-- Project Date Range -->
-            <div class="mb-4">
-                <strong>Project Duration:</strong>
-                <p>@project?.DateRange.Description</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Project Figures (Images/Videos) -->
-    <div class="row g-4">
-        @foreach (var figure in project?.Figures!)
-        {
-            @if (figure is ImageFigure imageFigure)
-            {
-                <div class="col-md-6 col-lg-4">
-                    <div class="figure-container">
-                        <img src="@(imageFigure.Uri)" alt="@(imageFigure.Caption)" class="figure-image" />
-                    </div>
-                </div>
-            }
-            @if (figure is YoutubeFigure youtubeFigure)
-            {
-                <div class="col-md-6 col-lg-4">
-                    <div class="figure-container">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="@(youtubeFigure.Uri)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-            }
-        }
-    </div>
-
-    <!-- Project Links (if any) -->
-    @if (project?.Links.Any() ?? false)
-    {
-        <div class="mt-4">
-            <h5>Related Links</h5>
-            <ul class="list-group list-group-flush">
-                @foreach (var link in project?.Links!)
-                {
-                    <li class="list-group-item">
-                        @(link.Description) (<a href="@link.Uri" target="_blank" class="link-primary">Link</a>)
-                    </li>
-                }
-            </ul>
-        </div>
-    }
-}
-
-<!-- Custom Styles -->
 <style>
     .hero-image {
         width: 100%;
@@ -130,8 +41,6 @@
     .figure-container {
         position: relative;
         width: 100%;
-        height: 200px; /* Ensuring consistent height */
-        overflow: hidden;
     }
 
         .figure-container img,
@@ -139,6 +48,9 @@
             object-fit: cover;
             width: 100%;
             height: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 0.25rem;
+            overflow: hidden;
         }
 
     /* Flexbox utility to align title and back button */
@@ -147,4 +59,92 @@
         justify-content: space-between;
         align-items: center;
     }
+
+    .tag {
+        font-style: italic;
+    }
 </style>
+<!------------------------------------------------------------------------------------>
+
+@if (project is not null) 
+{
+    <!-- Hero Image (Full-width, locked to width, no ratio concern) -->
+    @if (project?.PrimaryFigure is ImageFigure primaryImageFigure)
+    {
+        <div class="hero-image mb-4">
+            <img src="@(primaryImageFigure.Uri)" alt="@(primaryImageFigure.Caption)" class="img-fluid w-100 h-100" />
+        </div>
+    }
+
+    <!-- Title & Return Button -->
+    <h2 class="d-flex justify-content-between align-items-center">
+        @project?.Title 
+        <a href="/portfolio" class="btn btn-secondary">
+            <i class="bi bi-arrow-left-circle"></i> Back to Portfolio
+        </a>
+    </h2>
+
+    <!-- Project Description -->
+    <div class="row g-2">
+        <p class="lead">
+            @((MarkupString)(project?.Description ?? "")) (@(project?.DateRange.Description))
+        </p>
+    </div>
+
+    <!-- Project Figures (Images/Videos) -->
+    @if (project?.Figures.Any(x => !x.IsPrimary) ?? false)
+    {
+        <div class="row mb-4 g-2 mt-2">
+            @foreach (var figure in project?.Figures!.Where(x => !x.IsPrimary)!)
+            {
+                @if (figure is ImageFigure imageFigure)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="figure-container">
+                            <img src="@(imageFigure.Uri)" alt="@(imageFigure.Caption)" class="figure-image"
+                                 onerror="this.onerror=null;this.src='/assets/image_not_found.gif';" />
+                        </div>
+                    </div>
+                }
+                @if (figure is YoutubeFigure youtubeFigure)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="figure-container">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <YoutubeEmbed YouTubeLink="@(youtubeFigure.Uri)" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    }
+
+    <!-- Project Links (if any) -->
+    @if (project?.Links.Any() ?? false)
+    {
+        <div class="row mb-4 g-2">
+            <h5>Related Links</h5>
+            <ul class="list-group list-group-flush">
+                @foreach (var link in project?.Links!)
+                {
+                    <li class="list-group-item">
+                        <a href="@link.Uri" target="@(link.OpenInSameWindow ? "_blank" : "undefined")" class="link-primary">@(link.Type)</a> - @(link.Description)
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+
+    <!-- Tags -->
+    <div class="row g-2 mb-n2 mb-sm-0 me-n2 me-sm-0">
+        <div class="col text-end">
+            @foreach (var tag in project?.Tags!)
+            {
+                <NavLink class="btn btn-outline-secondary btn-sm d-inline-block align-items-center ms-2" href="@($"portfolio/tag/{tag}")">
+                    <i class="fas fa-tag me-2"></i>@tag
+                </NavLink>
+            }
+        </div>
+    </div>
+}
