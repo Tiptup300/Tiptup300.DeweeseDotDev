@@ -38,5 +38,5 @@ Thank you for visiting—please join me as I delve into the ever-evolving journe
 
 ## Thank You
 
-- m a d
+ > -mad
  > ps: LLMs may have been used in the writing of this README
