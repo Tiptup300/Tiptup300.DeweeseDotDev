@@ -12,7 +12,7 @@
             AddLogEvent(logEventTuple);
             await Task.Delay(25000);
 
-            RemoveLogEvent(logEventTuple);
+            _ = RemoveLogEvent(logEventTuple);
         };
         return Task.CompletedTask;
     }

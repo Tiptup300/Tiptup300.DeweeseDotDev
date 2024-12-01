@@ -65,9 +65,9 @@ public static class ServiceCollectionExtensions
          .Select(type => new
          {
             Implementation = type,
-            Interface = type.GetInterface($"I{type.Name}") // Find corresponding interface
+            Interface = type.GetInterface($"I{type.Name}")! // Find corresponding interface
          })
-         .Where(pair => pair.Interface != null); // Keep only matches
+         .Where(pair => pair.Interface != null);// Keep only matches
 
       foreach (var pair in interfaceImplementations)
       {

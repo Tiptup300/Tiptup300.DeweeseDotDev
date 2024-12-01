@@ -13,21 +13,9 @@ public interface IMediator
    Task ReportMessage<TMessage>(TMessage message)
       where TMessage : IMessage;
 }
-public class Mediator : IMediator
+public class Mediator(RequestResolverDescriptorCollection resolverDescriptorCollection, MessageListenerDescriptorCollection listeners) : IMediator
 {
-   private readonly RequestResolverDescriptorCollection _resolvers;
-   private readonly MessageListenerDescriptorCollection _listeners;
-   // TODO: Add logging to this class
-   // add to Resolve and ReportMessage
-   // I believe I'll have to pull this implementation class up to Tiptup300.DeweeseDotDev. Although for fugure YAGNI situations, maybe I'll want it somewhere else.
-   // either way, it's a distraction for now. I'm happy with the current implemntation of logging and Mediator.
-
-   public Mediator(RequestResolverDescriptorCollection resolverDescriptorCollection, MessageListenerDescriptorCollection listeners)
-   {
-      _resolvers = resolverDescriptorCollection;
-      _listeners = listeners;
-   }
-
+   private readonly MessageListenerDescriptorCollection _listeners = listeners;
 
    public async Task<TResponse> Resolve<TRequest, TResponse>(TRequest request)
       where TRequest : IRequest
@@ -35,7 +23,7 @@ public class Mediator : IMediator
    {
       TResponse output;
 
-      var resolverInstance = _resolvers.Resolvers.GetValueOrDefault((typeof(TRequest), typeof(TResponse)))
+      var resolverInstance = resolverDescriptorCollection.Resolvers.GetValueOrDefault((typeof(TRequest), typeof(TResponse)))
          ?? throw new NotImplementedException($"Resolver not found for request type `{typeof(TRequest)}` & response type `{typeof(TResponse)}`");
 
       var resolver = resolverInstance as IRequestResolver<TRequest, TResponse>

@@ -1,4 +1,9 @@
-﻿<footer class="
+﻿@inject ILogger _logger
+@code 
+{
+    void DoThing() => _logger.LogError(() => "hello world");
+}
+<footer class="
     text-light
     mb-1
     container container-small
@@ -8,7 +13,7 @@
     text-center
     no-print
   ">
-    <p class="">
-        Matthew Deweese ©@(DateTime.Now.Year)
+    <p class="user-select-none" @onclick="() => DoThing()">
+        &copy; @(DateTime.Now.Year) Matthew Deweese. All rights reserved.
     </p>
 </footer>

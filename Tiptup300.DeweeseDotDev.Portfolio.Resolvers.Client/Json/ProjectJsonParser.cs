@@ -24,8 +24,8 @@ internal class ProjectJsonParser : IProjectJsonParser
             Title: model.Title ?? throw new Exception("Title not specified for project."),
             Description: model.Description ?? throw new Exception("Description not specified for project."),
             DateRange: ParseDateRange(model.DateRange ?? throw new Exception("Date Range not specified for project.")),
-            Figures: ParseFigures(model.Figures ?? throw new Exception("Figures not specified for project.")),
-            Links: ParseLinks(model.Links ?? throw new Exception("Links not specified for project.")),
+            Figures: _parseFigures(model.Figures ?? throw new Exception("Figures not specified for project.")),
+            Links: _parseLinks(model.Links ?? throw new Exception("Links not specified for project.")),
             Tags: model.Tags ?? throw new Exception("Tags not specified for project.")
          );
       }).ToArray();
@@ -33,7 +33,7 @@ internal class ProjectJsonParser : IProjectJsonParser
       return output;
    }
 
-   private IReadOnlyList<Link> ParseLinks(LinkJsonModel[]? links)
+   private static ImmutableArray<Link> _parseLinks(LinkJsonModel[] links)
    {
       return links.Select(
          link => new Link(
@@ -45,9 +45,9 @@ internal class ProjectJsonParser : IProjectJsonParser
       ).ToImmutableArray();
    }
 
-   private IReadOnlyList<IFigure> ParseFigures(FigureJsonModel[]? figures)
+   private ImmutableArray<IFigure> _parseFigures(FigureJsonModel[] figures)
    {
-      IReadOnlyList<IFigure> output;
+      ImmutableArray<IFigure> output;
 
       output = figures.Select<FigureJsonModel, IFigure>(
          figure => figure.Type switch
