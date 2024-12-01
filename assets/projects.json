@@ -6,7 +6,7 @@
       "Type": "YearBasedDateRange",
       "YearStart": 2008
     },
-    "Description": "<b>Sperks</b> was being designed to be a multiplayer top down shooter game with mulitplayer functionality similar to Halo. I designed and implemented the menu, it had a glossy motiff with sleek and smooth curves. Very little of the game's logic was implemented, but the main menu was designed & implemented.<br />The menu was designed using Adobe Photoshop & implemented using XNA/C#/Visual Studio Community Edition",
+    "Description": "<b>Sperks</b> was being designed to be a multiplayer top down shooter game with mulitplayer functionality similar to Halo. I designed and implemented the menu, it had a glossy motiff with sleek and smooth curves. Very little of the game's logic was implemented, but the main menu was designed & implemented.<br /><br />The menu was designed using Adobe Photoshop & implemented using XNA/C#/Visual Studio Community Edition",
     "Figures": [
       {
         "Type": "ImageFigure",
