@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "hYmpadS5",
+  "version": "F0W0sEmc",
   "assets": [
     {
       "hash": "sha256-W3dasOlte7RgVIspmL2VNTEzmefGztbR+qzwNvZHxEA=",
@@ -478,31 +478,31 @@ self.assetsManifest = {
       "url": "_framework/System.Web.HttpUtility.072zm64hke.wasm"
     },
     {
-      "hash": "sha256-0iUn343ZlfUG2uP4bRXd/qb3M6y7jCX2eG/enGTProg=",
-      "url": "_framework/Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.mbj0gxl9xg.wasm"
+      "hash": "sha256-VCMJ8tjA7nubyp3LTa9IgbmAHza79nEhYtT3hmXqLO4=",
+      "url": "_framework/Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.ckl6qsqdpt.wasm"
     },
     {
-      "hash": "sha256-NxTf8I9WTRDRkqh25R+m4F++TrrxvEOajX4KbQRs3GM=",
-      "url": "_framework/Tiptup300.DeweeseDotDev.Portfolio.l11aw6xfv0.wasm"
+      "hash": "sha256-yEO73fAiY7mEE6Yzt0tjsQpW7MEByzS2ABccF6gxjAs=",
+      "url": "_framework/Tiptup300.DeweeseDotDev.Portfolio.sf82pftktl.wasm"
     },
     {
-      "hash": "sha256-iwhIaGDVqTNUYwP5soMw9yJ9Ny5Cx79qepjKiTpZ/6g=",
-      "url": "_framework/Tiptup300.DeweeseDotDev.WebApp.f745se130y.wasm"
+      "hash": "sha256-GQuO5Zs4dU28hl5iBP4YmA5KmRuAvpd9nImUU8REco4=",
+      "url": "_framework/Tiptup300.DeweeseDotDev.WebApp.favii9ncyw.wasm"
     },
     {
-      "hash": "sha256-sV57d1WhM8lDkK095nCxL5noFVkV41/ejeB/YRQTiVQ=",
-      "url": "_framework/Tiptup300.Logging.dtl1qczo3i.wasm"
+      "hash": "sha256-DeOQgzBc+mGLfj91s8Zj3PWNKBAdaFL/OahKHdDXN2U=",
+      "url": "_framework/Tiptup300.Logging.3k6v2ef77l.wasm"
     },
     {
-      "hash": "sha256-jPI5Jw9P1MfXeqUQYFQMwoAyVyqJIuILGEEwHVI8o9M=",
-      "url": "_framework/Tiptup300.Mediation.0pnq385fom.wasm"
+      "hash": "sha256-//PBtEzQOn2/x5xeKTa5S8oLMIHf8BI3MmVuuM/74/g=",
+      "url": "_framework/Tiptup300.Mediation.570grnb5d8.wasm"
     },
     {
-      "hash": "sha256-fwdijOTJ4QFMJ426NOSIXhUQNT4ab+YvbTmFMTfr7Pk=",
-      "url": "_framework/Tiptup300.bh5ngrfhgp.wasm"
+      "hash": "sha256-Mi4UuRUSSV1sFO6OsYs38ShgiNuLb/MyuxSJX67YLd8=",
+      "url": "_framework/Tiptup300.qq7427vaul.wasm"
     },
     {
-      "hash": "sha256-/f/In8P/m9WjnA+mrAYaHr8qJc8Szg3dn0MquxFremA=",
+      "hash": "sha256-qEJyh4LF8b/0E+8lFajFdoM8O/w0hV0U3lsi5NDY8ME=",
       "url": "_framework/blazor.boot.json"
     },
     {
