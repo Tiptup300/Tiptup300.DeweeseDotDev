@@ -34,10 +34,11 @@ Right now, I’m delving into:
 * Adding innovative functionality that delves beyond traditional blog frameworks.
 * Delving deeper into Blazor to create scalable, efficient, and modern solutions.
 
-Thank you for visiting—please join me as I delve into the ever-evolving journey of exploration, learning, and growth!
 
 ## Thank You
 
- > -mad
 
+Thank you for visiting—please join me as I delve into the ever-evolving journey of exploration, learning, and growth!
+
+-mad
  > ps: LLMs may have been used in the writing of this README
