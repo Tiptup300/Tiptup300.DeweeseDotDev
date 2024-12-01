@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "jTnH8Dde",
+  "version": "45iOhziu",
   "assets": [
     {
       "hash": "sha256-W3dasOlte7RgVIspmL2VNTEzmefGztbR+qzwNvZHxEA=",
@@ -478,31 +478,31 @@ self.assetsManifest = {
       "url": "_framework/System.Web.HttpUtility.072zm64hke.wasm"
     },
     {
-      "hash": "sha256-R7lsqXMp03b9FjHbcFRsN2QbkfIB7poqUkKhDQTMR1A=",
-      "url": "_framework/Tiptup300.DeweeseDotDev.Portfolio.5d2j019uwa.wasm"
+      "hash": "sha256-UILaZXBuQ27IwSxbEf0tdyTxh434dpooxkM1LKl7T6E=",
+      "url": "_framework/Tiptup300.4vlsknxbuo.wasm"
     },
     {
-      "hash": "sha256-i7jTKiOhs+aQjGtfAJBFiQkzt/7aW4rBYoB8P41NB9I=",
-      "url": "_framework/Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.te2t6wl8ju.wasm"
+      "hash": "sha256-kbCdAr5z6sKkfDUBNcWPWXNeKhqW1E5+GNeZp33fonU=",
+      "url": "_framework/Tiptup300.DeweeseDotDev.Portfolio.7u3k3jf0bc.wasm"
     },
     {
-      "hash": "sha256-AEpPYtwYl2f54blyKPVlbNXNs9tgu6dWyPAOK6NswfQ=",
-      "url": "_framework/Tiptup300.DeweeseDotDev.WebApp.k73v8rc644.wasm"
+      "hash": "sha256-v5nsSYnQ6iUs2Eq7QHydSLE6U+SLYqVBM4zf3/C7jpo=",
+      "url": "_framework/Tiptup300.DeweeseDotDev.Portfolio.Resolvers.Client.bdmmzzdduf.wasm"
     },
     {
-      "hash": "sha256-P3sSYrl12kUCQK5EExuINEMoylm3f6HdYdiGlQs6ndE=",
-      "url": "_framework/Tiptup300.Logging.bte1ii6hkh.wasm"
+      "hash": "sha256-Nq6KGnNxwH76skSzj7VUyqPireuimKjnS7v0cduF6Mc=",
+      "url": "_framework/Tiptup300.DeweeseDotDev.WebApp.yefrrovat8.wasm"
     },
     {
-      "hash": "sha256-Ws0COimcukb0WsRxN0XtL6jEaGU5/qXYkXA+QWSNJzY=",
-      "url": "_framework/Tiptup300.Mediation.q3iwfkdglp.wasm"
+      "hash": "sha256-f8hWbWAY2nboyAFj7HowCpNMFi8Q6HpzavLC0osfWnE=",
+      "url": "_framework/Tiptup300.Logging.xokz4owoay.wasm"
     },
     {
-      "hash": "sha256-GK6lX+glK8u+Nsr5iXx2MPfKi8MHfkI2RXFoqzBFVrw=",
-      "url": "_framework/Tiptup300.wudzt1cy6k.wasm"
+      "hash": "sha256-LO/h57OWFaQd/aIyAVpUzT/TFRPTV9Jyb/IJDeGDQ3Y=",
+      "url": "_framework/Tiptup300.Mediation.gnme541ny5.wasm"
     },
     {
-      "hash": "sha256-WO5InXZW8HXCYh+7ACPTlzTTzIT3pCU1EotVD3cLKUQ=",
+      "hash": "sha256-sVV3r0mvVQ2okq1hmkQbbh6C+ORj+5aMLKLLNNGSJMY=",
       "url": "_framework/blazor.boot.json"
     },
     {
