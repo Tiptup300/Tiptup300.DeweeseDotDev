@@ -1,3 +1,30 @@
+## 2024-12-18
+
+SiteMediator
+PageMediator
+
+services.RegisterScoped<PageMediatorClient>();
+
+public class PageMediatorClient
+{
+   private readonly IPageMediator _pageMediator;
+   private readonly IHttpClient _httpClient;
+
+   public PageMediatorClient(IPageMediator pageMediator, IHttpClient httpClient)
+{
+   _pageMediator = pageMediator;
+   _httpClient = httpClient;
+}
+
+   public TResponse Resolve<TRequest, TResponse>(TRequest request) 
+   where TRequest : IClientRequest 
+   where TResponse : IResponse
+   {
+      return _pageMediator.Resolve<TRequest, TReaponse>(request);
+   }
+
+}
+
 
 ## Resume Page
 
