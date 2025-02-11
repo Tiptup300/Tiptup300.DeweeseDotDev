@@ -1,0 +1,61 @@
+@page "/posts/{postid}"
+@using System.Net.Http
+@using System.Net.Http.Json
+@using Markdig
+
+@inject HttpClient Http
+
+<PageTitle>Post</PageTitle>
+
+<h3>Post</h3>
+
+@if (string.IsNullOrEmpty(PostContent))
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div class="markdown-content">
+        @((MarkupString)ConvertToHtml(PostContent))
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string postid { get; set; }
+
+    private string PostContent { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadPostContent();
+    }
+
+    private async Task LoadPostContent()
+    {
+        try
+        {
+            PostContent = await Http.GetStringAsync($"assets/posts/{postid}.md");
+        }
+        catch (Exception ex)
+        {
+            PostContent = $"Error loading post: {ex.Message}";
+        }
+    }
+
+    private string ConvertToHtml(string markdown)
+    {
+        if (string.IsNullOrEmpty(markdown))
+            return string.Empty;
+
+        // Create a pipeline with GitHub-flavored-markdown and other common extensions
+        var pipeline = new MarkdownPipelineBuilder()
+            .UseAdvancedExtensions()
+            .UseEmojiAndSmiley()
+            .UseTaskLists()
+            .UseAutoLinks()
+            .Build();
+
+        return Markdown.ToHtml(markdown, pipeline);
+    }
+}
